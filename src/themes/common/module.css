@@ -1,0 +1,291 @@
+/*
+ * 模块
+ */
+* {
+  box-sizing: border-box;
+}
+/* 外面嵌套g-window 为了覆盖weui默认样式 */
+.g-window {
+  /* 控制元素在移动设备上是否使用滚动回弹效果 */
+  /* 封面皮肤 */
+  /* 主背景皮肤 */
+  /* 登录注册页面 */
+  /* 按钮tab切换 */
+  /* 直播页面 */
+  /* 用于左右留白布局 */
+  /* 二级页面的tab */
+  /* 会话列表 */
+  /* 名片页面 */
+  /* 聊天页面 */
+  /* 聊天按钮组件 */
+}
+.g-window .u-msg.item-time span {
+  display: inline-block;
+  padding: 0 3px;
+  background: #d5d5d5;
+  border-radius: 3px;
+}
+.g-window .vux-header .vux-header-left .vux-header-back {
+  padding: 0;
+  margin-left: 0.48rem;
+}
+.g-window .page-top {
+  padding-top: 1.76rem;
+}
+.g-window .m-album {
+  background: #0091e4;
+}
+.g-window .m-main {
+  background: #ffffff;
+}
+.g-window .m-article {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 1.76rem;
+  background: #ffffff;
+}
+.g-window .m-login .cells {
+  position: relative;
+  margin: 10px auto;
+}
+.g-window .m-login .cells .cell {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #ddf;
+  line-height: 2rem;
+}
+.g-window .m-login .cells .logo {
+  display: block;
+  margin: 1rem auto;
+  width: 50%;
+  height: auto;
+}
+.g-window .m-login .cells .ipt {
+  box-sizing: border-box;
+  padding: 0.6rem 0 0.6rem 2.4rem;
+  font-size: 0.9rem;
+  color: #fff;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+}
+.g-window .m-login .cells .ipt::placeholder {
+  color: #d9d9d9;
+}
+.g-window .m-login .cells .icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url(http://yx-web.nos.netease.com/webdoc/h5/im/icons.png);
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.g-window .m-login .cells .icon-account {
+  background-position: 0 -112px;
+  position: absolute;
+  left: 0.4rem;
+  top: 0.6rem;
+}
+.g-window .m-login .cells .icon-pwd {
+  background-position: 0 -133px;
+  position: absolute;
+  left: 0.4rem;
+  top: 0.6rem;
+}
+.g-window .m-login .cells .btn {
+  margin: 0.6rem 0;
+  box-sizing: border-box;
+  width: 100%;
+  line-height: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.4rem;
+  background: #fff;
+  color: #0091e4;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.g-window .m-login .cells .btn-regist {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #d9d9d9;
+}
+.g-window .m-login .cells .error {
+  float: right;
+  clear: both;
+  color: #ed0e0e;
+}
+.g-window .m-login .u-card .weui-cells {
+  background-color: inherit;
+}
+.g-window .m-tab {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 1.76rem;
+  overflow: hidden;
+  color: #000000;
+  background-color: #ffffff;
+  border-bottom: 1px solid #d5d5d5;
+  font-size: 0.68rem;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+.g-window .m-tab .vux-header-left .left-arrow {
+  position: static;
+}
+.g-window .m-tab .vux-header-left .left-arrow::before {
+  border-color: #000000;
+  top: 0;
+  left: 0.48rem;
+  width: 0.24rem;
+  height: 0.24rem;
+}
+.g-window .m-tab-top .u-tab-top {
+  color: #333333;
+  border: 1px solid #333333;
+  /* 选中状态 */
+}
+.g-window .m-tab-top .u-tab-top.vux-button-group-current {
+  color: #ffffff;
+  background-color: #333333;
+}
+.g-window .m-cards {
+  position: relative;
+  display: block;
+  width: 90%;
+  height: auto;
+  margin: 1rem auto;
+  z-index: 1;
+}
+.g-window .m-list {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.g-window .m-tab .m-tab-top {
+  position: relative;
+  padding: 0;
+  font-size: 1.3rem;
+}
+.g-window .m-tab .m-tab-top.vux-button-group {
+  margin: 4px auto;
+}
+.g-window .m-tab .m-tab-right {
+  position: absolute;
+  right: 0;
+  top: 0.1rem;
+  font-size: 0.8rem;
+  text-align: right;
+  width: 4rem;
+}
+.g-window .m-article-main,
+.g-window .m-chat-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.g-window .m-robot .u-logo {
+  position: relative;
+  margin: 1rem auto;
+  text-align: center;
+}
+.g-window .m-robot .u-logo .logo {
+  display: inline-block;
+  margin: 1rem 0;
+  width: 40%;
+  height: auto;
+}
+.g-window .m-robot .u-logo h3 {
+  margin: 1rem 0;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.g-window .m-robot .u-desc {
+  position: relative;
+  margin: 1rem auto;
+  width: 80%;
+  text-align: left;
+  color: #999999;
+}
+.g-window .m-chat-main {
+  /* 聊天页面有输入框 */
+  /* 聊天历史记录没有输入框 */
+}
+.g-window .m-chat-main.m-chat-history {
+  padding-bottom: 0;
+}
+.g-window .m-chat-main .m-chat-list {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex: 1;
+  background: #ffffff;
+  padding-bottom: 1.96rem;
+}
+.g-window .m-chat-editor {
+  width: 100%;
+  background-color: #FFFFFF;
+  justify-content: flex-end;
+  z-index: 3;
+  border-top: 1px solid #d5d5d5;
+}
+.g-window .m-chat-editor-main {
+  position: relative;
+  display: block;
+  padding: 0;
+  width: 100%;
+  min-height: 1.96rem;
+  display: flex;
+  align-items: center;
+}
+.g-window .m-chat-editor-main .u-editor-input textarea {
+  position: relative;
+  display: inline-block;
+  padding: 5px;
+  font-size: 0.52rem;
+  width: 9.28rem;
+  min-height: 1.1rem;
+  max-height: 2.2rem;
+  background: #fafafa;
+  text-align: left;
+  border: 1px solid #c8c8cd;
+  border-radius: 0.12rem;
+}
+.g-window .m-chat-editor-main .u-editor-icon {
+  position: relative;
+  display: inline-block;
+  width: 1.04rem;
+  height: 1.04rem;
+}
+.g-window .m-chat-editor-main .u-editor-voice {
+  margin-left: 0.7rem;
+  margin-right: 0.4rem;
+}
+.g-window .m-chat-editor-main .u-editor-emoji {
+  margin-left: 0.38rem;
+  margin-right: 0.4rem;
+}

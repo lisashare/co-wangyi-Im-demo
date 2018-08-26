@@ -1,0 +1,311 @@
+/*
+* 元件
+*/
+* {
+  box-sizing: border-box;
+}
+/* 外面嵌套g-window 为了覆盖weui默认样式 */
+.g-window {
+  /* 白底输入框 */
+  /* 透明底输入框 */
+  /* 双选切换控件 */
+  /* 列表 */
+  /* 会话删除tag */
+  /*时间提示*/
+  /* 未读数标签 */
+  /* 消息记录 */
+}
+.g-window .u-ipt-default {
+  color: #999999;
+}
+.g-window .u-ipt-default input::placeholder {
+  color: #e0e0e0;
+}
+.g-window .u-ipt-transparent {
+  color: #ffffff;
+  background-color: transparent;
+}
+.g-window .u-ipt-transparent input::placeholder {
+  color: #ffffff;
+  opacity: 0.5;
+}
+.g-window .u-switch .weui-switch:checked,
+.g-window .u-switch .weui-switch-cp__input:checked ~ .weui-switch-cp__box {
+  background-color: #333333;
+  border-color: #333333;
+}
+.g-window .u-card {
+  margin: 1rem 0;
+}
+.g-window .u-card .weui-cells {
+  background-color: #fff;
+}
+.g-window .u-card .icon {
+  display: inline-block;
+  margin-right: 0.8rem;
+  width: 2rem;
+  height: 2rem;
+}
+.g-window .u-search {
+  margin: 0;
+  margin-bottom: 2rem;
+  height: 2rem;
+}
+.g-window .u-search .weui-cells:after,
+.g-window .u-search .weui-cells:before {
+  border-color: #f0f0f0;
+}
+.g-window .u-list {
+  width: 100%;
+}
+.g-window .u-list-item {
+  min-height: 2rem;
+  vertical-align: middle;
+}
+.g-window .u-list-item .icon {
+  display: inline-block;
+  margin-right: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+}
+.g-window .u-tag-del {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24%;
+  height: 100%;
+  text-align: center;
+  color: #ffffff;
+  background-color: #ed0e0e;
+  transition: all 0.5s;
+  transform: translate3d(100%, 0, 0);
+}
+.g-window .u-tag-del::after {
+  position: relative;
+  content: "删除";
+  font-size: 1rem;
+  top: 32%;
+  margin-top: -0.5rem;
+}
+.g-window .u-tag-del.active {
+  transform: translate3d(0, 0, 0);
+}
+.g-window .u-session-time {
+  display: inline-block;
+  position: absolute;
+  right: 1.8rem;
+  top: 1.1rem;
+}
+.g-window .u-unread {
+  display: inline-block;
+  position: absolute;
+  right: 0.4rem;
+  top: 1.1rem;
+  padding: 2px;
+  min-width: 1rem;
+  min-height: 1rem;
+  line-height: 1rem;
+  font-size: 12px;
+  background-color: #f00;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.8rem;
+}
+.g-window .u-msg {
+  padding: 0.44rem 0;
+  /* 用户头像 */
+}
+.g-window .u-msg.session-chat {
+  padding: 0.44rem 0;
+  clear: both;
+}
+.g-window .u-msg .msg-head {
+  position: relative;
+  display: inline-block;
+  top: 1px;
+  margin: 0;
+  margin-right: 0.48rem;
+  margin-left: 0.48rem;
+  width: 1.64rem;
+  height: 1.64rem;
+  vertical-align: top;
+  border-radius: 50%;
+}
+.g-window .u-msg .msg-head img {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  width: inherit;
+  height: inherit;
+}
+.g-window .u-msg .msg-user {
+  font-style: italic;
+  color: #999;
+}
+.g-window .u-msg .msg-user em {
+  font-weight: normal;
+  margin-right: 1rem;
+}
+.g-window .u-msg .msg-text {
+  margin-top: 0.32rem;
+  position: relative;
+  display: inline-block;
+  max-width: 67%;
+  min-height: 0.36rem;
+  height: auto;
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  line-height: 0.72rem;
+  font-size: 0.5rem;
+  color: #000000;
+  padding: 0.2rem 0.36rem 0.2rem 0.36rem;
+}
+.g-window .u-msg .msg-text img {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+.g-window .u-msg .msg-text img.emoji-small {
+  width: 1.4rem;
+  height: 1.4rem;
+  vertical-align: bottom;
+}
+.g-window .u-msg .msg-text img.emoji-big {
+  width: 3rem;
+  height: 3rem;
+  vertical-align: middle;
+}
+.g-window .u-msg .msg-text img.emoji-big {
+  width: 4.8rem;
+  height: 4.8rem;
+  vertical-align: middle;
+}
+.g-window .u-msg .msg-text embed,
+.g-window .u-msg .msg-text video {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 8rem;
+  vertical-align: bottom;
+  background-color: #000;
+  text-align: center;
+  color: #fff;
+}
+.g-window .u-msg .msg-text::before,
+.g-window .u-msg .msg-text::after {
+  content: ' ';
+  position: absolute;
+  top: 0.8rem;
+  border-top: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid transparent;
+  width: 0;
+  height: 0;
+}
+.g-window .u-msg .msg-text.notify {
+  max-width: 100%;
+}
+.g-window .u-msg .msg-text .button {
+  margin: 0.1rem 0;
+  padding: 0.1rem 0.2rem;
+  border: 1px solid #fff;
+  border-radius: 0.2rem;
+  background-color: #e5f4ff;
+  color: #666;
+}
+.g-window .u-msg .msg-failed {
+  position: relative;
+  float: right;
+  margin-right: 0.2rem;
+  vertical-align: top;
+  font-size: 0.92rem;
+  line-height: 2.0rem;
+}
+.g-window .u-msg .msg-link {
+  display: block;
+  position: absolute;
+  bottom: -2rem;
+  right: 0;
+  min-width: 4rem;
+  min-height: 1.2rem;
+  word-break: normal;
+  height: auto;
+  line-height: 1.2rem;
+  font-size: 1.0rem;
+  border: none;
+}
+.g-window .u-msg .msg-link a {
+  color: #000000;
+  text-decoration: underline;
+  float: right;
+}
+.g-window .u-msg.session-chat .msg-robot {
+  min-width: 3rem;
+  margin-bottom: 3rem;
+}
+.g-window .u-msg.session-chat.item-you .msg-head,
+.g-window .u-msg.session-chat.item-you .msg-text {
+  float: left;
+}
+.g-window .u-msg.session-chat.item-you .msg-text {
+  border-radius: 0 0.2rem 0.2rem 0.2rem;
+}
+.g-window .u-msg.session-chat.item-me .msg-head,
+.g-window .u-msg.session-chat.item-me .msg-text {
+  float: right;
+}
+.g-window .u-msg.session-chat.item-me .msg-text {
+  border-radius: 0.2rem 0 0.2rem 0.2rem;
+}
+.g-window .u-msg.item-tip {
+  font-size: 0.8rem;
+  text-align: center;
+}
+.g-window .u-msg.item-tip .tip {
+  margin: 0 auto;
+  width: 10rem;
+  padding: 0.1rem;
+  background-color: #e0e0e0;
+  border-radius: 0.4rem;
+}
+.g-window .u-msg .notification {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #ccc;
+}
+.g-window .u-msg .notify {
+  color: #f50;
+  font-size: 0.8rem;
+}
+.g-window .u-error {
+  color: #ed0e0e;
+}
+.g-window .u-icon {
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+}
+.g-window .u-icon.icon-file {
+  background-position: -7.6rem -7rem;
+}
+.g-window .u-icon {
+  background-size: 20rem;
+  background-image: url(http://yx-web.nos.netease.com/webdoc/h5/im/icons.png);
+}
+.g-window .u-icon-img {
+  position: relative;
+  width: inherit;
+  height: inherit;
+}
+.g-window .u-icon-img img {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.g-window .u-circle {
+  border-radius: 50%;
+}

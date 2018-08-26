@@ -1,0 +1,377 @@
+/*
+ * 模块
+ */
+ @rem: 50rem;
+ *{
+   box-sizing: border-box;
+ }
+ 
+/* 外面嵌套g-window 为了覆盖weui默认样式 */
+.g-window {
+
+  .u-msg.item-time span{
+    display: inline-block;
+    // padding: 8/@rem 14/@rem;
+    padding: 0 3px;
+    background: #d5d5d5;
+    border-radius: 3px;
+  }
+  
+  .vux-header .vux-header-left .vux-header-back{
+    padding:0;margin-left: 24/@rem;
+  }
+  .page-top{
+    padding-top: 88/@rem;
+  }
+  // .m-main, .m-album{
+  //   position: absolute;
+  //   display: block;
+  //   box-sizing: border-box;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+    /* 控制元素在移动设备上是否使用滚动回弹效果 */
+    // -webkit-overflow-scrolling: touch;
+    // overflow-y: auto;
+    // overflow-x: hidden;
+  // }
+  /* 封面皮肤 */
+  .m-album {
+    background: #0091e4;
+  }
+  /* 主背景皮肤 */
+  .m-main {
+    background: #ffffff;
+  }
+  .m-article {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 88/@rem;
+    background: #ffffff;
+  }
+
+  /* 登录注册页面 */
+  .m-login {
+    .cells {
+      position: relative;
+      margin: 10px auto;
+      .cell {
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid #ddf;
+        line-height: 2rem;
+      }
+      .logo {
+        display: block;
+        margin: 1rem auto;
+        width: 50%;
+        height: auto;
+      }
+      .ipt {
+        box-sizing: border-box;
+        padding: 0.6rem 0 0.6rem 2.4rem;
+        font-size: 0.9rem;
+        color: #fff;
+        width: 100%;
+        border: none;
+        background-color: transparent;
+        &::placeholder {
+          color: #d9d9d9;
+        }
+      }
+      .icon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-image: url(http://yx-web.nos.netease.com/webdoc/h5/im/icons.png);
+        background-repeat: no-repeat;
+        vertical-align: middle;
+      }
+      .icon-account {
+        background-position: 0 -112px;
+        position: absolute;
+        left: 0.4rem;
+        top: 0.6rem;
+      }
+      .icon-pwd {
+        background-position: 0 -133px;
+        position: absolute;
+        left: 0.4rem;
+        top: 0.6rem;
+      }
+      .btn {
+        margin: 0.6rem 0;
+        box-sizing: border-box;
+        width: 100%;
+        line-height: 2.4rem;
+        height: 2.4rem;
+        border-radius: 0.4rem;
+        background: #fff;
+        color: #0091e4;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-regist {
+        background: transparent;
+        color: #fff;
+        border: 1px solid #d9d9d9;
+      }
+      .error {
+        float: right;
+        clear: both;
+        color: #ed0e0e;
+      }
+    }
+    .u-card {
+      .weui-cells {
+        background-color: inherit;
+      }
+    }
+  }
+
+  /* 按钮tab切换 */
+  .m-tab {
+    position: fixed;
+    top: 0;
+    right:0;
+    left: 0;
+    width: 100%;
+    height: 88/@rem;
+    overflow: hidden;
+    color: #000000;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d5d5d5;    
+    font-size: 34/@rem;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    .vux-header-left {
+      .left-arrow {
+        position: static;
+        &::before {  // 返回箭头的颜色
+          border-color: #000000;
+          top:0;left:24/@rem;
+          width: 12/@rem;
+          height: 12/@rem;
+        }
+      }
+    }
+  }
+  .m-tab-top  {
+    .u-tab-top {
+      color: #333333;
+      border: 1px solid #333333;
+      /* 选中状态 */
+      &.vux-button-group-current {
+        color: #ffffff;
+        background-color: #333333;
+      }
+    }
+  }
+  /* 直播页面 */
+  // .m-room {
+  //   padding-top: 0;
+  // }
+  /* 用于左右留白布局 */
+  .m-cards {
+    position: relative;
+    display: block;
+    width: 90%; 
+    height: auto;
+    margin: 1rem auto;
+    z-index: 1;
+  }
+  .m-list {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  /* 二级页面的tab */
+  .m-tab {
+    .m-tab-top {
+      position: relative;
+      padding: 0;
+      font-size: 1.3rem;
+      
+      &.vux-button-group {
+        margin: 4px auto;
+      }
+    }
+    .m-tab-right {
+      position: absolute;
+      right: 0;
+      top: 0.1rem;
+      font-size: 0.8rem;
+      text-align: right;
+      width: 4rem;
+    }
+  }
+
+  /* 会话列表 */
+
+  .m-article-main, .m-chat-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  /* 名片页面 */
+  .m-robot {
+    .u-logo {
+      position: relative;
+      margin: 1rem auto;
+      text-align: center;
+      .logo {
+        display: inline-block;
+        margin: 1rem 0;
+        width: 40%;
+        height: auto;
+      }
+      h3 {
+        margin: 1rem 0;
+        font-weight: bold;
+        font-size: 1.4rem;
+      }
+    }
+    .u-desc {
+      position: relative;
+      margin: 1rem auto;
+      width: 80%;
+      text-align: left;
+      color: #999999;
+    }
+  }
+
+  /* 聊天页面 */
+  .m-chat-main {
+    /* 聊天页面有输入框 */
+    // padding: 0 0 60/@rem 0;
+    /* 聊天历史记录没有输入框 */
+    &.m-chat-history {
+      padding-bottom: 0;
+    }
+    .m-chat-list {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      flex:1;
+      background: #ffffff;
+      padding-bottom: 98/@rem;
+    }
+  }
+  .m-chat-editor {
+    width:100%;
+    background-color: #FFFFFF;
+    justify-content: flex-end;
+    z-index:3;
+    border-top: 1px solid #d5d5d5;
+  }
+  /* 聊天按钮组件 */
+  .m-chat-editor-main {
+    position: relative;
+    display: block;
+    padding: 0;
+    width: 100%;
+    min-height: 98/@rem;
+    display: flex;
+    align-items: center;
+    .u-editor-input {                                               
+      textarea {
+        position: relative;
+        display: inline-block;
+        padding: 5px;
+        font-size: 26/@rem;
+        width: 464/@rem;
+        min-height: 55/@rem;
+        max-height: 110/@rem;
+        background: #fafafa;
+        border-radius: 6/@rem;  
+        text-align: left;
+        border: 1px solid #c8c8cd;
+        border-radius: 6/@rem;
+      }
+    }
+    // .u-editor-icons {
+      // position: absolute;
+      // display: inline-block;
+      // right: 0;
+      // top: 0;
+      // width: 11rem;
+      // height:45px;
+      // height: $height_editor;
+      .u-editor-icon {
+        position: relative;
+        display: inline-block; 
+        width: 52/@rem;
+        height: 52/@rem;
+    //     position: relative;
+    //     display: inline-block;
+    //     // top: calc($height_editor / 2 - 0.8);
+    //     top: calc(45px / 2 - 0.8);
+    //     width: 1.6rem;
+    //     height: 1.6rem;
+    //     margin-left: 0.2rem;
+    //     vertical-align: middle;
+    //     input[type="file"] {
+    //       position: absolute;
+    //       display: inline-block;
+    //       left: 0;
+    //       top: 0;
+    //       width: inherit;
+    //       height: inherit;
+    //       opacity: 0;
+    //       font-size: 1rem;
+    //     }
+    //   }
+    }
+    .u-editor-voice{
+      margin-left: 35/@rem;
+      margin-right: 20/@rem;
+    }
+    .u-editor-emoji{
+      margin-left: 19/@rem;
+      margin-right: 20/@rem;
+    }
+    .u-editor-plus{
+
+    }
+  //   .u-editor-send {
+  //     position: relative;
+  //     display: inline-block;
+  //     // top: calc($height_editor / 2 - 0.8);
+  //     top: calc(45px / 2 - 0.8);
+  //     margin-left: 0.2rem;
+  //     width: 2.6rem;
+  //     height: 1.6rem;
+  //     line-height: 1.6rem;
+  //     padding: 0.1rem 0.2rem;
+  //     border-radius: 0.2rem;
+  //     font-size: 0.9rem;
+  //     color: #fff;
+  //     background-color: #0091e4;
+  //     text-align: center;
+  //   }
+  }
+}

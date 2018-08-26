@@ -1,0 +1,142 @@
+/* 重置WEUI样式 */
+* {
+  box-sizing: border-box;
+}
+.g-window {
+  /* 按钮组 */
+  /* 输入框组 */
+  /* switch 元件 */
+  /* 导航元件 */
+}
+.g-window .item-time {
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.48rem;
+}
+.g-window .weui-mask_transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-color: #000;
+  opacity: 0.3;
+}
+.g-window .weui-cells {
+  margin-top: 0;
+  font-size: inherit;
+  background-color: transparent;
+}
+.g-window .weui-cell {
+  font-size: 1.08rem;
+  padding: 0.5rem 0.7rem;
+}
+.g-window .weui-cell .vux-label-desc {
+  font-size: 0.8rem;
+  color: #999;
+}
+.g-window .weui-cell:before {
+  /*left: 0;*/
+}
+.g-window .weui-btn {
+  font-size: 1rem;
+}
+.g-window .weui-btn:after {
+  border: none;
+}
+.g-window .weui-btn_default {
+  color: #0091e4;
+}
+.g-window .weui-btn_transparent {
+  color: #ffffff;
+  background-color: inherit;
+}
+.g-window .weui-btn_primary,
+.g-window .weui-btn_warn {
+  width: 90%;
+}
+.g-window .weui-btn_primary {
+  background-color: #0091e4;
+}
+.g-window .weui-btn_warn {
+  background-color: #f04d64;
+}
+.g-window .weui-input {
+  font-size: 1.08rem;
+}
+.g-window .weui-switch:checked,
+.g-window .weui-switch-cp__input:checked ~ .weui-switch-cp__box {
+  background-color: inherit;
+  border-color: inherit;
+}
+.g-window .vux-tab .vux-tab-item {
+  font-size: inherit;
+}
+.g-window .vux-tab .vux-tab-item > a {
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+}
+.g-window .vux-tab .vux-tab-item.vux-tab-selected {
+  color: inherit;
+}
+.g-window .vux-button-group > a.vux-button-group-current,
+.g-window .vux-button-group > a.hover,
+.g-window .vux-button-group > a:active {
+  background-color: inherit;
+}
+.g-window .vux-header .vux-header-title,
+.g-window .vux-header h1 {
+  margin: 0 20%;
+  color: inherit;
+}
+.g-window .vux-header .vux-header-left,
+.g-window .vux-header .vux-header-right {
+  position: static;
+  color: inherit;
+}
+.g-window .vux-header .vux-header-left a,
+.g-window .vux-header .vux-header-right a,
+.g-window .vux-header .vux-header-left button,
+.g-window .vux-header .vux-header-right button {
+  color: inherit;
+}
+.g-window .weui-cell__ft {
+  font-size: 0.96rem;
+  color: inherit;
+}
+.g-window .weui-search-bar {
+  background-color: transparent;
+}
+.g-window .weui-icon-search {
+  line-height: 2rem;
+}
+.g-window .weui-icon-warn {
+  font-size: inherit;
+}
+.g-window .weui-search-bar__box .weui-search-bar__input,
+.g-window .weui-search-bar__box .weui-icon-search {
+  line-height: 2rem;
+  font-size: 1.08rem;
+}
+.g-window .vux-label-desc {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.g-window .vux-datetime.weui-cell {
+  padding: 0;
+}
+.g-window .left-arrow:before {
+  content: "";
+  width: 0.2rem;
+  height: 0.2rem;
+  border: 1px solid #ccc;
+  border-width: 1px 0 0 1px;
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
