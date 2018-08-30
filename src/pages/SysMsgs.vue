@@ -1,18 +1,17 @@
 <template>
   <div class="g-inherit m-article">
-    <x-header class="m-tab" :left-options="{backText: ' '}">
+    <!-- <x-header class="m-tab" :left-options="{backText: ' '}">
       <button-tab class="m-tab-top" v-model="sysType">
         <button-tab-item class="u-tab-top">系统消息</button-tab-item>
-        
-        
-        <!--<button-tab-item class="u-tab-top">自定义消息</button-tab-item>-->
       </button-tab>
-      
-      
-      
       <a slot="left"></a>
       <a slot="right" @click.stop="clearMsgs">清空</a>
-    </x-header>
+    </x-header> -->
+    <header class="header bc line-bottom">
+        <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
+        <h1>通知</h1>
+        <!-- <i class="txt"><img src="/static/images/opportunity/icon/icon_tel.png"></i> -->
+    </header>
     <div class="m-article-main p-sysmsgs">
       <group class="u-list">
         <template v-for="msg in msgList">
@@ -62,6 +61,22 @@
       </group>
        <div class='empty-hint' v-if='!msgList || msgList.length<1'>暂无任何消息</div>
     </div>
+
+
+    <div class="back-top-box"        
+        v-scroll-hide = "isShow"
+        scroll-hide-distance = "300"
+        >
+        <!-- <transition
+          enter-active-class="fadeIn"
+          leave-active-class="fadeOut"
+        > -->
+              <div v-if = "isShow" class="back-top animated">
+                  <img :src="scrollTop" >
+              </div>
+        <!-- </transition> -->
+    </div>
+      
   </div>
 </template>
 
@@ -81,7 +96,10 @@ export default {
     return {
       sysType: 0, // 系统消息 0, 自定义消息 1,
       defaultAvatar: config.defaultUserIcon,
-      deleteIdServer: ''
+      deleteIdServer: '',
+
+      scrollTop: config.scrollTop,
+      isShow:false
     }
   },
   computed: {
@@ -224,6 +242,24 @@ export default {
 </script>
 
 <style lang="less">
+@rem: 50rem;
+.back-top-box{
+  z-index: 2;
+  position: fixed;
+  right: 9/@rem;
+  bottom: 0.58/@rem;
+  .back-top{
+    width: 148/@rem;
+    height: 148/@rem;
+    border-radius: 50%;
+  }
+  img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    // vertical-align: middle;
+  } 
+}
   .p-sysmsgs {
     .u-list {
       height: 100%;
@@ -282,7 +318,7 @@ export default {
       position: absolute;
       left: 0;
       right: 0;
-      top: 5rem;  
+      top: 160/@rem;  
       margin: auto;
       text-align: center;
     }

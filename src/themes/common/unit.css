@@ -1,9 +1,6 @@
 /*
 * 元件
 */
-* {
-  box-sizing: border-box;
-}
 /* 外面嵌套g-window 为了覆盖weui默认样式 */
 .g-window {
   /* 白底输入框 */
@@ -40,12 +37,6 @@
 .g-window .u-card .weui-cells {
   background-color: #fff;
 }
-.g-window .u-card .icon {
-  display: inline-block;
-  margin-right: 0.8rem;
-  width: 2rem;
-  height: 2rem;
-}
 .g-window .u-search {
   margin: 0;
   margin-bottom: 2rem;
@@ -56,17 +47,14 @@
   border-color: #f0f0f0;
 }
 .g-window .u-list {
-  width: 100%;
+  padding-left: 0.44rem;
 }
 .g-window .u-list-item {
-  min-height: 2rem;
+  height: 2.4rem;
+  background: #f4f4f4;
+  border-radius: 1.2rem 0 0 1.2rem;
+  margin-top: 0.6rem;
   vertical-align: middle;
-}
-.g-window .u-list-item .icon {
-  display: inline-block;
-  margin-right: 0.6rem;
-  width: 2rem;
-  height: 2rem;
 }
 .g-window .u-tag-del {
   position: absolute;
@@ -74,6 +62,7 @@
   top: 0;
   width: 24%;
   height: 100%;
+  line-height: 100%;
   text-align: center;
   color: #ffffff;
   background-color: #ed0e0e;
@@ -83,9 +72,11 @@
 .g-window .u-tag-del::after {
   position: relative;
   content: "删除";
-  font-size: 1rem;
-  top: 32%;
-  margin-top: -0.5rem;
+  font-size: 0.6rem;
+  top: 50%;
+  -webkit-transform: translate3d(0, -50%, 0);
+  -ms-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
 }
 .g-window .u-tag-del.active {
   transform: translate3d(0, 0, 0);
@@ -93,23 +84,22 @@
 .g-window .u-session-time {
   display: inline-block;
   position: absolute;
-  right: 1.8rem;
-  top: 1.1rem;
+  right: 0.48rem;
+  top: 0.3rem;
+  font-size: 0.44rem;
+  color: #999999;
 }
 .g-window .u-unread {
   display: inline-block;
   position: absolute;
-  right: 0.4rem;
-  top: 1.1rem;
-  padding: 2px;
-  min-width: 1rem;
-  min-height: 1rem;
-  line-height: 1rem;
-  font-size: 12px;
-  background-color: #f00;
+  left: 1.8rem;
+  top: 0.42rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: #ec0e1d;
   color: #fff;
   text-align: center;
-  border-radius: 0.8rem;
+  border-radius: 1rem;
 }
 .g-window .u-msg {
   padding: 0.44rem 0;
@@ -130,13 +120,13 @@
   height: 1.64rem;
   vertical-align: top;
   border-radius: 50%;
+  overflow: hidden;
 }
 .g-window .u-msg .msg-head img {
-  position: relative;
   display: inline-block;
   margin: 0;
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
 }
 .g-window .u-msg .msg-user {
   font-style: italic;
@@ -260,18 +250,12 @@
   border-radius: 0.2rem 0 0.2rem 0.2rem;
 }
 .g-window .u-msg.item-tip {
-  font-size: 0.8rem;
+  font-size: 0.48rem;
   text-align: center;
-}
-.g-window .u-msg.item-tip .tip {
-  margin: 0 auto;
-  width: 10rem;
-  padding: 0.1rem;
-  background-color: #e0e0e0;
-  border-radius: 0.4rem;
+  color: #ccc;
 }
 .g-window .u-msg .notification {
-  font-size: 0.8rem;
+  font-size: 0.48rem;
   text-align: center;
   color: #ccc;
 }

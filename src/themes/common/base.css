@@ -5,6 +5,78 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+/* common */
+.txt {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 0.2rem;
+  padding: 0 0.28rem;
+  display: block;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  text-align: center;
+}
+.txt img {
+  width: 0.68rem;
+  height: 0.64rem;
+}
+.header {
+  padding: 0 3rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #2a2a2a;
+  z-index: 2;
+  background: #ffffff;
+}
+.header .left {
+  position: absolute;
+  top: 50%;
+  left: 0.48rem;
+  -webkit-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+}
+.header .left::before {
+  content: "";
+  position: absolute;
+  width: 0.28rem;
+  height: 0.28rem;
+  border: 1px solid #2a2a2a;
+  border-width: 1px 0 0 1px;
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  transform: rotate(315deg);
+  top: -0.1rem;
+  left: 0;
+}
+.header h1 {
+  font-weight: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 0.72rem;
+  line-height: 1.76rem;
+}
+.line-bottom:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #bfbfbf ;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
 }
 html {
   text-size-adjust: 100%;

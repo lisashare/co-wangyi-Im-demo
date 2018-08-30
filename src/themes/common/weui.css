@@ -1,12 +1,18 @@
 /* 重置WEUI样式 */
-* {
-  box-sizing: border-box;
-}
 .g-window {
   /* 按钮组 */
   /* 输入框组 */
   /* switch 元件 */
   /* 导航元件 */
+}
+.g-window .weui-cell__hd {
+  position: relative;
+  margin-right: 0.52rem;
+}
+.g-window .weui-cell__hd img {
+  width: 1.76rem;
+  height: 1.76rem;
+  border-radius: 50%;
 }
 .g-window .item-time {
   text-align: center;
@@ -28,13 +34,30 @@
   font-size: inherit;
   background-color: transparent;
 }
+.g-window .weui-cells::after {
+  position: static;
+  border: none;
+}
 .g-window .weui-cell {
-  font-size: 1.08rem;
-  padding: 0.5rem 0.7rem;
+  font-size: 0.6rem;
+  padding: 0.32rem 0.48rem;
+  color: #333333;
+}
+.g-window .weui-cell::before {
+  position: static;
+  border: none;
 }
 .g-window .weui-cell .vux-label-desc {
-  font-size: 0.8rem;
+  display: inline-block;
+  width: 9.4rem;
+  font-size: 0.48rem;
+  color: #666666;
+  height: 0.8rem;
+  line-height: 0.8rem;
   color: #999;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .g-window .weui-cell:before {
   /*left: 0;*/
@@ -102,10 +125,6 @@
 .g-window .vux-header .vux-header-right button {
   color: inherit;
 }
-.g-window .weui-cell__ft {
-  font-size: 0.96rem;
-  color: inherit;
-}
 .g-window .weui-search-bar {
   background-color: transparent;
 }
@@ -119,13 +138,6 @@
 .g-window .weui-search-bar__box .weui-icon-search {
   line-height: 2rem;
   font-size: 1.08rem;
-}
-.g-window .vux-label-desc {
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 .g-window .vux-datetime.weui-cell {
   padding: 0;

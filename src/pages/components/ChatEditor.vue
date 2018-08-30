@@ -1,38 +1,34 @@
 <template>
   <div class="m-chat-editor" @click="hideRobotList">
     <div class="m-chat-editor-main" :class="{robot:isRobot}">
-      <span v-if="!isRobot" class="u-editor-icon u-editor-voice">
+      <!-- 添加语音功能 暂不开发 -->
+      <!-- <span v-if="!isRobot" class="u-editor-icon u-editor-voice">
         <i class="u-icon-img"><img :src="icon1"></i>
-      </span>
-  
+      </span> -->
+      <!-- 输入内容的textarea -->
       <span class="u-editor-input" @keyup.enter="sendTextMsg">
-        <textarea v-model="msgToSent" @focus='onInputFocus'></textarea>
+        <textarea class="textarea" placeholder="请输入消息" v-model="msgToSent" @focus='onInputFocus'></textarea>
+        <!-- <div class="textarea" v-model="msgToSent" @focus='onInputFocus' contenteditable="true"></div> -->
       </span>
 
       <!-- <span class="u-editor-icons"> -->
         <span v-if="!isRobot" class="u-editor-icon u-editor-emoji" @click.stop="showEmoji">
           <i class="u-icon-img"><img :src="icon1"></i>
         </span>
-        <span v-if="!isRobot" class="u-editor-icon u-editor-plus">
+        <span v-if="!isRobot" class="u-editor-icon u-editor-plus"  @click.stop="showPlus">
           <i class="u-icon-img"><img :src="icon1"></i>
-          <input type="file">
         </span>
-         <!-- <span v-if="!isRobot" class="u-editor-icon u-editor-plus" @change="sendFileMsg">
-          <i class="u-icon-img"><img :src="icon2"></i>
-          <input type="file" ref="fileToSent">
-        </span> -->
       <!-- </span> -->
-
     </div>
+
     <!-- 工具 -->
-    <!-- <chat-tool
+    <chat-tool
       v-bind:type="type"
       v-bind:scene="scene"
       v-bind:to="to"
-      v-show="isEmojiShown"
-      v-on:add-emoji="addEmoji"
-      v-on:hide-emoji="hideEmoji">
-    </chat-tool> -->
+      v-show="isPlusShown"
+      v-on:hide-plus="hidePlus">
+    </chat-tool>
 
     <chat-emoji
       v-bind:type="type"
@@ -41,9 +37,9 @@
       v-show="isEmojiShown"
       v-on:add-emoji="addEmoji"
       v-on:hide-emoji="hideEmoji"
- 
+      v-on:send-msg="sendTextMsg"
     ></chat-emoji>
-     <!-- v-on:send="sendTextMsg" -->
+
     <group v-show="isRobotListShown" class="m-chat-emoji m-chat-robot">
       <cell v-for="robot in robotslist" :title="robot.nick" :key="robot.account" @click.native="chooseRobot(robot)">
         <img class="icon u-circle" slot="icon" width="20" height="20" :src="robot.avatar">
@@ -54,17 +50,33 @@
 
 <script>
 import ChatEmoji from './ChatEmoji'
+import ChatTool from './ChatTool'
 import util from '../../utils'
 import config from '../../configs'
 import pageUtil from '../../utils/page'
 
 export default {
   components: {
-    ChatEmoji
+    ChatEmoji,
+    ChatTool
+  },
+  data () {
+    return {
+      isEmojiShown: false,  // 表情显示
+      isPlusShown: false,   // 工具功能显示
+      isRobotListShown: false,
+      msgToSent: '',
+      icon1: `${config.resourceUrl}/im/chat-editor-1.png`,
+      icon2: `${config.resourceUrl}/im/chat-editor-2.png`,
+      icon3: `${config.resourceUrl}/im/chat-editor-3.png`,
+    }
   },
   updated () {
     window.document.body.addEventListener('click', () => {
       this.isEmojiShown = false
+    })
+    window.document.body.addEventListener('click', () => {
+      this.isPlusShown = false
     })
   },
   props: {
@@ -112,16 +124,7 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      isEmojiShown: false,
-      isRobotListShown: false,
-      msgToSent: '',
-      icon1: `${config.resourceUrl}/im/chat-editor-1.png`,
-      icon2: `${config.resourceUrl}/im/chat-editor-2.png`,
-      icon3: `${config.resourceUrl}/im/chat-editor-3.png`,
-    }
-  },
+  
   computed: {
     continueRobotAccid () {
       return this.$store.state.continueRobotAccid
@@ -307,16 +310,29 @@ export default {
         }
       }
     },
-    showEmoji () {
+    showEmoji () {  // emoji显示
+    console.log(this.msgToSent)
+      this.hidePlus()
       this.isEmojiShown = true
     },
-    hideEmoji () {
+    showPlus () {  // 显示工具选项
+      this.hideEmoji ()
+      this.isPlusShown = !this.isPlusShown
+    },
+    hideEmoji () {  // emoji隐藏
       this.isEmojiShown = false
     },
-    addEmoji (emojiName) {
+    hidePlus () { // 隐藏工具选项
+      this.isPlusShown = false
+    },
+    addEmoji (emojiName) {  // 添加表情
       this.msgToSent += emojiName
       this.hideEmoji()
     },
+    // addPlus (plusName) {
+    //   this.msgToSent += plusNames
+    //   this.hidePlus()
+    // },
     chooseRobot (robot) {
       if (robot && robot.account) {
         let len = this.msgToSent.length
@@ -350,14 +366,6 @@ export default {
 
 <style lang="less" scoped>
 @rem: 50rem;
-  .robot.m-chat-editor-main {
-    /*.u-editor-input {
-      padding-right: 4.5rem;
-    }
-    .u-editor-icons {
-      width: 4rem;
-    }*/
-  }
   .m-chat-robot {
     overflow-y: scroll;
     .weui-cells {

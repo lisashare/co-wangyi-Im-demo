@@ -1,14 +1,20 @@
 /* 重置WEUI样式 */
 @rem: 50rem;
-*{
-  box-sizing: border-box;
-}
 .g-window {
+  .weui-cell__hd{ //聊天的头像
+    position:relative;
+    margin-right: 26/@rem;
+    img{
+      width: 88/@rem;
+      height: 88/@rem;
+      border-radius: 50%;
+    }
+  }
   .item-time { // 时间显示标签
     text-align: center;
     color: #ffffff;
     font-size: 24/@rem; 
-}
+  }
   .weui-mask_transparent {
     position: absolute;
     top: 0;
@@ -23,13 +29,30 @@
     margin-top: 0;
     font-size: inherit;
     background-color: transparent;
+    &::after{
+      position: static;
+      border: none;
+    }
   }
   .weui-cell {
-    font-size: 1.08rem;
-    padding: 0.5rem 0.7rem;
+    font-size: 30/@rem;
+    padding: 16/@rem 24/@rem;
+    color: #333333;
+    &::before{
+      position: static;
+      border: none;
+    }
     .vux-label-desc {
-      font-size: 0.8rem;
+      display: inline-block;
+      width: 470/@rem;
+      font-size: 24/@rem;
+      color: #666666;
+      height: 40/@rem;
+      line-height: 40/@rem;
       color: #999;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     &:before {
       /*left: 0;*/
@@ -99,10 +122,9 @@
       }
     }
   }
-  .weui-cell__ft {
-    font-size: 0.96rem;
-    color: inherit;
-  }
+  // .weui-cell__ft {
+
+  // }
   .weui-search-bar {
     background-color: transparent;
   }
@@ -117,13 +139,6 @@
       line-height: 2rem;
       font-size: 1.08rem;
     }
-  }
-  .vux-label-desc {
-    display: inline-block;
-    max-width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
   .vux-datetime.weui-cell {
     padding: 0;

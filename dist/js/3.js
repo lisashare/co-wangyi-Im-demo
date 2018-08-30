@@ -1,6 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 304:
+/***/ 305:
 /* no static exports found */
 /* all exports used */
 /*!*******************************!*\
@@ -10,13 +10,13 @@ webpackJsonp([3],{
 
 
 /* styles */
-__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!../../~/vue-loader/lib/style-compiler/index?{"id":"data-v-1bf3ea74","scoped":false,"hasInlineConfig":true}!../../~/vux-loader/src/after-less-loader.js!less-loader!../../~/vux-loader/src/style-loader.js!../../~/vue-loader/lib/selector?type=styles&index=0!./SysMsgs.vue */ 359)
+__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!../../~/vue-loader/lib/style-compiler/index?{"id":"data-v-1bf3ea74","scoped":false,"hasInlineConfig":true}!../../~/vux-loader/src/after-less-loader.js!less-loader!../../~/vux-loader/src/style-loader.js!../../~/vue-loader/lib/selector?type=styles&index=0!./SysMsgs.vue */ 363)
 
 var Component = __webpack_require__(/*! ../../~/vue-loader/lib/component-normalizer */ 2)(
   /* script */
-  __webpack_require__(/*! !babel-loader!../../~/vux-loader/src/script-loader.js!../../~/vue-loader/lib/selector?type=script&index=0!./SysMsgs.vue */ 340),
+  __webpack_require__(/*! !babel-loader!../../~/vux-loader/src/script-loader.js!../../~/vue-loader/lib/selector?type=script&index=0!./SysMsgs.vue */ 341),
   /* template */
-  __webpack_require__(/*! !../../~/vue-loader/lib/template-compiler/index?{"id":"data-v-1bf3ea74"}!../../~/vux-loader/src/before-template-compiler-loader.js!../../~/vux-loader/src/template-loader.js!../../~/vue-loader/lib/selector?type=template&index=0!./SysMsgs.vue */ 352),
+  __webpack_require__(/*! !../../~/vue-loader/lib/template-compiler/index?{"id":"data-v-1bf3ea74"}!../../~/vux-loader/src/before-template-compiler-loader.js!../../~/vux-loader/src/template-loader.js!../../~/vue-loader/lib/selector?type=template&index=0!./SysMsgs.vue */ 355),
   /* scopeId */
   null,
   /* cssModules */
@@ -44,7 +44,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 340:
+/***/ 341:
 /* no static exports found */
 /* all exports used */
 /*!*******************************************************************************************************************************************!*\
@@ -76,7 +76,10 @@ exports.default = {
     return {
       sysType: 0,
       defaultAvatar: _configs2.default.defaultUserIcon,
-      deleteIdServer: ''
+      deleteIdServer: '',
+
+      scrollTop: _configs2.default.scrollTop,
+      isShow: false
     };
   },
 
@@ -224,7 +227,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 344:
+/***/ 346:
 /* no static exports found */
 /* all exports used */
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -237,14 +240,14 @@ exports = module.exports = __webpack_require__(/*! ../../~/css-loader/lib/css-ba
 
 
 // module
-exports.push([module.i, "\n.p-sysmsgs .u-list {\n  height: 100%;\n  overflow-y: scroll;\n}\n.p-sysmsgs p {\n  word-wrap: normal;\n  word-break: break-all;\n  color: #333;\n}\n.p-sysmsgs .g-teamSys {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 100;\n  -webkit-flex-grow: 100;\n     -moz-box-flex: 100;\n      -ms-flex-positive: 100;\n          flex-grow: 100;\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n     -moz-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n     -moz-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  overflow: hidden;\n}\n.p-sysmsgs .g-teamSys .m-info {\n  -webkit-flex-shrink: 1;\n      -ms-flex-negative: 1;\n          flex-shrink: 1;\n  overflow: hidden;\n}\n.p-sysmsgs .g-teamSys .m-info .u-time {\n  color: #aaa;\n}\n.p-sysmsgs .g-teamSys .m-info .u-desc {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  color: #aaa;\n  font-size: 1rem;\n}\n.p-sysmsgs .g-teamSys .m-options {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n     -moz-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.p-sysmsgs .g-teamSys .m-options .weui-btn.weui-btn_mini {\n  padding: 0;\n  width: 3rem;\n  height: 2rem;\n}\n.p-sysmsgs .g-teamSys .m-options .weui-btn + .weui-btn {\n  margin-top: 0;\n  margin-left: 0.5rem;\n}\n.p-sysmsgs .u-msg-state {\n  color: #aaa;\n  font-size: .9rem;\n}\n.p-sysmsgs .empty-hint {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 5rem;\n  margin: auto;\n  text-align: center;\n}\n", "", {"version":3,"sources":["E:/IM/NIM_Web_Demo_H5-master/src/pages/SysMsgs.vue"],"names":[],"mappings":";AAAA;EACE,aAAa;EACb,mBAAmB;CACpB;AACD;EACE,kBAAkB;EAClB,sBAAsB;EACtB,YAAY;CACb;AACD;EACE,qBAAc;EAAd,sBAAc;EAAd,kBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,sBAAe;EAAf,uBAAe;KAAf,mBAAe;MAAf,uBAAe;UAAf,eAAe;EACf,0BAA+B;EAA/B,uCAA+B;KAA/B,uBAA+B;MAA/B,uBAA+B;UAA/B,+BAA+B;EAC/B,0BAAoB;EAApB,4BAAoB;KAApB,uBAAoB;MAApB,uBAAoB;UAApB,oBAAoB;EACpB,iBAAiB;CAClB;AACD;EACE,uBAAe;MAAf,qBAAe;UAAf,eAAe;EACf,iBAAiB;CAClB;AACD;EACE,YAAY;CACb;AACD;EACE,iBAAiB;EACjB,wBAAwB;EACxB,oBAAoB;EACpB,YAAY;EACZ,gBAAgB;CACjB;AACD;EACE,qBAAc;EAAd,sBAAc;EAAd,kBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,0BAAoB;EAApB,4BAAoB;KAApB,uBAAoB;MAApB,uBAAoB;UAApB,oBAAoB;CACrB;AACD;EACE,WAAW;EACX,YAAY;EACZ,aAAa;CACd;AACD;EACE,cAAc;EACd,oBAAoB;CACrB;AACD;EACE,YAAY;EACZ,iBAAiB;CAClB;AACD;EACE,mBAAmB;EACnB,QAAQ;EACR,SAAS;EACT,UAAU;EACV,aAAa;EACb,mBAAmB;CACpB","file":"SysMsgs.vue","sourcesContent":[".p-sysmsgs .u-list {\n  height: 100%;\n  overflow-y: scroll;\n}\n.p-sysmsgs p {\n  word-wrap: normal;\n  word-break: break-all;\n  color: #333;\n}\n.p-sysmsgs .g-teamSys {\n  display: flex;\n  flex-grow: 100;\n  justify-content: space-between;\n  align-items: center;\n  overflow: hidden;\n}\n.p-sysmsgs .g-teamSys .m-info {\n  flex-shrink: 1;\n  overflow: hidden;\n}\n.p-sysmsgs .g-teamSys .m-info .u-time {\n  color: #aaa;\n}\n.p-sysmsgs .g-teamSys .m-info .u-desc {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  color: #aaa;\n  font-size: 1rem;\n}\n.p-sysmsgs .g-teamSys .m-options {\n  display: flex;\n  align-items: center;\n}\n.p-sysmsgs .g-teamSys .m-options .weui-btn.weui-btn_mini {\n  padding: 0;\n  width: 3rem;\n  height: 2rem;\n}\n.p-sysmsgs .g-teamSys .m-options .weui-btn + .weui-btn {\n  margin-top: 0;\n  margin-left: 0.5rem;\n}\n.p-sysmsgs .u-msg-state {\n  color: #aaa;\n  font-size: .9rem;\n}\n.p-sysmsgs .empty-hint {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 5rem;\n  margin: auto;\n  text-align: center;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.back-top-box {\n  z-index: 2;\n  position: fixed;\n  right: 0.18rem;\n  bottom: 0.0116rem;\n}\n.back-top-box .back-top {\n  width: 2.96rem;\n  height: 2.96rem;\n  border-radius: 50%;\n}\n.back-top-box img {\n  display: block;\n  width: 100%;\n  height: 100%;\n}\n.p-sysmsgs .u-list {\n  height: 100%;\n  overflow-y: scroll;\n}\n.p-sysmsgs p {\n  word-wrap: normal;\n  word-break: break-all;\n  color: #333;\n}\n.p-sysmsgs .g-teamSys {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 100;\n  -webkit-flex-grow: 100;\n     -moz-box-flex: 100;\n      -ms-flex-positive: 100;\n          flex-grow: 100;\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n     -moz-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n     -moz-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  overflow: hidden;\n}\n.p-sysmsgs .g-teamSys .m-info {\n  -webkit-flex-shrink: 1;\n      -ms-flex-negative: 1;\n          flex-shrink: 1;\n  overflow: hidden;\n}\n.p-sysmsgs .g-teamSys .m-info .u-time {\n  color: #aaa;\n}\n.p-sysmsgs .g-teamSys .m-info .u-desc {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  color: #aaa;\n  font-size: 1rem;\n}\n.p-sysmsgs .g-teamSys .m-options {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n     -moz-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.p-sysmsgs .g-teamSys .m-options .weui-btn.weui-btn_mini {\n  padding: 0;\n  width: 3rem;\n  height: 2rem;\n}\n.p-sysmsgs .g-teamSys .m-options .weui-btn + .weui-btn {\n  margin-top: 0;\n  margin-left: 0.5rem;\n}\n.p-sysmsgs .u-msg-state {\n  color: #aaa;\n  font-size: .9rem;\n}\n.p-sysmsgs .empty-hint {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 3.2rem;\n  margin: auto;\n  text-align: center;\n}\n", "", {"version":3,"sources":["E:/IM/NIM_Web_Demo_H5-master/src/pages/SysMsgs.vue"],"names":[],"mappings":";AAAA;EACE,WAAW;EACX,gBAAgB;EAChB,eAAe;EACf,kBAAkB;CACnB;AACD;EACE,eAAe;EACf,gBAAgB;EAChB,mBAAmB;CACpB;AACD;EACE,eAAe;EACf,YAAY;EACZ,aAAa;CACd;AACD;EACE,aAAa;EACb,mBAAmB;CACpB;AACD;EACE,kBAAkB;EAClB,sBAAsB;EACtB,YAAY;CACb;AACD;EACE,qBAAc;EAAd,sBAAc;EAAd,kBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,sBAAe;EAAf,uBAAe;KAAf,mBAAe;MAAf,uBAAe;UAAf,eAAe;EACf,0BAA+B;EAA/B,uCAA+B;KAA/B,uBAA+B;MAA/B,uBAA+B;UAA/B,+BAA+B;EAC/B,0BAAoB;EAApB,4BAAoB;KAApB,uBAAoB;MAApB,uBAAoB;UAApB,oBAAoB;EACpB,iBAAiB;CAClB;AACD;EACE,uBAAe;MAAf,qBAAe;UAAf,eAAe;EACf,iBAAiB;CAClB;AACD;EACE,YAAY;CACb;AACD;EACE,iBAAiB;EACjB,wBAAwB;EACxB,oBAAoB;EACpB,YAAY;EACZ,gBAAgB;CACjB;AACD;EACE,qBAAc;EAAd,sBAAc;EAAd,kBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,0BAAoB;EAApB,4BAAoB;KAApB,uBAAoB;MAApB,uBAAoB;UAApB,oBAAoB;CACrB;AACD;EACE,WAAW;EACX,YAAY;EACZ,aAAa;CACd;AACD;EACE,cAAc;EACd,oBAAoB;CACrB;AACD;EACE,YAAY;EACZ,iBAAiB;CAClB;AACD;EACE,mBAAmB;EACnB,QAAQ;EACR,SAAS;EACT,YAAY;EACZ,aAAa;EACb,mBAAmB;CACpB","file":"SysMsgs.vue","sourcesContent":[".back-top-box {\n  z-index: 2;\n  position: fixed;\n  right: 0.18rem;\n  bottom: 0.0116rem;\n}\n.back-top-box .back-top {\n  width: 2.96rem;\n  height: 2.96rem;\n  border-radius: 50%;\n}\n.back-top-box img {\n  display: block;\n  width: 100%;\n  height: 100%;\n}\n.p-sysmsgs .u-list {\n  height: 100%;\n  overflow-y: scroll;\n}\n.p-sysmsgs p {\n  word-wrap: normal;\n  word-break: break-all;\n  color: #333;\n}\n.p-sysmsgs .g-teamSys {\n  display: flex;\n  flex-grow: 100;\n  justify-content: space-between;\n  align-items: center;\n  overflow: hidden;\n}\n.p-sysmsgs .g-teamSys .m-info {\n  flex-shrink: 1;\n  overflow: hidden;\n}\n.p-sysmsgs .g-teamSys .m-info .u-time {\n  color: #aaa;\n}\n.p-sysmsgs .g-teamSys .m-info .u-desc {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  color: #aaa;\n  font-size: 1rem;\n}\n.p-sysmsgs .g-teamSys .m-options {\n  display: flex;\n  align-items: center;\n}\n.p-sysmsgs .g-teamSys .m-options .weui-btn.weui-btn_mini {\n  padding: 0;\n  width: 3rem;\n  height: 2rem;\n}\n.p-sysmsgs .g-teamSys .m-options .weui-btn + .weui-btn {\n  margin-top: 0;\n  margin-left: 0.5rem;\n}\n.p-sysmsgs .u-msg-state {\n  color: #aaa;\n  font-size: .9rem;\n}\n.p-sysmsgs .empty-hint {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 3.2rem;\n  margin: auto;\n  text-align: center;\n}\n"],"sourceRoot":""}]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 352:
+/***/ 355:
 /* no static exports found */
 /* all exports used */
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
@@ -255,41 +258,16 @@ exports.push([module.i, "\n.p-sysmsgs .u-list {\n  height: 100%;\n  overflow-y: 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "g-inherit m-article"
-  }, [_c('x-header', {
-    staticClass: "m-tab",
-    attrs: {
-      "left-options": {
-        backText: ' '
-      }
-    }
-  }, [_c('button-tab', {
-    staticClass: "m-tab-top",
-    model: {
-      value: (_vm.sysType),
-      callback: function($$v) {
-        _vm.sysType = $$v
-      },
-      expression: "sysType"
-    }
-  }, [_c('button-tab-item', {
-    staticClass: "u-tab-top"
-  }, [_vm._v("系统消息")])], 1), _vm._v(" "), _c('a', {
-    attrs: {
-      "slot": "left"
-    },
-    slot: "left"
-  }), _vm._v(" "), _c('a', {
-    attrs: {
-      "slot": "right"
-    },
+  }, [_c('header', {
+    staticClass: "header bc line-bottom"
+  }, [_c('i', {
+    staticClass: "left fa-icon fa fa-angle-left",
     on: {
       "click": function($event) {
-        $event.stopPropagation();
-        _vm.clearMsgs($event)
+        _vm.$router.back(-1)
       }
-    },
-    slot: "right"
-  }, [_vm._v("清空")])], 1), _vm._v(" "), _c('div', {
+    }
+  }), _vm._v(" "), _c('h1', [_vm._v("通知")])]), _vm._v(" "), _c('div', {
     staticClass: "m-article-main p-sysmsgs"
   }, [_c('group', {
     staticClass: "u-list"
@@ -420,7 +398,24 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })])]
   })], 2), _vm._v(" "), (!_vm.msgList || _vm.msgList.length < 1) ? _c('div', {
     staticClass: "empty-hint"
-  }, [_vm._v("暂无任何消息")]) : _vm._e()], 1)], 1)
+  }, [_vm._v("暂无任何消息")]) : _vm._e()], 1), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "scroll-hide",
+      rawName: "v-scroll-hide",
+      value: (_vm.isShow),
+      expression: "isShow"
+    }],
+    staticClass: "back-top-box",
+    attrs: {
+      "scroll-hide-distance": "300"
+    }
+  }, [(_vm.isShow) ? _c('div', {
+    staticClass: "back-top animated"
+  }, [_c('img', {
+    attrs: {
+      "src": _vm.scrollTop
+    }
+  })]) : _vm._e()])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -432,7 +427,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 359:
+/***/ 363:
 /* no static exports found */
 /* all exports used */
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -443,7 +438,7 @@ if (false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../~/css-loader?sourceMap!../../~/vue-loader/lib/style-compiler?{"id":"data-v-1bf3ea74","scoped":false,"hasInlineConfig":true}!../../~/vux-loader/src/after-less-loader.js!../../~/less-loader/lib/loader.js!../../~/vux-loader/src/style-loader.js!../../~/vue-loader/lib/selector.js?type=styles&index=0!./SysMsgs.vue */ 344);
+var content = __webpack_require__(/*! !../../~/css-loader?sourceMap!../../~/vue-loader/lib/style-compiler?{"id":"data-v-1bf3ea74","scoped":false,"hasInlineConfig":true}!../../~/vux-loader/src/after-less-loader.js!../../~/less-loader/lib/loader.js!../../~/vux-loader/src/style-loader.js!../../~/vue-loader/lib/selector.js?type=styles&index=0!./SysMsgs.vue */ 346);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

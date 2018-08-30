@@ -13,12 +13,15 @@ Vue.use(VueTouch)
 // import VueRecyclerviewNew from 'vue-recyclerview'
 // Vue.use(VueRecyclerviewNew)
 
+// import 'animate.css'
+
 // 同步单页路由与数据中心
 import store from './store'
 import router from './router'
 
 require('./utils/polyfill')
 require('./utils/rem')
+require('./utils/directive')
 
 new Vue({
   router,

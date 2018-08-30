@@ -1,6 +1,6 @@
 webpackJsonp([4],{
 
-/***/ 303:
+/***/ 304:
 /* no static exports found */
 /* all exports used */
 /*!*******************************!*\
@@ -10,13 +10,13 @@ webpackJsonp([4],{
 
 
 /* styles */
-__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!../../~/vue-loader/lib/style-compiler/index?{"id":"data-v-4417dc5d","scoped":false,"hasInlineConfig":true}!../../~/vux-loader/src/after-less-loader.js!less-loader!../../~/vux-loader/src/style-loader.js!../../~/vue-loader/lib/selector?type=styles&index=0!./Session.vue */ 361)
+__webpack_require__(/*! !vue-style-loader!css-loader?sourceMap!../../~/vue-loader/lib/style-compiler/index?{"id":"data-v-4417dc5d","scoped":false,"hasInlineConfig":true}!../../~/vux-loader/src/after-less-loader.js!less-loader!../../~/vux-loader/src/style-loader.js!../../~/vue-loader/lib/selector?type=styles&index=0!./Session.vue */ 365)
 
 var Component = __webpack_require__(/*! ../../~/vue-loader/lib/component-normalizer */ 2)(
   /* script */
-  __webpack_require__(/*! !babel-loader!../../~/vux-loader/src/script-loader.js!../../~/vue-loader/lib/selector?type=script&index=0!./Session.vue */ 339),
+  __webpack_require__(/*! !babel-loader!../../~/vux-loader/src/script-loader.js!../../~/vue-loader/lib/selector?type=script&index=0!./Session.vue */ 340),
   /* template */
-  __webpack_require__(/*! !../../~/vue-loader/lib/template-compiler/index?{"id":"data-v-4417dc5d"}!../../~/vux-loader/src/before-template-compiler-loader.js!../../~/vux-loader/src/template-loader.js!../../~/vue-loader/lib/selector?type=template&index=0!./Session.vue */ 354),
+  __webpack_require__(/*! !../../~/vue-loader/lib/template-compiler/index?{"id":"data-v-4417dc5d"}!../../~/vux-loader/src/before-template-compiler-loader.js!../../~/vux-loader/src/template-loader.js!../../~/vue-loader/lib/selector?type=template&index=0!./Session.vue */ 357),
   /* scopeId */
   null,
   /* cssModules */
@@ -44,7 +44,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 339:
+/***/ 340:
 /* no static exports found */
 /* all exports used */
 /*!*******************************************************************************************************************************************!*\
@@ -186,7 +186,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 346:
+/***/ 348:
 /* no static exports found */
 /* all exports used */
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -199,14 +199,14 @@ exports = module.exports = __webpack_require__(/*! ../../~/css-loader/lib/css-ba
 
 
 // module
-exports.push([module.i, "\n.p-session .vux-cell-primary {\n  max-width: 70%;\n}\n", "", {"version":3,"sources":["E:/IM/NIM_Web_Demo_H5-master/src/pages/Session.vue"],"names":[],"mappings":";AAAA;EACE,eAAe;CAChB","file":"Session.vue","sourcesContent":[".p-session .vux-cell-primary {\n  max-width: 70%;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.p-session .vux-cell-primary {\n  width: 9.4rem;\n}\n", "", {"version":3,"sources":["E:/IM/NIM_Web_Demo_H5-master/src/pages/Session.vue"],"names":[],"mappings":";AAAA;EACE,cAAc;CACf","file":"Session.vue","sourcesContent":[".p-session .vux-cell-primary {\n  width: 9.4rem;\n}\n"],"sourceRoot":""}]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 354:
+/***/ 357:
 /* no static exports found */
 /* all exports used */
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
@@ -217,16 +217,21 @@ exports.push([module.i, "\n.p-session .vux-cell-primary {\n  max-width: 70%;\n}\
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "g-inherit m-main p-session page-top"
-  }, [_c('x-header', {
-    staticClass: "m-tab"
-  }, [_c('h1', {
-    staticClass: "m-tab-top"
-  }, [_vm._v("消息")])]), _vm._v(" "), _c('group', {
+  }, [_c('header', {
+    staticClass: "header bc line-bottom"
+  }, [_c('i', {
+    staticClass: "left fa-icon fa fa-angle-left",
+    on: {
+      "click": function($event) {
+        _vm.$router.back(-1)
+      }
+    }
+  }), _vm._v(" "), _c('h1', [_vm._v("消息")])]), _vm._v(" "), _c('group', {
     staticClass: "u-list"
   }, [_c('cell', {
     staticClass: "u-list-item",
     attrs: {
-      "title": "消息中心"
+      "title": "通知"
     },
     nativeOn: {
       "click": function($event) {
@@ -237,7 +242,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "icon",
     attrs: {
       "slot": "icon",
-      "width": "24",
       "src": _vm.noticeIcon
     },
     slot: "icon"
@@ -277,10 +281,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }, [_c('img', {
-      staticClass: "icon u-circle",
+      staticClass: "u-circle",
       attrs: {
         "slot": "icon",
-        "width": "24",
         "src": session.avatar
       },
       slot: "icon"
@@ -294,7 +297,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         expression: "session.unread > 0"
       }],
       staticClass: "u-unread"
-    }, [_vm._v(_vm._s(session.unread))]), _vm._v(" "), _c('span', {
+    }), _vm._v(" "), _c('span', {
       staticClass: "u-tag-del",
       class: {
         active: _vm.delSessionId === session.id
@@ -315,7 +318,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 361:
+/***/ 365:
 /* no static exports found */
 /* all exports used */
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -326,7 +329,7 @@ if (false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../~/css-loader?sourceMap!../../~/vue-loader/lib/style-compiler?{"id":"data-v-4417dc5d","scoped":false,"hasInlineConfig":true}!../../~/vux-loader/src/after-less-loader.js!../../~/less-loader/lib/loader.js!../../~/vux-loader/src/style-loader.js!../../~/vue-loader/lib/selector.js?type=styles&index=0!./Session.vue */ 346);
+var content = __webpack_require__(/*! !../../~/css-loader?sourceMap!../../~/vue-loader/lib/style-compiler?{"id":"data-v-4417dc5d","scoped":false,"hasInlineConfig":true}!../../~/vux-loader/src/after-less-loader.js!../../~/less-loader/lib/loader.js!../../~/vux-loader/src/style-loader.js!../../~/vue-loader/lib/selector.js?type=styles&index=0!./Session.vue */ 348);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

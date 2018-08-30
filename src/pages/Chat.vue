@@ -11,7 +11,7 @@
     </x-header> -->
 
     <header class="header bc line-bottom">
-        <i class="left icon fa fa-angle-left" v-on:click = "$router.back(-1)">&lt;</i>
+        <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
         <!-- <h1 class="m-tab-top" @click="enterNameCard">{{sessionName}}</h1> -->
         <h1>{{sessionName}}</h1>
         <!-- <i class="txt"><img src="/static/images/opportunity/icon/icon_tel.png"></i> -->
@@ -220,68 +220,6 @@ export default {
 </script>
 <style lang="less" scoped>
 @rem: 50rem;
-.txt {
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin-right: 10/@rem;
-    padding: 0 14/@rem;
-    display: block;
-    height: 88/@rem;
-    line-height: 88/@rem;
-    text-align: center;
-    img{
-        width: 34/@rem;
-        height: 32/@rem;
-    }
-}
-.icon{
-  font-style:normal;
-  position: absolute;
-  top: 50%;
-  left: 24/@rem;
-  -webkit-transform: translate3d(0, -50%, 0);
-  transform: translate3d(0, -50%, 0);
-  font-size: 0.76rem;
-}
-.header{
-  padding: 0 100/@rem;
-  position:fixed;
-  top:0;
-  right:0;
-  width:100%;
-  height:88/@rem; 
-  line-height:88/@rem;
-  text-align: center;
-  font-size: 36/@rem;
-  color: #2a2a2a;
-  z-index: 100;
-  background: #ffffff;
-  h1{
-    font-weight:normal;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 36/@rem;
-    line-height: 88/@rem;
-  }
-}
-// 头部1px下边框
-.line-bottom:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: #bfbfbf ;
-  -webkit-transform: scaleY(0.5);
-  transform: scaleY(0.5);
-  -webkit-transform-origin: 0 100%;
-  transform-origin: 0 100%;
-}
-
-
 .g-window .m-tab .m-tab-right{
   width: 5rem;
   right: -1rem;

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "dist/js/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 201);
+/******/ 	return __webpack_require__(__webpack_require__.s = 202);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -109,6 +109,8 @@ var config = {
   noticeIcon: 'http://yx-web.nos.netease.com/webdoc/h5/im/notice-icon.png',
 
   myPhoneIcon: 'http://yx-web.nos.netease.com/webdoc/h5/im/my-phone.png',
+
+  scrollTop: 'http://yx-web.nos.netease.com/webdoc/h5/im/notice-icon.png',
 
   localMsglimit: 36
 };
@@ -184,47 +186,13 @@ module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/
 /***/ (function(module, exports, __webpack_require__) {
 
 // Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(/*! ./_fails */ 10)(function () {
+module.exports = !__webpack_require__(/*! ./_fails */ 11)(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
 
 
 /***/ }),
 /* 10 */
-/* no static exports found */
-/* all exports used */
-/*!*********************************************!*\
-  !*** ./~/core-js/library/modules/_fails.js ***!
-  \*********************************************/
-/***/ (function(module, exports) {
-
-module.exports = function (exec) {
-  try {
-    return !!exec();
-  } catch (e) {
-    return true;
-  }
-};
-
-
-/***/ }),
-/* 11 */
-/* no static exports found */
-/* all exports used */
-/*!*******************************************!*\
-  !*** ./~/core-js/library/modules/_has.js ***!
-  \*******************************************/
-/***/ (function(module, exports) {
-
-var hasOwnProperty = {}.hasOwnProperty;
-module.exports = function (it, key) {
-  return hasOwnProperty.call(it, key);
-};
-
-
-/***/ }),
-/* 12 */,
-/* 13 */
 /* no static exports found */
 /* all exports used */
 /*!***************************!*\
@@ -11034,6 +11002,40 @@ return Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../webpack/buildin/global.js */ 36), __webpack_require__(/*! ./../../timers-browserify/main.js */ 68).setImmediate))
 
 /***/ }),
+/* 11 */
+/* no static exports found */
+/* all exports used */
+/*!*********************************************!*\
+  !*** ./~/core-js/library/modules/_fails.js ***!
+  \*********************************************/
+/***/ (function(module, exports) {
+
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+
+/***/ }),
+/* 12 */
+/* no static exports found */
+/* all exports used */
+/*!*******************************************!*\
+  !*** ./~/core-js/library/modules/_has.js ***!
+  \*******************************************/
+/***/ (function(module, exports) {
+
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function (it, key) {
+  return hasOwnProperty.call(it, key);
+};
+
+
+/***/ }),
+/* 13 */,
 /* 14 */
 /* no static exports found */
 /* all exports used */
@@ -11798,7 +11800,7 @@ var _create = __webpack_require__(/*! babel-runtime/core-js/object/create */ 42)
 
 var _create2 = _interopRequireDefault(_create);
 
-var _vue = __webpack_require__(/*! vue */ 13);
+var _vue = __webpack_require__(/*! vue */ 10);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -11936,7 +11938,7 @@ module.exports = function (it) {
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = !__webpack_require__(/*! ./_descriptors */ 9) && !__webpack_require__(/*! ./_fails */ 10)(function () {
+module.exports = !__webpack_require__(/*! ./_descriptors */ 9) && !__webpack_require__(/*! ./_fails */ 11)(function () {
   return Object.defineProperty(__webpack_require__(/*! ./_dom-create */ 54)('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
@@ -11952,7 +11954,7 @@ module.exports = !__webpack_require__(/*! ./_descriptors */ 9) && !__webpack_req
   \************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-var has = __webpack_require__(/*! ./_has */ 11);
+var has = __webpack_require__(/*! ./_has */ 12);
 var toIObject = __webpack_require__(/*! ./_to-iobject */ 15);
 var arrayIndexOf = __webpack_require__(/*! ./_array-includes */ 78)(false);
 var IE_PROTO = __webpack_require__(/*! ./_shared-key */ 46)('IE_PROTO');
@@ -12187,7 +12189,7 @@ var IObject = __webpack_require__(/*! ./_iobject */ 55);
 var $assign = Object.assign;
 
 // should work with symbols and should have deterministic property order (V8 bug)
-module.exports = !$assign || __webpack_require__(/*! ./_fails */ 10)(function () {
+module.exports = !$assign || __webpack_require__(/*! ./_fails */ 11)(function () {
   var A = {};
   var B = {};
   // eslint-disable-next-line no-undef
@@ -13702,7 +13704,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;;(function () {
 /* 198 */,
 /* 199 */,
 /* 200 */,
-/* 201 */
+/* 201 */,
+/* 202 */
 /* no static exports found */
 /* all exports used */
 /*!**********************!*\
@@ -13713,7 +13716,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;;(function () {
 "use strict";
 
 
-var _vue = __webpack_require__(/*! vue */ 13);
+var _vue = __webpack_require__(/*! vue */ 10);
 
 var _vue2 = _interopRequireDefault(_vue);
 

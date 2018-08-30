@@ -18,7 +18,8 @@
       :type="msg.type"
       v-touch:hold="revocateMsg"
     >
-      <a class="msg-head" v-if="msg.avatar" :href="msg.link">
+      <!-- <a class="msg-head" v-if="msg.avatar" :href="msg.link"> -->
+      <a class="msg-head" v-if="msg.avatar">
         <img class="icon u-circle" :src="msg.avatar">
       </a>
       <p class="msg-user" v-else-if="msg.type!=='notification'"><em>{{msg.showTime}}</em>{{msg.from}}</p>

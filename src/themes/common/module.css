@@ -1,9 +1,6 @@
 /*
  * 模块
  */
-* {
-  box-sizing: border-box;
-}
 /* 外面嵌套g-window 为了覆盖weui默认样式 */
 .g-window {
   /* 控制元素在移动设备上是否使用滚动回弹效果 */
@@ -256,21 +253,48 @@
 .g-window .m-chat-editor-main {
   position: relative;
   display: block;
-  padding: 0;
+  padding-left: 1rem;
   width: 100%;
   min-height: 1.96rem;
+  max-height: 2.6rem;
   display: flex;
   align-items: center;
 }
-.g-window .m-chat-editor-main .u-editor-input textarea {
+.g-window .m-chat-editor-main .u-editor-input {
+  padding: 0.44rem 0;
+}
+.g-window .m-chat-editor-main .u-editor-input ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.g-window .m-chat-editor-main .u-editor-input ::-webkit-scrollbar-track-piece {
+  background-color: #ebeef3;
+  -webkit-border-radius: 0;
+}
+.g-window .m-chat-editor-main .u-editor-input ::-webkit-scrollbar-thumb:vertical {
+  height: 0;
+  background-color: #d8dce4;
+  -webkit-border-radius: 0;
+}
+.g-window .m-chat-editor-main .u-editor-input ::-webkit-scrollbar-thumb:horizontal {
+  width: 0;
+  background-color: #d8dce4;
+  -webkit-border-radius: 0;
+}
+.g-window .m-chat-editor-main .u-editor-input .textarea {
+  box-sizing: border-box;
+  outline: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
   position: relative;
   display: inline-block;
-  padding: 5px;
+  padding: 0.1rem;
   font-size: 0.52rem;
-  width: 9.28rem;
+  width: 10rem;
   min-height: 1.1rem;
   max-height: 2.2rem;
   background: #fafafa;
+  border-radius: 0.18rem;
   text-align: left;
   border: 1px solid #c8c8cd;
   border-radius: 0.12rem;
@@ -286,6 +310,5 @@
   margin-right: 0.4rem;
 }
 .g-window .m-chat-editor-main .u-editor-emoji {
-  margin-left: 0.38rem;
-  margin-right: 0.4rem;
+  margin: 0 0.72rem;
 }

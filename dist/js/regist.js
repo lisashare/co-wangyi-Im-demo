@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "dist/js/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 204);
+/******/ 	return __webpack_require__(__webpack_require__.s = 205);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -81,7 +81,7 @@
 
 exports.__esModule = true;
 
-var _vue = __webpack_require__(/*! vue */ 13);
+var _vue = __webpack_require__(/*! vue */ 10);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -159,6 +159,8 @@ var config = {
 
   myPhoneIcon: 'http://yx-web.nos.netease.com/webdoc/h5/im/my-phone.png',
 
+  scrollTop: 'http://yx-web.nos.netease.com/webdoc/h5/im/notice-icon.png',
+
   localMsglimit: 36
 };
 
@@ -233,47 +235,13 @@ module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/
 /***/ (function(module, exports, __webpack_require__) {
 
 // Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(/*! ./_fails */ 10)(function () {
+module.exports = !__webpack_require__(/*! ./_fails */ 11)(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
 
 
 /***/ }),
 /* 10 */
-/* no static exports found */
-/* all exports used */
-/*!*********************************************!*\
-  !*** ./~/core-js/library/modules/_fails.js ***!
-  \*********************************************/
-/***/ (function(module, exports) {
-
-module.exports = function (exec) {
-  try {
-    return !!exec();
-  } catch (e) {
-    return true;
-  }
-};
-
-
-/***/ }),
-/* 11 */
-/* no static exports found */
-/* all exports used */
-/*!*******************************************!*\
-  !*** ./~/core-js/library/modules/_has.js ***!
-  \*******************************************/
-/***/ (function(module, exports) {
-
-var hasOwnProperty = {}.hasOwnProperty;
-module.exports = function (it, key) {
-  return hasOwnProperty.call(it, key);
-};
-
-
-/***/ }),
-/* 12 */,
-/* 13 */
 /* no static exports found */
 /* all exports used */
 /*!***************************!*\
@@ -11083,6 +11051,40 @@ return Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../webpack/buildin/global.js */ 36), __webpack_require__(/*! ./../../timers-browserify/main.js */ 68).setImmediate))
 
 /***/ }),
+/* 11 */
+/* no static exports found */
+/* all exports used */
+/*!*********************************************!*\
+  !*** ./~/core-js/library/modules/_fails.js ***!
+  \*********************************************/
+/***/ (function(module, exports) {
+
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+
+/***/ }),
+/* 12 */
+/* no static exports found */
+/* all exports used */
+/*!*******************************************!*\
+  !*** ./~/core-js/library/modules/_has.js ***!
+  \*******************************************/
+/***/ (function(module, exports) {
+
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function (it, key) {
+  return hasOwnProperty.call(it, key);
+};
+
+
+/***/ }),
+/* 13 */,
 /* 14 */
 /* no static exports found */
 /* all exports used */
@@ -11156,7 +11158,7 @@ var _create = __webpack_require__(/*! babel-runtime/core-js/object/create */ 42)
 
 var _create2 = _interopRequireDefault(_create);
 
-var _vue = __webpack_require__(/*! vue */ 13);
+var _vue = __webpack_require__(/*! vue */ 10);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -12763,7 +12765,7 @@ var _create = __webpack_require__(/*! babel-runtime/core-js/object/create */ 42)
 
 var _create2 = _interopRequireDefault(_create);
 
-var _vue = __webpack_require__(/*! vue */ 13);
+var _vue = __webpack_require__(/*! vue */ 10);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -13162,7 +13164,7 @@ module.exports = function (it) {
   \******************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = !__webpack_require__(/*! ./_descriptors */ 9) && !__webpack_require__(/*! ./_fails */ 10)(function () {
+module.exports = !__webpack_require__(/*! ./_descriptors */ 9) && !__webpack_require__(/*! ./_fails */ 11)(function () {
   return Object.defineProperty(__webpack_require__(/*! ./_dom-create */ 54)('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
@@ -13200,7 +13202,7 @@ module.exports = true;
   \************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-var has = __webpack_require__(/*! ./_has */ 11);
+var has = __webpack_require__(/*! ./_has */ 12);
 var toIObject = __webpack_require__(/*! ./_to-iobject */ 15);
 var arrayIndexOf = __webpack_require__(/*! ./_array-includes */ 78)(false);
 var IE_PROTO = __webpack_require__(/*! ./_shared-key */ 46)('IE_PROTO');
@@ -13229,7 +13231,7 @@ module.exports = function (object, names) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var def = __webpack_require__(/*! ./_object-dp */ 14).f;
-var has = __webpack_require__(/*! ./_has */ 11);
+var has = __webpack_require__(/*! ./_has */ 12);
 var TAG = __webpack_require__(/*! ./_wks */ 25)('toStringTag');
 
 module.exports = function (it, tag, stat) {
@@ -14281,7 +14283,7 @@ var LIBRARY = __webpack_require__(/*! ./_library */ 63);
 var $export = __webpack_require__(/*! ./_export */ 17);
 var redefine = __webpack_require__(/*! ./_redefine */ 85);
 var hide = __webpack_require__(/*! ./_hide */ 18);
-var has = __webpack_require__(/*! ./_has */ 11);
+var has = __webpack_require__(/*! ./_has */ 12);
 var Iterators = __webpack_require__(/*! ./_iterators */ 62);
 var $iterCreate = __webpack_require__(/*! ./_iter-create */ 121);
 var setToStringTag = __webpack_require__(/*! ./_set-to-string-tag */ 65);
@@ -14368,7 +14370,7 @@ var IObject = __webpack_require__(/*! ./_iobject */ 55);
 var $assign = Object.assign;
 
 // should work with symbols and should have deterministic property order (V8 bug)
-module.exports = !$assign || __webpack_require__(/*! ./_fails */ 10)(function () {
+module.exports = !$assign || __webpack_require__(/*! ./_fails */ 11)(function () {
   var A = {};
   var B = {};
   // eslint-disable-next-line no-undef
@@ -25493,13 +25495,13 @@ module.exports = function (done, value) {
 
 var META = __webpack_require__(/*! ./_uid */ 39)('meta');
 var isObject = __webpack_require__(/*! ./_is-object */ 19);
-var has = __webpack_require__(/*! ./_has */ 11);
+var has = __webpack_require__(/*! ./_has */ 12);
 var setDesc = __webpack_require__(/*! ./_object-dp */ 14).f;
 var id = 0;
 var isExtensible = Object.isExtensible || function () {
   return true;
 };
-var FREEZE = !__webpack_require__(/*! ./_fails */ 10)(function () {
+var FREEZE = !__webpack_require__(/*! ./_fails */ 11)(function () {
   return isExtensible(Object.preventExtensions({}));
 });
 var setMeta = function (it) {
@@ -25559,7 +25561,7 @@ var pIE = __webpack_require__(/*! ./_object-pie */ 37);
 var createDesc = __webpack_require__(/*! ./_property-desc */ 38);
 var toIObject = __webpack_require__(/*! ./_to-iobject */ 15);
 var toPrimitive = __webpack_require__(/*! ./_to-primitive */ 53);
-var has = __webpack_require__(/*! ./_has */ 11);
+var has = __webpack_require__(/*! ./_has */ 12);
 var IE8_DOM_DEFINE = __webpack_require__(/*! ./_ie8-dom-define */ 61);
 var gOPD = Object.getOwnPropertyDescriptor;
 
@@ -25613,7 +25615,7 @@ module.exports.f = function getOwnPropertyNames(it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-var has = __webpack_require__(/*! ./_has */ 11);
+var has = __webpack_require__(/*! ./_has */ 12);
 var toObject = __webpack_require__(/*! ./_to-object */ 52);
 var IE_PROTO = __webpack_require__(/*! ./_shared-key */ 46)('IE_PROTO');
 var ObjectProto = Object.prototype;
@@ -25639,7 +25641,7 @@ module.exports = Object.getPrototypeOf || function (O) {
 // most Object methods by ES6 should accept primitives
 var $export = __webpack_require__(/*! ./_export */ 17);
 var core = __webpack_require__(/*! ./_core */ 4);
-var fails = __webpack_require__(/*! ./_fails */ 10);
+var fails = __webpack_require__(/*! ./_fails */ 11);
 module.exports = function (KEY, exec) {
   var fn = (core.Object || {})[KEY] || Object[KEY];
   var exp = {};
@@ -25795,12 +25797,12 @@ __webpack_require__(/*! ./_iter-define */ 81)(String, 'String', function (iterat
 
 // ECMAScript 6 symbols shim
 var global = __webpack_require__(/*! ./_global */ 5);
-var has = __webpack_require__(/*! ./_has */ 11);
+var has = __webpack_require__(/*! ./_has */ 12);
 var DESCRIPTORS = __webpack_require__(/*! ./_descriptors */ 9);
 var $export = __webpack_require__(/*! ./_export */ 17);
 var redefine = __webpack_require__(/*! ./_redefine */ 85);
 var META = __webpack_require__(/*! ./_meta */ 123).KEY;
-var $fails = __webpack_require__(/*! ./_fails */ 10);
+var $fails = __webpack_require__(/*! ./_fails */ 11);
 var shared = __webpack_require__(/*! ./_shared */ 51);
 var setToStringTag = __webpack_require__(/*! ./_set-to-string-tag */ 65);
 var uid = __webpack_require__(/*! ./_uid */ 39);
@@ -27101,7 +27103,8 @@ var index_esm = {
 /* 201 */,
 /* 202 */,
 /* 203 */,
-/* 204 */
+/* 204 */,
+/* 205 */
 /* no static exports found */
 /* all exports used */
 /*!***********************!*\
@@ -27112,7 +27115,7 @@ var index_esm = {
 "use strict";
 
 
-var _vue = __webpack_require__(/*! vue */ 13);
+var _vue = __webpack_require__(/*! vue */ 10);
 
 var _vue2 = _interopRequireDefault(_vue);
 

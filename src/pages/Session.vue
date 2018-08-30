@@ -1,11 +1,17 @@
 <template>
   <div class="g-inherit m-main p-session page-top">
-    <x-header class="m-tab">
+    <!-- <x-header class="m-tab">
       <h1 class="m-tab-top">消息</h1>
-    </x-header>
+    </x-header> -->
+    <header class="header bc line-bottom">
+        <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
+        <!-- <h1 class="m-tab-top" @click="enterNameCard">{{sessionName}}</h1> -->
+        <h1>消息</h1>
+        <!-- <i class="txt"><img src="/static/images/opportunity/icon/icon_tel.png"></i> -->
+    </header>
     <group class="u-list">
-      <cell class="u-list-item" title="消息中心" @click.native="enterSysMsgs">
-        <img class="icon" slot="icon" width="24" :src="noticeIcon">
+      <cell class="u-list-item" title="通知" @click.native="enterSysMsgs">
+        <img class="icon" slot="icon" :src="noticeIcon">
         <span v-show="sysMsgUnread > 0" class="u-unread">{{sysMsgUnread}}</span>
       </cell>  
       <cell
@@ -18,11 +24,12 @@
         v-touch:swipeleft="showDelBtn"
         v-touch:swiperight="hideDelBtn"
         @click.native="enterChat(session)" >
-        <img class="icon u-circle" slot="icon" width="24" :src="session.avatar">
+        <img class="u-circle" slot="icon" :src="session.avatar">
         <span class='u-session-time'>
           {{session.updateTimeShow}}
         </span>
-        <span v-show="session.unread > 0" class="u-unread">{{session.unread}}</span>
+        <!-- <span v-show="session.unread > 0" class="u-unread">{{session.unread}}</span> -->
+        <span v-show="session.unread > 0" class="u-unread"></span>
         <span
           class="u-tag-del"
           :class="{active: delSessionId===session.id}"
@@ -159,10 +166,11 @@ export default {
 }
 </script>
 
-<style lang="less" type="text/css">
+<style lang="less">
+@rem: 50rem;
   .p-session {
     .vux-cell-primary {
-      max-width: 70%;
+      width: 470/@rem;
     }
   }
 </style>

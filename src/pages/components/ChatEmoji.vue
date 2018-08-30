@@ -14,7 +14,7 @@
         <img :src="item.album">
       </span>
 
-        <!-- <span class="u-editor-send" @click="sendTextMsg">发 送</span> -->
+        <span class="u-editor-send" @click.stop="sendTextMsg">发 送</span>
       </span>
     </div>
   </div>
@@ -77,6 +77,9 @@ export default {
     }
   },
   methods: {
+    sendTextMsg(){
+      this.$emit('send-msg')
+    },
     selectAlbum (album) {
       this.currType = album.type
       this.currAlbum = album.name
@@ -122,41 +125,46 @@ export default {
 
 <style lang="less">
 @rem: 50rem;
-*{
-  box-sizing: border-box;
-}
   .m-chat-emoji {
     display: flex;
     flex-direction: column;
-    height: 448/@rem;
+    height: 398/@rem;
+    // height: 448/@rem;
     left: 0;
     width: 100%;
     border-top: 1px solid #d5d5d5;
     background-color: #ffffff;
+    // 表情下面的选项卡
     .emoji-channel {
-      justify-content: flex-end;
+      display: flex;
+      // justify-content: flex-end;
       position: relative;
-      width: 100%;
-      height: 48/@rem;
-      margin: 0 30/@rem;
-      .u-editor-send{
-        float: right;
-        width: 28/@rem;
-        height:28/@rem;
+      // width: 100%;
+      // height: 70/@rem;
+      border: 1px solid #d5d5d5;
+      .u-editor-send{ // 发送按钮
+        position: absolute;
+        right:0;
+        // justify-content: flex-end;
+        width: 100/@rem;
+        height: 70/@rem;
         color: #fff;
-        background-color: #0091e4;
+        background-color: #0079ff;
+        font-size: 24/@rem;
+        line-height: 70/@rem; 
+        text-align: center;
       }
-      .emoji-album {
-        display: inline-block;
-        padding: 1px 3px;
-        width: 42/@rem;
-        height: 42/@rem;
+      .emoji-album { // 筛选表情
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100/@rem;
+        height: 70/@rem;
         border-right: 1px solid #d5d5d5;
         img {
-          margin: 0;
           display: block;
-          width: inherit;
-          height: inherit;
+          width: 56/@rem;
+          height:56/@rem;
         }
         &.active {
           background-color: #f0f0f0;
@@ -167,31 +175,36 @@ export default {
       flex:1;
       position: relative;
       width: 100%;
-      height: 400/@rem;
+      // height: 400/@rem;
+      height: 350/@rem;
       overflow-y: auto;
       .cnt {
         position: relative;
         display: block;
-        margin: 0.4rem auto;
+        margin: 34/@rem auto;
         text-align: left;
       }
       .emoji-item {
         display: inline-block;
-        width: 44/@rem;
-        height: 44/@rem;
-        padding: 4px;
+        width: 64/@rem;
+        height: 60/@rem;
+        padding: 6/@rem 8/@rem;
         vertical-align: middle;
         /*border: 1px solid #fff;*/
         /*margin-left: -1px;*/
         /*margin-bottom: -1px;*/
         img {
-          width: inherit;
-          height: inherit;
+          width: 48/@rem;
+          height: 48/@rem;
         }
       }
       .pinup-item {
-        width: 44px;
-        height: 44px;
+        width: 100/@rem;
+        height: 104/@rem;
+        img {
+          width: 88/@rem;
+          height: 88/@rem;
+        }
       }
     }
 
