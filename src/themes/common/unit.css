@@ -74,9 +74,7 @@
   content: "删除";
   font-size: 0.6rem;
   top: 50%;
-  -webkit-transform: translate3d(0, -50%, 0);
-  -ms-transform: translate3d(0, -50%, 0);
-  transform: translate3d(0, -50%, 0);
+  line-height: 1.2rem;
 }
 .g-window .u-tag-del.active {
   transform: translate3d(0, 0, 0);

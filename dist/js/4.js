@@ -228,32 +228,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('h1', [_vm._v("消息")])]), _vm._v(" "), _c('group', {
     staticClass: "u-list"
-  }, [_c('cell', {
-    staticClass: "u-list-item",
-    attrs: {
-      "title": "通知"
-    },
-    nativeOn: {
-      "click": function($event) {
-        _vm.enterSysMsgs($event)
-      }
-    }
-  }, [_c('img', {
-    staticClass: "icon",
-    attrs: {
-      "slot": "icon",
-      "src": _vm.noticeIcon
-    },
-    slot: "icon"
-  }), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.sysMsgUnread > 0),
-      expression: "sysMsgUnread > 0"
-    }],
-    staticClass: "u-unread"
-  }, [_vm._v(_vm._s(_vm.sysMsgUnread))])]), _vm._v(" "), _vm._l((_vm.sessionlist), function(session, index) {
+  }, _vm._l((_vm.sessionlist), function(session, index) {
     return _c('cell', {
       directives: [{
         name: "touch",
@@ -306,7 +281,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "click": _vm.deleteSession
       }
     })])
-  })], 2)], 1)
+  }))], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

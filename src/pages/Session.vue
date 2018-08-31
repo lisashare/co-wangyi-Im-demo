@@ -10,10 +10,10 @@
         <!-- <i class="txt"><img src="/static/images/opportunity/icon/icon_tel.png"></i> -->
     </header>
     <group class="u-list">
-      <cell class="u-list-item" title="通知" @click.native="enterSysMsgs">
+      <!-- <cell class="u-list-item" title="通知" @click.native="enterSysMsgs">
         <img class="icon" slot="icon" :src="noticeIcon">
         <span v-show="sysMsgUnread > 0" class="u-unread">{{sysMsgUnread}}</span>
-      </cell>  
+      </cell>   -->
       <cell
         v-for="(session, index) in sessionlist"
         class="u-list-item"
