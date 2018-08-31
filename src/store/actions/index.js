@@ -24,7 +24,10 @@ function connectNim ({state, commit, dispatch}, obj) {
     let loginInfo = {
       uid: cookie.readCookie('uid'),
       sdktoken: cookie.readCookie('sdktoken'),
+      // uid: "047e07dc68dd43b8b9ba30ceb1adbebb",
+      // sdktoken: "a9ad416637cb314e603788bc25701372",
     }
+    console.log(loginInfo)
     if (!loginInfo.uid) {
       // 无cookie，直接跳转登录页
       pageUtil.turnPage('无历史登录记录，请重新登录', 'login')
@@ -67,7 +70,7 @@ export default {
   continueRobotMsg,
 
   // 连接sdk请求，false表示强制重连
-  connect (store, obj) {
+  connect (store, obj) {                     
     let {type} = Object.assign({}, obj)
     // type 可为 nim chatroom
     type = type || 'nim'

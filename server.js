@@ -34,7 +34,7 @@ app.get('/webdemo/h5/regist.html', function (req, res, next) {
   res.render(path.join(projPath, 'regist'))
 })
 
-// 单页应用页面
+// 单页应用页面    // 进入主页面，同时执行index 中引入的方法， 再决定跳转到哪一个页面
 app.get('/webdemo/h5/index.html', function (req, res, next) {
   res.render(path.join(projPath, 'index'))
 })
@@ -44,6 +44,6 @@ app.get('/', function (req, res, next) {
 })
 
 // 修改侦听服务器端口
-const port = 2001
-app.listen(port,'0.0.0.0')
+const port = 3000
+app.listen(port)
 console.info(`Listen on Port ${port}`)

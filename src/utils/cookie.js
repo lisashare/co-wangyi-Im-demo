@@ -8,14 +8,27 @@ const cookie = {
     document.cookie = name + '=' + escape (value) + ';expires=' + exp.toGMTString()
   },
   //读取cookies 
-  readCookie: function (name) {
-    let arr = null
-    let reg = new RegExp('(^| )'+name+'=([^;]*)(;|$)')
-    if (document.cookie && (arr = document.cookie.match(reg))) {
-      return unescape(arr[2])
-    } else {
-      return null;
-    } 
+  readCookie: function (objName) {
+    // let arr = null
+    // let reg = new RegExp('(^| )'+name+'=([^;]*)(;|$)')
+    // if (document.cookie && (arr = document.cookie.match(reg))) {
+    //   return unescape(arr[2])
+    // } else {
+    //   return null;
+    // } 
+    var search = objName + '='
+    if (document.cookie.length > 0) {
+	  var offset = document.cookie.indexOf(search)
+	  if (offset != -1) {
+		  offset += search.length
+		  var end = document.cookie.indexOf(';', offset)
+		  if (end == -1) end = document.cookie.length
+		  return unescape(document.cookie.substring(offset, end))
+	  } else {
+		  return ''
+	  }
+    }
+    return ''
   }, 
   //删除cookies 
   delCookie: function (name) { 

@@ -81,7 +81,7 @@ export default {
   // 所有页面更新都会触发此函数
   updated () {
     // 提交sdk连接请求
-    this.$store.dispatch('connect')
+    this.$store.dispatch('connect')    
     this.$store.dispatch('updateRefreshState')
   },
   components: {
@@ -94,7 +94,8 @@ export default {
     showNav () {
       return pageUtil.showNav(this.$route.path)
     }
-  }
+  },
+
 }
 </script>
 

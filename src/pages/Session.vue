@@ -1,14 +1,16 @@
 <template>
   <div class="g-inherit m-main p-session page-top">
-    <!-- <x-header class="m-tab">
-      <h1 class="m-tab-top">消息</h1>
-    </x-header> -->
     <header class="header bc line-bottom">
         <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
         <!-- <h1 class="m-tab-top" @click="enterNameCard">{{sessionName}}</h1> -->
         <h1>消息</h1>
-        <!-- <i class="txt"><img src="/static/images/opportunity/icon/icon_tel.png"></i> -->
+        <span class="header-contact-customer" @click="phoneCall"><img :src="myAdvancedIcon" alt=""></span>
+        <span class="header-nav" @click="isNavShow=!isNavShow"><img :src="myAdvancedIcon" alt=""></span>
     </header>
+    <nav-list 
+            :close-nav="closeNav" 
+            :is-nav-show="isNavShow">
+    </nav-list>
     <group class="u-list">
       <!-- <cell class="u-list-item" title="通知" @click.native="enterSysMsgs">
         <img class="icon" slot="icon" :src="noticeIcon">
@@ -43,10 +45,12 @@
 <script>
 import util from '../utils'
 import config from '../configs'
-
+import NavList from './components/NavList'
 export default {
+  components:{NavList},
   data () {
     return {
+      isNavShow:false,
       delSessionId: null,
       stopBubble: false,
       noticeIcon: config.noticeIcon,
@@ -123,6 +127,12 @@ export default {
     }
   },
   methods: {
+    phoneCall(){
+      window.location.href = 'tel:010-53579588'
+    },
+    closeNav () {
+      this.isNavShow = false;
+    },
     enterSysMsgs () {     // 进入系统信息
       if (this.hideDelBtn())
         return
@@ -172,5 +182,35 @@ export default {
     .vux-cell-primary {
       width: 470/@rem;
     }
+  }
+  .header-contact-customer,.header-nav{
+    img{
+      width: 100%;
+      height:100%;
+    }
+  }
+  .header-contact-customer{
+    width: 34/@rem;
+    height: 32/@rem;
+    // background-image: url('/static/images/common/icon_erji@3x.png');
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    top: 29/@rem;
+    right: 115/@rem;
+    z-index: 11;
+  }
+  .header-nav{
+    width: 34/@rem;
+    height: 32/@rem;
+    // background-image: url('/static/images/common/icon_classify@3x.png');
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    top: 29/@rem;
+    right: 24/@rem;
+    z-index: 11;
   }
 </style>
