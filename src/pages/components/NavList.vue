@@ -18,7 +18,7 @@
             v-if="isNavShow" 
             class="nav-group">
             <ul>
-                <router-link tag="li" :to="{name:nav.name}" v-for="nav in navs" :key="nav.id">
+                <router-link tag="li" :to="nav.url" v-for="nav in navs" :key="nav.id">
                     <div class="nav-img"><img :class="nav.icon" :src="nav.img" /></div>
                     <span class="title">{{nav.title}}</span>
                 </router-link>
@@ -36,14 +36,14 @@ export default {
   data () {
       return {
           navs:[
-              {id:1,title:'首页',name:'session',icon:'icon1',img:`${config.myPhoneIcon}`},
-              {id:2,title:'商机',name:'session',icon:'icon2',img:`${config.myPhoneIcon}`},
-              {id:3, title: 'VR看店', name: 'session',icon:'icon3',img:`${config.myPhoneIcon}`},
-              {id:4, title: '商评', name: 'session',icon:'icon4',img:`${config.myPhoneIcon}`},
-              {id:5, title: '发现', name: 'session',icon:'icon5',img:`${config.myPhoneIcon}`},
-              {id:6, title: '消息', name: 'session',icon:'icon6',img:`${config.myPhoneIcon}`},
-              {id:7,title:'我的',name:'session',icon:'icon7',img:`${config.myPhoneIcon}`},
-              {id:8,title:'APP',name:'session',icon:'icon8',img:`${config.myPhoneIcon}`}
+              {id:1,title:'首页',url:'/',icon:'icon1',img:`${config.resourceUrl}/im/chat-editor-1.png`},
+              {id:2,title:'商机',url:'/',icon:'icon2',img:`${config.resourceUrl}/im/chat-editor-1.png`},
+              {id:3, title: 'VR看店', url: '/',icon:'icon3',img:`${config.resourceUrl}/im/chat-editor-1.png`},
+              {id:4, title: '商评', url: '/',icon:'icon4',img:`${config.resourceUrl}/im/chat-editor-1.png`},
+              {id:5, title: '发现', url: '/',icon:'icon5',img:`${config.resourceUrl}/im/chat-editor-1.png`},
+              {id:6, title: '消息', url: '/',icon:'icon6',img:`${config.resourceUrl}/im/chat-editor-1.png`},
+              {id:7,title:'我的',url:'/',icon:'icon7',img:`${config.resourceUrl}/im/chat-editor-1.png`},
+              {id:8,title:'APP',url:'/',icon:'icon8',img:`${config.resourceUrl}/im/chat-editor-1.png`}
           ]
       }
   },

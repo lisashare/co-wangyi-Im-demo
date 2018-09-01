@@ -1,3 +1,4 @@
+var iconurl = 'https://static.kuaidao.cn/wap/images/IM_img/';
 let config = {
   sdk: 'NIM_Web_SDK_v5.0.0',
   // 用户自定义的登录注册地址
@@ -16,11 +17,9 @@ let config = {
   // 默认高级群头像
   defaultAdvancedIcon: 'http://yx-web.nos.netease.com/webdoc/h5/im/default-advanced.png',
   // 系统通知图标
-  noticeIcon: 'http://yx-web.nos.netease.com/webdoc/h5/im/notice-icon.png',
+  noticeIcon: iconurl + 'icon_tongzhi@2x.png',
   // 我的手机图标
-  myPhoneIcon: 'http://yx-web.nos.netease.com/webdoc/h5/im/my-phone.png',
-  // 通知置顶图标
-  scrollTop: 'http://yx-web.nos.netease.com/webdoc/h5/im/notice-icon.png',  
+  myPhoneIcon: 'http://yx-web.nos.netease.com/webdoc/h5/im/my-phone.png',  
   // 本地消息显示数量，会影响性能
   localMsglimit: 36
 }

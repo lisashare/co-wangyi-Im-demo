@@ -11,7 +11,7 @@
             :close-nav="closeNav" 
             :is-nav-show="isNavShow">
     </nav-list>
-    <group class="u-list">
+    <group class="u-list" v-show="showSessionList">
       <!-- <cell class="u-list-item" title="通知" @click.native="enterSysMsgs">
         <img class="icon" slot="icon" :src="noticeIcon">
         <span v-show="sysMsgUnread > 0" class="u-unread">{{sysMsgUnread}}</span>
@@ -39,6 +39,14 @@
           ></span>
       </cell>     
     </group>
+    <div class="empty-list" v-show="showSessionList">
+      <div class="wait-user">
+        <img :src="noticeIcon" alt="">
+      </div>
+      <div class="wait-btn">
+        <img :src="noticeIcon" alt="">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -50,6 +58,8 @@ export default {
   components:{NavList},
   data () {
     return {
+      showSessionList: false,
+
       isNavShow:false,
       delSessionId: null,
       stopBubble: false,
@@ -76,6 +86,7 @@ export default {
       return `${this.$store.state.userUID}`
     },
     sessionlist () {
+      this.showSessionList = true
       let sessionlist = this.$store.state.sessionlist.filter(item => {
         item.name = ''
         item.avatar = ''
@@ -178,6 +189,30 @@ export default {
 
 <style lang="less">
 @rem: 50rem;
+*{
+  box-sizing: border-box;
+}
+.empty-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 340/@rem;
+  background: #dd0;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .wait-user{
+    width: 348/@rem;
+    height: 260/@rem;
+  }
+  .wait-btn{
+    margin-top: 18/@rem;
+    width: 279/@rem;
+    height: 72/@rem;
+  }
+}
   .p-session {
     .vux-cell-primary {
       width: 470/@rem;

@@ -72,7 +72,7 @@
           leave-active-class="fadeOut"
         > -->
               <div v-if = "isShow" class="back-top animated">
-                  <img :src="scrollTop" >
+                  <img :src="defaultAvatar" >
               </div>
         <!-- </transition> -->
     </div>
@@ -98,7 +98,6 @@ export default {
       defaultAvatar: config.defaultUserIcon,
       deleteIdServer: '',
 
-      scrollTop: config.scrollTop,
       isShow:false
     }
   },

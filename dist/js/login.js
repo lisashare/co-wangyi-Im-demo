@@ -102,6 +102,7 @@ var _assign2 = _interopRequireDefault(_assign);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var iconurl = 'https://static.kuaidao.cn/wap/images/IM_img/';
 var config = {
   sdk: 'NIM_Web_SDK_v5.0.0',
 
@@ -119,11 +120,9 @@ var config = {
 
   defaultAdvancedIcon: 'http://yx-web.nos.netease.com/webdoc/h5/im/default-advanced.png',
 
-  noticeIcon: 'http://yx-web.nos.netease.com/webdoc/h5/im/notice-icon.png',
+  noticeIcon: iconurl + 'icon_tongzhi@2x.png',
 
   myPhoneIcon: 'http://yx-web.nos.netease.com/webdoc/h5/im/my-phone.png',
-
-  scrollTop: 'http://yx-web.nos.netease.com/webdoc/h5/im/notice-icon.png',
 
   localMsglimit: 36
 };

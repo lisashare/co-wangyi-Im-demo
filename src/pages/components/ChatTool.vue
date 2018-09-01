@@ -7,14 +7,14 @@
           <input type="file" ref="fileToSent">
         </span> -->
                 <span class="tool-item" @change="sendFileMsg">
-                    <img :src="icon2">
+                    <img :src="icon1">
                     <input type="file" ref="fileToSent">
                 </span>
                 <span class="tool-des">照片</span>
             </div>
             <div class="tool-wrap">
                 <span class="tool-item">
-                    <img :src="icon1">
+                    <img :src="icon2">
                 </span>
                 <span class="tool-des">拍照</span>
                 <input type="file" accept="image/*" capture="camera">
@@ -46,8 +46,7 @@ export default {
     data(){
         return {
             icon1: `${config.resourceUrl}/im/chat-editor-1.png`,
-            icon2: `${config.resourceUrl}/im/chat-editor-2.png`,
-            icon3: `${config.resourceUrl}/im/chat-editor-3.png`,
+            icon2: `${config.resourceUrl}/im/chat-editor-2.png`
         }
     },
     methods:{

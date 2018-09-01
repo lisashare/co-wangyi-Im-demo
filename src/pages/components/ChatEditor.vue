@@ -13,10 +13,10 @@
 
       <!-- <span class="u-editor-icons"> -->
         <span v-if="!isRobot" class="u-editor-icon u-editor-emoji" @click.stop="showEmoji">
-          <i class="u-icon-img"><img :src="icon1"></i>
+          <i class="u-icon-img"><img :src="icon4"></i>
         </span>
         <span v-if="!isRobot" class="u-editor-icon u-editor-plus"  @click.stop="showPlus">
-          <i class="u-icon-img"><img :src="icon1"></i>
+          <i class="u-icon-img"><img :src="icon5"></i>
         </span>
       <!-- </span> -->
     </div>
@@ -69,6 +69,8 @@ export default {
       icon1: `${config.resourceUrl}/im/chat-editor-1.png`,
       icon2: `${config.resourceUrl}/im/chat-editor-2.png`,
       icon3: `${config.resourceUrl}/im/chat-editor-3.png`,
+      icon4: `${config.resourceUrl}/im/chat-editor-3.png`,
+      icon5: `${config.resourceUrl}/im/chat-editor-3.png`
     }
   },
   updated () {
