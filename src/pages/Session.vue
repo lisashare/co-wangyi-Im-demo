@@ -39,11 +39,11 @@
           ></span>
       </cell>     
     </group>
-    <div class="empty-list" v-show="showSessionList">
+    <div class="empty-list" v-show="!showSessionList">
       <div class="wait-user">
         <img :src="noticeIcon" alt="">
       </div>
-      <div class="wait-btn">
+      <div class="wait-btn" @click="goLogin">
         <img :src="noticeIcon" alt="">
       </div>
     </div>
@@ -86,7 +86,6 @@ export default {
       return `${this.$store.state.userUID}`
     },
     sessionlist () {
-      this.showSessionList = true
       let sessionlist = this.$store.state.sessionlist.filter(item => {
         item.name = ''
         item.avatar = ''
@@ -134,10 +133,15 @@ export default {
         }
         return item
       })
+      this.showSessionList = true
+      // console.log(sessionlist)
       return sessionlist
     }
   },
   methods: {
+    goLogin(){  
+      window.location.href = "http://localhost:8080/#/login"
+    },
     phoneCall(){
       window.location.href = 'tel:010-53579588'
     },
@@ -198,7 +202,6 @@ export default {
   justify-content: center;
   align-items: center;
   margin-top: 340/@rem;
-  background: #dd0;
   img{
     width: 100%;
     height: 100%;

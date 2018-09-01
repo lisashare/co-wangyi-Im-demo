@@ -313,7 +313,7 @@ export default {
       }
     },
     showEmoji () {  // emoji显示
-    console.log(this.msgToSent)
+    // console.log(this.msgToSent)
       this.hidePlus()
       this.isEmojiShown = true
     },

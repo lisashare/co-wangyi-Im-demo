@@ -106,7 +106,6 @@ exports.default = {
     sessionlist: function sessionlist() {
       var _this = this;
 
-      this.showSessionList = true;
       var sessionlist = this.$store.state.sessionlist.filter(function (item) {
         item.name = '';
         item.avatar = '';
@@ -151,10 +150,15 @@ exports.default = {
         }
         return item;
       });
+      this.showSessionList = true;
+
       return sessionlist;
     }
   },
   methods: {
+    goLogin: function goLogin() {
+      window.location.href = "http://localhost:8080/#/login";
+    },
     phoneCall: function phoneCall() {
       window.location.href = 'tel:010-53579588';
     },
@@ -248,7 +252,7 @@ exports = module.exports = __webpack_require__(/*! ../../~/css-loader/lib/css-ba
 
 
 // module
-exports.push([module.i, "\n* {\n  -moz-box-sizing: border-box;\n       box-sizing: border-box;\n}\n.empty-list {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n     -moz-box-orient: vertical;\n     -moz-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n     -moz-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n     -moz-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  margin-top: 6.8rem;\n  background: #dd0;\n}\n.empty-list img {\n  width: 100%;\n  height: 100%;\n}\n.empty-list .wait-user {\n  width: 6.96rem;\n  height: 5.2rem;\n}\n.empty-list .wait-btn {\n  margin-top: 0.36rem;\n  width: 5.58rem;\n  height: 1.44rem;\n}\n.p-session .vux-cell-primary {\n  width: 9.4rem;\n}\n.header-contact-customer img, .header-nav img {\n  width: 100%;\n  height: 100%;\n}\n.header-contact-customer {\n  width: 0.68rem;\n  height: 0.64rem;\n  display: inline-block;\n  position: absolute;\n  top: 0.58rem;\n  right: 2.3rem;\n  z-index: 11;\n}\n.header-nav {\n  width: 0.68rem;\n  height: 0.64rem;\n  display: inline-block;\n  position: absolute;\n  top: 0.58rem;\n  right: 0.48rem;\n  z-index: 11;\n}\n", "", {"version":3,"sources":["E:/IM/chat/co-wangyi-Im-demo/src/pages/Session.vue"],"names":[],"mappings":";AAAA;EACE,4BAAuB;OAAvB,uBAAuB;CACxB;AACD;EACE,qBAAc;EAAd,sBAAc;EAAd,kBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,6BAAuB;EAAvB,8BAAuB;EAAvB,+BAAuB;KAAvB,0BAAuB;KAAvB,2BAAuB;MAAvB,2BAAuB;UAAvB,uBAAuB;EACvB,yBAAwB;EAAxB,gCAAwB;KAAxB,sBAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,0BAAoB;EAApB,4BAAoB;KAApB,uBAAoB;MAApB,uBAAoB;UAApB,oBAAoB;EACpB,mBAAmB;EACnB,iBAAiB;CAClB;AACD;EACE,YAAY;EACZ,aAAa;CACd;AACD;EACE,eAAe;EACf,eAAe;CAChB;AACD;EACE,oBAAoB;EACpB,eAAe;EACf,gBAAgB;CACjB;AACD;EACE,cAAc;CACf;AACD;EAEE,YAAY;EACZ,aAAa;CACd;AACD;EACE,eAAe;EACf,gBAAgB;EAChB,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,cAAc;EACd,YAAY;CACb;AACD;EACE,eAAe;EACf,gBAAgB;EAChB,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,eAAe;EACf,YAAY;CACb","file":"Session.vue","sourcesContent":["* {\n  box-sizing: border-box;\n}\n.empty-list {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  margin-top: 6.8rem;\n  background: #dd0;\n}\n.empty-list img {\n  width: 100%;\n  height: 100%;\n}\n.empty-list .wait-user {\n  width: 6.96rem;\n  height: 5.2rem;\n}\n.empty-list .wait-btn {\n  margin-top: 0.36rem;\n  width: 5.58rem;\n  height: 1.44rem;\n}\n.p-session .vux-cell-primary {\n  width: 9.4rem;\n}\n.header-contact-customer img,\n.header-nav img {\n  width: 100%;\n  height: 100%;\n}\n.header-contact-customer {\n  width: 0.68rem;\n  height: 0.64rem;\n  display: inline-block;\n  position: absolute;\n  top: 0.58rem;\n  right: 2.3rem;\n  z-index: 11;\n}\n.header-nav {\n  width: 0.68rem;\n  height: 0.64rem;\n  display: inline-block;\n  position: absolute;\n  top: 0.58rem;\n  right: 0.48rem;\n  z-index: 11;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n* {\n  -moz-box-sizing: border-box;\n       box-sizing: border-box;\n}\n.empty-list {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n     -moz-box-orient: vertical;\n     -moz-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n     -moz-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n     -moz-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  margin-top: 6.8rem;\n}\n.empty-list img {\n  width: 100%;\n  height: 100%;\n}\n.empty-list .wait-user {\n  width: 6.96rem;\n  height: 5.2rem;\n}\n.empty-list .wait-btn {\n  margin-top: 0.36rem;\n  width: 5.58rem;\n  height: 1.44rem;\n}\n.p-session .vux-cell-primary {\n  width: 9.4rem;\n}\n.header-contact-customer img, .header-nav img {\n  width: 100%;\n  height: 100%;\n}\n.header-contact-customer {\n  width: 0.68rem;\n  height: 0.64rem;\n  display: inline-block;\n  position: absolute;\n  top: 0.58rem;\n  right: 2.3rem;\n  z-index: 11;\n}\n.header-nav {\n  width: 0.68rem;\n  height: 0.64rem;\n  display: inline-block;\n  position: absolute;\n  top: 0.58rem;\n  right: 0.48rem;\n  z-index: 11;\n}\n", "", {"version":3,"sources":["E:/IM/chat/co-wangyi-Im-demo/src/pages/Session.vue"],"names":[],"mappings":";AAAA;EACE,4BAAuB;OAAvB,uBAAuB;CACxB;AACD;EACE,qBAAc;EAAd,sBAAc;EAAd,kBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,6BAAuB;EAAvB,8BAAuB;EAAvB,+BAAuB;KAAvB,0BAAuB;KAAvB,2BAAuB;MAAvB,2BAAuB;UAAvB,uBAAuB;EACvB,yBAAwB;EAAxB,gCAAwB;KAAxB,sBAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,0BAAoB;EAApB,4BAAoB;KAApB,uBAAoB;MAApB,uBAAoB;UAApB,oBAAoB;EACpB,mBAAmB;CACpB;AACD;EACE,YAAY;EACZ,aAAa;CACd;AACD;EACE,eAAe;EACf,eAAe;CAChB;AACD;EACE,oBAAoB;EACpB,eAAe;EACf,gBAAgB;CACjB;AACD;EACE,cAAc;CACf;AACD;EAEE,YAAY;EACZ,aAAa;CACd;AACD;EACE,eAAe;EACf,gBAAgB;EAChB,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,cAAc;EACd,YAAY;CACb;AACD;EACE,eAAe;EACf,gBAAgB;EAChB,sBAAsB;EACtB,mBAAmB;EACnB,aAAa;EACb,eAAe;EACf,YAAY;CACb","file":"Session.vue","sourcesContent":["* {\n  box-sizing: border-box;\n}\n.empty-list {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  margin-top: 6.8rem;\n}\n.empty-list img {\n  width: 100%;\n  height: 100%;\n}\n.empty-list .wait-user {\n  width: 6.96rem;\n  height: 5.2rem;\n}\n.empty-list .wait-btn {\n  margin-top: 0.36rem;\n  width: 5.58rem;\n  height: 1.44rem;\n}\n.p-session .vux-cell-primary {\n  width: 9.4rem;\n}\n.header-contact-customer img,\n.header-nav img {\n  width: 100%;\n  height: 100%;\n}\n.header-contact-customer {\n  width: 0.68rem;\n  height: 0.64rem;\n  display: inline-block;\n  position: absolute;\n  top: 0.58rem;\n  right: 2.3rem;\n  z-index: 11;\n}\n.header-nav {\n  width: 0.68rem;\n  height: 0.64rem;\n  display: inline-block;\n  position: absolute;\n  top: 0.58rem;\n  right: 0.48rem;\n  z-index: 11;\n}\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -387,8 +391,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.showSessionList),
-      expression: "showSessionList"
+      value: (!_vm.showSessionList),
+      expression: "!showSessionList"
     }],
     staticClass: "empty-list"
   }, [_c('div', {
@@ -399,7 +403,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "alt": ""
     }
   })]), _vm._v(" "), _c('div', {
-    staticClass: "wait-btn"
+    staticClass: "wait-btn",
+    on: {
+      "click": _vm.goLogin
+    }
   }, [_c('img', {
     attrs: {
       "src": _vm.noticeIcon,
