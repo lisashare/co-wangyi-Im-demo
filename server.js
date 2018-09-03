@@ -35,13 +35,13 @@ app.set('view engine', 'html')
 // })
 
 // 单页应用页面    // 进入主页面，同时执行index 中引入的方法， 再决定跳转到哪一个页面
-app.get('/webdemo/h5/index.html', function (req, res, next) {
-  res.render(path.join(projPath, 'index'))
+app.get('/webdemo/h5/im.html', function (req, res, next) {
+  res.render(path.join(projPath, 'im'))
   next()
 })
 
 app.get('/', function (req, res, next) {
-  res.redirect('/webdemo/h5/index.html')
+  res.redirect('/webdemo/h5/im.html')
   next()
 })
 

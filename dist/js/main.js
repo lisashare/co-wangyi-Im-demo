@@ -631,22 +631,23 @@ var _assign2 = _interopRequireDefault(_assign);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var prourl = 'http://192.168.13.136/';
+
 var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
 var config = {
   sdk: 'NIM_Web_SDK_v5.0.0',
 
-  loginUrl: 'http://localhost:8080/#/login',
 
-  homeUrl: '/webdemo/h5/index.html#/session',
+  loginUrl: prourl + '#/login',
 
-  indexUrl: 'http://localhost:8080',
+  homeUrl: prourl + 'im.html#/session',
+
+  indexUrl: prourl,
 
   downLoadIos: 'https://gio.ren/reXaPx3',
   downLoadAndroid: 'https://gio.ren/rVYaPnV',
 
   resourceUrl: iconurl,
-
-  logo: 'http://yx-web.nos.netease.com/webdoc/h5/im/logo.png',
 
   defaultUserIcon: iconurl + 'im/default-icon.png',
 

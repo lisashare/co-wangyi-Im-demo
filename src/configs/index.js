@@ -1,12 +1,22 @@
+// 环境变量
+var prourl = 'http://192.168.13.136/'
+
 var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
 let config = {
   sdk: 'NIM_Web_SDK_v5.0.0',
   // 用户自定义的登录注册地址
-  loginUrl: 'http://localhost:8080/#/login',
-  // registUrl: '/webdemo/h5/index.html#/session',
-  homeUrl: '/webdemo/h5/index.html#/session',
-  // nav导航跳转链接
-  indexUrl: 'http://localhost:8080',
+  // loginUrl: 'http://localhost:8080/#/login',
+  // homeUrl: '/webdemo/h5/im.html#/session',
+  // // nav导航跳转链接
+  // indexUrl: 'http://localhost:8080',
+
+
+  loginUrl: prourl + '#/login',
+
+  homeUrl: prourl + 'im.html#/session',
+
+  indexUrl: prourl,
+
 
   downLoadIos: 'https://gio.ren/reXaPx3',
   downLoadAndroid: 'https://gio.ren/rVYaPnV',
@@ -14,7 +24,7 @@ let config = {
   // 资源路径根目录，为了方便用户部署在二级以上URL路径上
   resourceUrl: iconurl,
   // 用户logo地址
-  logo: 'http://yx-web.nos.netease.com/webdoc/h5/im/logo.png',
+  // logo: 'http://yx-web.nos.netease.com/webdoc/h5/im/logo.png',
   // 默认用户头像
   defaultUserIcon: iconurl + 'im/default-icon.png',
   // 默认普通群头像
