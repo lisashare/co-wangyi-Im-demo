@@ -331,6 +331,7 @@ export default {
     }
   },
   updateSysMsgs (state, sysMsgs) {
+    console.log('mutationsupdateSysMsgs')
     const nim = state.nim
     if (!Array.isArray(sysMsgs)) {
       sysMsgs = [sysMsgs]

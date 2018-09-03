@@ -66,11 +66,11 @@ export default {
       isPlusShown: false,   // 工具功能显示
       isRobotListShown: false,
       msgToSent: '',
-      icon1: `${config.resourceUrl}/im/chat-editor-1.png`,
-      icon2: `${config.resourceUrl}/im/chat-editor-2.png`,
-      icon3: `${config.resourceUrl}/im/chat-editor-3.png`,
-      icon4: `${config.resourceUrl}/im/chat-editor-3.png`,
-      icon5: `${config.resourceUrl}/im/chat-editor-3.png`
+      icon1: `${config.resourceUrl}im/chat-editor-1.png`,
+      icon2: `${config.resourceUrl}im/chat-editor-2.png`,
+      icon3: `${config.resourceUrl}im/chat-editor-3.png`,
+      icon4: `${config.resourceUrl}im/chat_05.png`,
+      icon5: `${config.resourceUrl}im/chat_07.png`
     }
   },
   updated () {

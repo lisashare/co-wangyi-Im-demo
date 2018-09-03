@@ -50,7 +50,6 @@ import ChatList from './components/ChatList'
 import util from '../utils'
 import pageUtil from '../utils/page'
 
-
 export default {
   components: {
     ChatEditor,
@@ -91,7 +90,7 @@ export default {
     }
   },
   computed: {
-    sessionId () {
+    sessionId () {  // 获取sessionId
       let sessionId = this.$route.params.sessionId
       return sessionId
     },
@@ -146,7 +145,7 @@ export default {
     robotInfos () {
       return this.$store.state.robotInfos
     },
-    msglist () {
+    msglist () {  // 消息列表
       let msgs = this.$store.state.currSessionMsgs
       return msgs
     },
@@ -228,27 +227,27 @@ export default {
   display: flex;
   justify-content: flex-end;
 
-  .icon-history, .icon-team {
-    display: inline-block;
-    margin-right: .8rem;
-    width: 1.7rem;
-    height: 1.7rem;
-    background: url(http://yx-web.nos.netease.com/webdoc/h5/im/icons.png);
-    background-size: 20rem;
-    background-position: -5.8rem -11.3rem;
-  }
-  .icon-team{
-    background-position: -7.9rem -11.3rem;
-  }
+  // .icon-history, .icon-team {
+  //   display: inline-block;
+  //   margin-right: .8rem;
+  //   width: 1.7rem;
+  //   height: 1.7rem;
+  //   background: url(http://yx-web.nos.netease.com/webdoc/h5/im/icons.png);
+  //   background-size: 20rem;
+  //   background-position: -5.8rem -11.3rem;
+  // }
+  // .icon-team{
+  //   background-position: -7.9rem -11.3rem;
+  // }
 }
-.invalidHint {
-  width: 100%;
-  height: 2rem;
-  line-height: 2rem;
-  text-align: center;
-  background-color: bisque;
-  color: burlywood;
-}
+// .invalidHint {
+//   width: 100%;
+//   height: 2rem;
+//   line-height: 2rem;
+//   text-align: center;
+//   background-color: bisque;
+//   color: burlywood;
+// }
 </style>
 <style>
 .g-window .vux-header .m-tab-top {

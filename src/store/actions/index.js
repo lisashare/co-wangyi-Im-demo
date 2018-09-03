@@ -29,8 +29,9 @@ function connectNim ({state, commit, dispatch}, obj) {
     }
     console.log(loginInfo)
     if (!loginInfo.uid) {
-      // 无cookie，直接跳转登录页
-      pageUtil.turnPage('无历史登录记录，请重新登录', 'login')
+      // 无cookie，直接跳转登录页  --消息页面不直接跳转，显示没有消息列表
+      console.log('无历史登录记录，请重新登录')
+      // pageUtil.turnPage('无历史登录记录，请重新登录', 'login')
     } else {
       // 有cookie，重新登录
       dispatch('initNimSDK', loginInfo)

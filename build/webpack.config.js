@@ -15,8 +15,8 @@ let webpackConfig = {
   //页面入口文件配置
   entry: {
     main: './src/main.js',
-    login: './src/login.js',
-    regist: './src/regist.js'
+    // login: './src/login.js',
+    // regist: './src/regist.js'
   },
   //入口文件输出配置
   output: {

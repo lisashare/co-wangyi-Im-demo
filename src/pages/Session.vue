@@ -4,14 +4,14 @@
         <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
         <!-- <h1 class="m-tab-top" @click="enterNameCard">{{sessionName}}</h1> -->
         <h1>消息</h1>
-        <span class="header-contact-customer" @click="phoneCall"><img :src="myAdvancedIcon" alt=""></span>
-        <span class="header-nav" @click="isNavShow=!isNavShow"><img :src="myAdvancedIcon" alt=""></span>
+        <span class="header-contact-customer" @click="phoneCall"><img :src="icon1" alt=""></span>
+        <span class="header-nav" @click="isNavShow=!isNavShow"><img :src="icon2" alt=""></span>
     </header>
     <nav-list 
             :close-nav="closeNav" 
             :is-nav-show="isNavShow">
     </nav-list>
-    <group class="u-list" v-show="showSessionList">
+    <group class="u-list" v-if="sessionlist.length !== 0">
       <!-- <cell class="u-list-item" title="通知" @click.native="enterSysMsgs">
         <img class="icon" slot="icon" :src="noticeIcon">
         <span v-show="sysMsgUnread > 0" class="u-unread">{{sysMsgUnread}}</span>
@@ -39,12 +39,15 @@
           ></span>
       </cell>     
     </group>
-    <div class="empty-list" v-show="!showSessionList">
+    <div class="empty-list" v-else>
       <div class="wait-user">
-        <img :src="noticeIcon" alt="">
+        <img :src="icon3" alt="">
       </div>
       <div class="wait-btn" @click="goLogin">
-        <img :src="noticeIcon" alt="">
+        <img :src="icon4" alt="">
+      </div>
+      <div class="call-btn" @click="phoneCall">
+        <img :src="icon5" alt="">
       </div>
     </div>
   </div>
@@ -65,7 +68,12 @@ export default {
       stopBubble: false,
       noticeIcon: config.noticeIcon,
       myGroupIcon: config.defaultGroupIcon,
-      myAdvancedIcon: config.defaultAdvancedIcon
+      myAdvancedIcon: config.defaultAdvancedIcon,
+      icon1: `${config.resourceUrl}im/icon_erji@3x.png`,
+      icon2: `${config.resourceUrl}im/icon_classify@3x.png`,
+      icon3: `${config.resourceUrl}im/bg_adviser@3x.png`,
+      icon4: `${config.resourceUrl}im/btn_guwen@3x.png`,
+      icon5: `${config.resourceUrl}im/btn_phone@3x.png`,
     }
   },
   computed: {
@@ -133,14 +141,18 @@ export default {
         }
         return item
       })
-      this.showSessionList = true
+      if(sessionlist.length){
+        this.showSessionList = true
+      }
+      this.$store.dispatch('hideLoading')
       // console.log(sessionlist)
       return sessionlist
     }
   },
   methods: {
     goLogin(){  
-      window.location.href = "http://localhost:8080/#/login"
+      // window.location.href = "http://localhost:8080/#/login"
+      window.location.href = config.loginUrl
     },
     phoneCall(){
       window.location.href = 'tel:010-53579588'
@@ -190,7 +202,6 @@ export default {
   }
 }
 </script>
-
 <style lang="less">
 @rem: 50rem;
 *{
@@ -208,10 +219,15 @@ export default {
   }
   .wait-user{
     width: 348/@rem;
-    height: 260/@rem;
+    height: 348/@rem;
   }
   .wait-btn{
-    margin-top: 18/@rem;
+    margin-top: 30/@rem;
+    width: 279/@rem;
+    height: 72/@rem;
+  }
+  .call-btn{
+    margin-top: 20/@rem;
     width: 279/@rem;
     height: 72/@rem;
   }

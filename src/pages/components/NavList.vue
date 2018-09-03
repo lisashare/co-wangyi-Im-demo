@@ -1,27 +1,31 @@
 <template>
   <div class="nav-list">     
-      <transition
-        enter-active-class="animated fadeIn"
-        leave-active-class="animated fadeOut"
-      >
+      <transition name="fade">
            <div 
             v-if="isNavShow" 
             @click="closeNav" class="mask"></div>  
       </transition>
           <!-- 导航 -->
-        <transition
-            enter-active-class="animated fadeInDown"
-            leave-active-class="animated fadeOut"
-        >
+        <transition name="fade">
         <nav 
             @click="closeNav"
             v-if="isNavShow" 
             class="nav-group">
             <ul>
-                <router-link tag="li" :to="nav.url" v-for="nav in navs" :key="nav.id">
+                <li v-for="nav in navs" :key="nav.id">
+                    <a :href="nav.url">
+                        <div class="nav-img"><img :class="nav.icon" :src="nav.img" /></div>
+                        <span class="title">{{nav.title}}</span>
+                    </a>
+                </li>
+                <!-- <router-link tag="li" :to="nav.url" v-for="nav in navs" :key="nav.id">
                     <div class="nav-img"><img :class="nav.icon" :src="nav.img" /></div>
                     <span class="title">{{nav.title}}</span>
-                </router-link>
+                </router-link> -->
+                <li @click="downLoadApp">
+                    <div class="nav-img"><img class="icon8" :src="img8" /></div>
+                    <span class="title">APP</span>
+                </li>
             </ul>
             <span class="triangle"></span>
         </nav>
@@ -36,18 +40,34 @@ export default {
   data () {
       return {
           navs:[
-              {id:1,title:'首页',url:'/',icon:'icon1',img:`${config.resourceUrl}/im/chat-editor-1.png`},
-              {id:2,title:'商机',url:'/',icon:'icon2',img:`${config.resourceUrl}/im/chat-editor-1.png`},
-              {id:3, title: 'VR看店', url: '/',icon:'icon3',img:`${config.resourceUrl}/im/chat-editor-1.png`},
-              {id:4, title: '商评', url: '/',icon:'icon4',img:`${config.resourceUrl}/im/chat-editor-1.png`},
-              {id:5, title: '发现', url: '/',icon:'icon5',img:`${config.resourceUrl}/im/chat-editor-1.png`},
-              {id:6, title: '消息', url: '/',icon:'icon6',img:`${config.resourceUrl}/im/chat-editor-1.png`},
-              {id:7,title:'我的',url:'/',icon:'icon7',img:`${config.resourceUrl}/im/chat-editor-1.png`},
-              {id:8,title:'APP',url:'/',icon:'icon8',img:`${config.resourceUrl}/im/chat-editor-1.png`}
-          ]
+              {id:1,title:'首页',url:`${config.indexUrl}/#/`,icon:'icon1',img:`${config.resourceUrl}im/icon_me@3x.png`},
+              {id:2,title:'商机',url:`${config.indexUrl}/#/opportunity`,icon:'icon2',img:`${config.resourceUrl}im/icon_shangji@3x.png`},
+              {id:3, title: 'VR看店', url: `${config.indexUrl}/#/vr`,icon:'icon3',img:`${config.resourceUrl}im/icon_vr@3x.png`},
+              {id:4, title: '商评', url: `${config.indexUrl}/#/shangping`,icon:'icon4',img:`${config.resourceUrl}im/icon_shangping@3x.png`},
+              {id:5, title: '发现', url: `${config.indexUrl}/#/find`,icon:'icon5',img:`${config.resourceUrl}im/icon_find@3x.png`},
+              {id:6, title: '消息', url: `${config.homeUrl}`,icon:'icon6',img:`${config.resourceUrl}im/icon_xiaoxi@3x.png`},
+              {id:7,title:'我的',url:`${config.indexUrl}/#/me`,icon:'icon7',img:`${config.resourceUrl}im/icon_me@3x.png`}
+          ],
+          img8: `${config.resourceUrl}im/icon_app@3x.png`
       }
   },
   methods:{
+      downLoadApp(){
+        if( this.judgeType() == 'IOS' ){
+            window.location.href = config.downLoadIos;
+        }
+        if( this.judgeType() == 'Android' ){
+            window.location.href = config.downLoadAndroid;
+        }
+    },
+    judgeType(){
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/iPhone\sOS/i) == "iphone os") {
+            return "IOS";
+        } else if(ua.match(/Android/i) == "android") {
+            return "Android";
+        }
+    },
   }
 }
 </script>

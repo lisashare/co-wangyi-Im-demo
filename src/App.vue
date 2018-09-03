@@ -2,9 +2,9 @@
   <div class="g-window">
     <!--<nav-bar v-show="showNav"></nav-bar>-->
     <!-- 切页动画设置 -->
-    <transition :name="transitionName">
+    <!-- <transition :name="transitionName"> -->
       <router-view></router-view>
-    </transition>
+    <!-- </transition> -->
     <fullscreen-img></fullscreen-img>
     <loading></loading>
   </div>

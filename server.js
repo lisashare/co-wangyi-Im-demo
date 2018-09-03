@@ -26,21 +26,23 @@ app.use('/webdemo/h5/res', express.static(path.join(projPath, 'res')))
 app.engine('html', ejs.__express);
 app.set('view engine', 'html')
 
-app.get('/webdemo/h5/login.html', function (req, res, next) {
-  res.render(path.join(projPath, 'login'))
-})
+// app.get('/webdemo/h5/index.html', function (req, res, next) {
+//   res.render(path.join(projPath, 'index'))
+// })
 
-app.get('/webdemo/h5/regist.html', function (req, res, next) {
-  res.render(path.join(projPath, 'regist'))
-})
+// app.get('/webdemo/h5/index.html', function (req, res, next) {
+//   res.render(path.join(projPath, 'index'))
+// })
 
 // 单页应用页面    // 进入主页面，同时执行index 中引入的方法， 再决定跳转到哪一个页面
 app.get('/webdemo/h5/index.html', function (req, res, next) {
   res.render(path.join(projPath, 'index'))
+  next()
 })
 
 app.get('/', function (req, res, next) {
   res.redirect('/webdemo/h5/index.html')
+  next()
 })
 
 // 修改侦听服务器端口

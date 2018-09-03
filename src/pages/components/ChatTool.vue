@@ -14,7 +14,7 @@
             </div>
             <div class="tool-wrap">
                 <span class="tool-item">
-                    <img :src="icon2">
+                    <img :src="icon2" class="icon-phone">
                 </span>
                 <span class="tool-des">拍照</span>
                 <input type="file" accept="image/*" capture="camera">
@@ -45,8 +45,8 @@ export default {
     },
     data(){
         return {
-            icon1: `${config.resourceUrl}/im/chat-editor-1.png`,
-            icon2: `${config.resourceUrl}/im/chat-editor-2.png`
+            icon1: `${config.resourceUrl}im/photo_03.png`,
+            icon2: `${config.resourceUrl}im/link_03.png`
         }
     },
     methods:{
@@ -119,8 +119,12 @@ export default {
                 width: 60/@rem;
                 height: 60/@rem;
             }
+            .icon-phone{
+                width: 60/@rem;
+                height: 43/@rem;
+            }   
+        }
         
-        }   
         .tool-des{
             display: inline-block;
             font-size: 22/@rem;
