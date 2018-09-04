@@ -631,7 +631,7 @@ var _assign2 = _interopRequireDefault(_assign);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var prourl = 'http://192.168.13.136/';
+var prourl = '/';
 
 var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
 var config = {

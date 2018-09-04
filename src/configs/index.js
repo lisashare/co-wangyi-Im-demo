@@ -1,5 +1,5 @@
 // 环境变量
-var prourl = 'http://192.168.13.136/'
+var prourl = '/'
 
 var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
 let config = {
