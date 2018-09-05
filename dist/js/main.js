@@ -644,8 +644,7 @@ var config = {
 
   indexUrl: prourl,
 
-  downLoadIos: 'https://gio.ren/reXaPx3',
-  downLoadAndroid: 'https://gio.ren/rVYaPnV',
+  downLoad: 'https://gio.ren/o32N653',
 
   resourceUrl: iconurl,
 

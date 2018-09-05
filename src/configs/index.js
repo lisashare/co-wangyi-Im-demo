@@ -18,8 +18,10 @@ let config = {
   indexUrl: prourl,
 
 
-  downLoadIos: 'https://gio.ren/reXaPx3',
-  downLoadAndroid: 'https://gio.ren/rVYaPnV',
+  // 下载
+  //   downLoadIos: 'https://gio.ren/reXaPx3',
+  //   downLoadAndroid: 'https://gio.ren/rVYaPnV',
+  downLoad:'https://gio.ren/o32N653',
 
   // 资源路径根目录，为了方便用户部署在二级以上URL路径上
   resourceUrl: iconurl,
