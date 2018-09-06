@@ -73,8 +73,7 @@
   position: relative;
   content: "删除";
   font-size: 0.6rem;
-  top: 50%;
-  line-height: 1.2rem;
+  top: 38%;
 }
 .g-window .u-tag-del.active {
   transform: translate3d(0, 0, 0);

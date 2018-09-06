@@ -1,5 +1,6 @@
 // 环境变量
 var prourl = '/'
+// var prourl = 'http://localhost:8080/'
 
 var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
 let config = {
@@ -11,7 +12,7 @@ let config = {
   // indexUrl: 'http://localhost:8080',
 
 
-  loginUrl: prourl + '#/login',
+  loginUrl: prourl + '#/login?from=im',
 
   homeUrl: prourl + 'im.html#/session',
 
@@ -33,6 +34,7 @@ let config = {
   defaultGroupIcon: iconurl + 'im/default-group.png',
   // 默认高级群头像
   defaultAdvancedIcon: iconurl + 'im/default-advanced.png',
+  noticeIcon: iconurl + 'im/icon_tongzhi@2x.png',
   // 我的手机图标
   myPhoneIcon: iconurl + 'im/my-phone.png',  
   // 本地消息显示数量，会影响性能

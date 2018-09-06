@@ -1,8 +1,7 @@
 <template>
   <div class="g-inherit m-main p-session page-top">
-    <header class="header bc line-bottom">
+    <!-- <header class="header bc line-bottom">
         <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
-        <!-- <h1 class="m-tab-top" @click="enterNameCard">{{sessionName}}</h1> -->
         <h1>消息</h1>
         <span class="header-contact-customer" @click="phoneCall"><img :src="icon1" alt=""></span>
         <span class="header-nav" @click="isNavShow=!isNavShow"><img :src="icon2" alt=""></span>
@@ -10,12 +9,19 @@
     <nav-list 
             :close-nav="closeNav" 
             :is-nav-show="isNavShow">
-    </nav-list>
-    <group class="u-list" v-if="sessionlist.length !== 0">
-      <!-- <cell class="u-list-item" title="通知" @click.native="enterSysMsgs">
+    </nav-list> -->
+    <header-title :title="title"></header-title>
+    <group class="u-list" v-if="showSessionList">
+      <cell v-if="msgDetails" class="u-list-item" title="通知" 
+      :inline-desc="msgDetails"
+      @click.native="enterSysMsgs">
         <img class="icon" slot="icon" :src="noticeIcon">
-        <span v-show="sysMsgUnread > 0" class="u-unread">{{sysMsgUnread}}</span>
-      </cell>   -->
+        <!-- <span v-show="sysMsgUnread > 0" class="u-unread">{{sysMsgUnread}}</span> -->
+        <span class='u-session-time' v-if="sendTime">
+          {{sendTime}}
+        </span>
+        <span v-show="readStatus > 0" class="u-unread"></span>
+      </cell>  
       <cell
         v-for="(session, index) in sessionlist"
         class="u-list-item"
@@ -54,26 +60,46 @@
 </template>
 
 <script>
+import cookie from '../utils/cookie'
 import util from '../utils'
 import config from '../configs'
-import NavList from './components/NavList'
+import HeaderTitle from './components/HeaderTitle'
 export default {
-  components:{NavList},
+  components:{HeaderTitle},
   data () {
     return {
       showSessionList: false,
-
-      isNavShow:false,
+      title: '消息',
       delSessionId: null,
       stopBubble: false,
       noticeIcon: config.noticeIcon,
       myGroupIcon: config.defaultGroupIcon,
       myAdvancedIcon: config.defaultAdvancedIcon,
-      icon1: `${config.resourceUrl}im/icon_erji@3x.png`,
-      icon2: `${config.resourceUrl}im/icon_classify@3x.png`,
       icon3: `${config.resourceUrl}im/bg_adviser@3x.png`,
       icon4: `${config.resourceUrl}im/btn_guwen@3x.png`,
       icon5: `${config.resourceUrl}im/btn_phone@3x.png`,
+      sendTime: '',
+      readStatus:'',
+      msgDetails:''
+    }
+  },
+  created(){ 
+    // 进入页面获取数据，判断显示什么
+    let loginInfo = {
+      uid: cookie.readCookie('uid'),
+      sdktoken: cookie.readCookie('sdktoken'),
+    }
+    if (!loginInfo.uid) {
+      this.showSessionList = false   // 进入是显示按钮
+      this.$store.dispatch('hideLoading')
+    } else{
+      this.showSessionList = true
+        // 进入页面获取存储的消息，显示在页面上，
+      let accountMsg = cookie.readCookie('accountMsg')
+      this.sendTime= cookie.readCookie('sendTime')
+      this.readStatus = cookie.readCookie('readStatus')
+      this.msgDetails = cookie.readCookie('msgDetails')
+      console.log(this.sendTime,this.readStatus,this.msgDetails)
     }
   },
   computed: {
@@ -154,11 +180,8 @@ export default {
       // window.location.href = "http://localhost:8080/#/login"
       window.location.href = config.loginUrl
     },
-    phoneCall(){
+    phoneCall () {
       window.location.href = 'tel:010-53579588'
-    },
-    closeNav () {
-      this.isNavShow = false;
     },
     enterSysMsgs () {     // 进入系统信息
       if (this.hideDelBtn())
@@ -236,35 +259,5 @@ export default {
     .vux-cell-primary {
       width: 470/@rem;
     }
-  }
-  .header-contact-customer,.header-nav{
-    img{
-      width: 100%;
-      height:100%;
-    }
-  }
-  .header-contact-customer{
-    width: 34/@rem;
-    height: 32/@rem;
-    // background-image: url('/static/images/common/icon_erji@3x.png');
-    // background-repeat: no-repeat;
-    // background-size: 100% 100%;
-    display: inline-block;
-    position: absolute;
-    top: 29/@rem;
-    right: 115/@rem;
-    z-index: 11;
-  }
-  .header-nav{
-    width: 34/@rem;
-    height: 32/@rem;
-    // background-image: url('/static/images/common/icon_classify@3x.png');
-    // background-repeat: no-repeat;
-    // background-size: 100% 100%;
-    display: inline-block;
-    position: absolute;
-    top: 29/@rem;
-    right: 24/@rem;
-    z-index: 11;
   }
 </style>

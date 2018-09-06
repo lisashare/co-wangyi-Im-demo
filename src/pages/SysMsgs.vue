@@ -1,232 +1,69 @@
 <template>
   <div class="g-inherit m-article">
-    <!-- <x-header class="m-tab" :left-options="{backText: ' '}">
-      <button-tab class="m-tab-top" v-model="sysType">
-        <button-tab-item class="u-tab-top">系统消息</button-tab-item>
-      </button-tab>
-      <a slot="left"></a>
-      <a slot="right" @click.stop="clearMsgs">清空</a>
-    </x-header> -->
-    <header class="header bc line-bottom">
-        <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
-        <h1>通知</h1>
-        <!-- <i class="txt"><img src="/static/images/opportunity/icon/icon_tel.png"></i> -->
-    </header>
+    <header-title :title="title"></header-title>
     <div class="m-article-main p-sysmsgs">
-      <group class="u-list">
-        <template v-for="msg in msgList">
-          <cell 
-            v-if='msg.type ==="applyTeam" || msg.type ==="teamInvite"'
-            class="u-list-item"
-            :key="msg.idServer"
-            :idServer ="msg.idServer"
-            v-touch:swipeleft="showDelBtn"
-            v-touch:swiperight="hideDelBtn"
-          > 
-            <img class="icon" slot="icon" width="24" :src="msg.avatar">
-            <div slot="child"  class='g-teamSys'>
-              <div class='m-info'>
-                <span class='u-name'>{{msg.from}}</span>
-                <span class='u-time'>{{msg.showTime}}</span>
-                <p class='u-desc'>{{msg.desc}}</p>
-                <p v-if='msg.ps' class='u-desc'>{{`留言:${msg.ps}`}}</p>
-              </div>
-              <div class='m-options' slot='default' v-if='deleteIdServer !== msg.idServer'>
-                <template v-if='msg.state === "init"'>
-                  <x-button type="primary" :mini='true' action-type="button" @click.native="handleTeamApply(msg, true)">同意</x-button>
-                  <x-button type="warn" :mini='true' action-type="button" @click.native="handleTeamApply(msg, false)">拒绝</x-button>
-                </template>
-                <div v-else class='u-msg-state'>
-                  {{msg.state==='error'? '已过期' : msg.state==='rejected'?'已拒绝':'已同意'}}
-                </div>
-              </div>
+        <div class="notice">
+            <div class="u-msg item-time session-chat">
+              <span class="u-item-time-tip">{{sendTime}}</span>
             </div>
-            <span class="u-tag-del" :class="{active: deleteIdServer === msg.idServer}" @click="deleteMsg(msg.idServer)"></span>
-          </cell>
-          <cell
-            v-else
-            class="u-list-item"
-            :title="msg.showText"
-            :value="msg.showTime"
-            :inline-desc="msg.desc"
-            :key="msg.idServer"
-            :idServer ="msg.idServer"
-            v-touch:swipeleft="showDelBtn"
-            v-touch:swiperight="hideDelBtn"
-          >
-            <img class="icon" slot="icon" width="24" :src="msg.avatar">
-            <span class="u-tag-del" :class="{active: deleteIdServer === msg.idServer}" @click="deleteMsg(msg.idServer)"></span>
-          </cell>
-        </template>
-      </group>
-       <div class='empty-hint' v-if='!msgList || msgList.length<1'>暂无任何消息</div>
-    </div>
-
-
-    <div class="back-top-box"        
-        v-scroll-hide = "isShow"
-        scroll-hide-distance = "300"
-        >
-        <!-- <transition
-          enter-active-class="fadeIn"
-          leave-active-class="fadeOut"
-        > -->
-              <div v-if = "isShow" class="back-top animated">
-                  <img :src="defaultAvatar" >
-              </div>
-        <!-- </transition> -->
-    </div>
-      
+            <div class="content-msg">
+              <div class="title">系统通知</div>
+              <div class="title-desc">{{msgDetails}}</div>
+            </div>
+         </div>
+       <div class='empty-hint' v-if='!msgList || msgList.length<1'>暂无其他消息</div>
+    </div>   
   </div>
 </template>
 
 <script>
+import cookie from '../utils/cookie'
 import config from '../configs'
+import HeaderTitle from './components/HeaderTitle'
 export default {
   // 进入该页面，文档被挂载
-  mounted () {
-    this.$store.dispatch('markSysMsgRead')
-    this.$store.dispatch('markCustomSysMsgRead')
-  },
-  updated () {
-    this.$store.dispatch('markSysMsgRead')
-    this.$store.dispatch('markCustomSysMsgRead')
-  },
+  components:{HeaderTitle},
   data () {
     return {
       sysType: 0, // 系统消息 0, 自定义消息 1,
       defaultAvatar: config.defaultUserIcon,
       deleteIdServer: '',
-
-      isShow:false
+      title:'通知',
+      msgList:'',
+      sendTime: '',
+      readStatus:'',
+      msgDetails:''
     }
+  },
+  created(){
+     this.sendTime= cookie.readCookie('sendTime')
+     this.readStatus = cookie.readCookie('readStatus')
+     this.msgDetails = cookie.readCookie('msgDetails')
+     cookie.setCookie('readStatus',0)
   },
   computed: {
     userInfos () {
       return this.$store.state.userInfos || {}
     },
-    sysMsgs () {
-      let sysMsgs = this.$store.state.sysMsgs.filter(msg => {
-        switch (msg.type) {
-          case 'addFriend':
-            msg.showText = `${msg.friend.alias || msg.friend.account} 添加您为好友~`
-            msg.avatar = this.userInfos[msg.from] && this.userInfos[msg.from].avatar
-            return true
-          case 'deleteFriend':
-            msg.showText = `${msg.from} 将您从好友中删除`
-            msg.avatar = this.userInfos[msg.from].avatar
-            return false
-          case 'applyTeam':
-            console.log('applyTeam', msg)
-            msg.showText = msg.from
-            msg.avatar = this.userInfos[msg.from] && this.userInfos[msg.from].avatar || this.defaultAvatar
-            msg.desc = `申请加入群:${this.getTeamName(msg.to)}`
-            return true
-          case 'teamInvite':
-            msg.showText = msg.attach.team.name
-            msg.avatar = this.userInfos[msg.from] && this.userInfos[msg.from].avatar || this.defaultAvatar
-            msg.desc = `邀请你加入群${msg.to}`
-            return true
-          case 'rejectTeamApply':
-            msg.showText = msg.attach.team.name
-            msg.desc ='管理员拒绝你加入本群'
-            msg.avatar = msg.attach.team.avatar || this.defaultAvatar
-            return true
-          case 'rejectTeamInvite':
-            let op = this.userInfos[msg.from]
-            msg.showText = op.nick
-            msg.avatar = op.avatar || this.defaultAvatar
-            msg.desc = `${op.nick}拒绝了群${this.getTeamName(msg.to)}的入群邀请`
-            return true
-        }
-        console.log(msg)
-        return false
-      })
-      sysMsgs.sort((msg1, msg2)=>{
-        // 最新的排在前
-        return msg2.time - msg1.time
-      })
-      return sysMsgs
-    },
-    customSysMsgs () {
-      let customSysMsgs = this.$store.state.customSysMsgs.filter(msg => {
-        if (msg.scene === 'p2p') {
-          let content = JSON.parse(msg.content)
-          msg.showText = `${content.content}`
-          msg.avatar = this.userInfos[msg.from].avatar
-          return msg
-        }
-        return false
-      })
-      return customSysMsgs
-    },
-    msgList() {
-      return this.sysType ===  0 ? this.sysMsgs : this.customSysMsgs
-    }
-    
   },
   methods: {
     deleteMsg(idServer){
-      this.$store.commit('deleteSysMsgs', {
-        type: this.sysType,
-        idServer: idServer,
-      })
+      // this.$store.commit('deleteSysMsgs', {
+      //   type: this.sysType,
+      //   idServer: idServer,
+      // })
     },
     clearMsgs () {
       var that = this
       this.$vux.confirm.show({
         title: '确认要清空消息吗？',
         onConfirm () {
-          that.$store.dispatch('resetSysMsgs', {
-            type: that.sysType
-          })
+          // that.$store.dispatch('resetSysMsgs', {
+          //   type: that.sysType
+          // })
+
         }
       })
-    },
-    getTeamName(teamId) {
-      let team = this.$store.state.teamlist.find(team => {
-        return team.teamId === teamId
-      })
-      return team && team.name || ''
-    },
-    handleTeamApply(msg, pass) {
-      let action
-      switch (msg.type) {
-        case 'applyTeam':
-          action = pass ? 'passTeamApply' : 'rejectTeamApply'
-          break;
-         case 'teamInvite':
-          action = pass ? 'acceptTeamInvite' : 'rejectTeamInvite'
-          break;
-        default:
-          return
-      }
-      this.$store.dispatch('delegateTeamFunction', {
-        functionName: action, 
-        options: {
-          idServer: msg.idServer,
-          teamId: msg.to,
-          from: msg.from,
-          done: (error, obj)=>{
-            console.log('handleDone', obj)
-          }
-        }
-      })
-    },
-    findTeamInfo(teamId) {
-      var team = this.$store.state.teamlist.find(item =>{
-        return item.teamId === teamId
-      })
-      return team && team.name || teamId
-    },
-    showDelBtn (vNode) {
-      if (vNode && vNode.data && vNode.data.attrs) {
-        this.deleteIdServer = vNode.data.attrs.idServer
-        this.stopBubble = true
-        setTimeout(() => {
-          this.stopBubble = false
-        }, 20)
-      }
     },
     hideDelBtn () {
       if (this.deleteIdServer !== null && !this.stopBubble) {
@@ -234,7 +71,7 @@ export default {
         this.deleteIdServer = null
         return true
       }
-      return false
+        return false
     }
   }
 }
@@ -242,6 +79,56 @@ export default {
 
 <style lang="less">
 @rem: 50rem;
+*{
+  box-sizing: border-box;
+}
+.content-msg{
+  background: #ffffff;
+  border-radius: 6/@rem;
+  min-height: 250/@rem;
+  margin: 0  24/@rem;
+  padding: 39/@rem 24/@rem;
+  .title{
+    line-height: 36/@rem;
+    font-size: 30/@rem;
+    color: #333333;
+  }
+  .title-desc{
+    font-size: 24/@rem;
+    color: #666666;
+    line-height: 38/@rem;
+  }
+}
+.header-contact-customer,.header-nav{
+    img{
+      width: 100%;
+      height:100%;
+    }
+  }
+  .header-contact-customer{
+    width: 34/@rem;
+    height: 32/@rem;
+    // background-image: url('/static/images/common/icon_erji@3x.png');
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    top: 29/@rem;
+    right: 115/@rem;
+    z-index: 11;
+  }
+  .header-nav{
+    width: 34/@rem;
+    height: 32/@rem;
+    // background-image: url('/static/images/common/icon_classify@3x.png');
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    top: 29/@rem;
+    right: 24/@rem;
+    z-index: 11;
+  }
 .back-top-box{
   z-index: 2;
   position: fixed;
@@ -260,6 +147,7 @@ export default {
   } 
 }
   .p-sysmsgs {
+    background: #eff2f7;
     .u-list {
       height: 100%;
       overflow-y: scroll;
@@ -314,11 +202,11 @@ export default {
       font-size: .9rem;
     }
     .empty-hint{
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 160/@rem;  
-      margin: auto;
+      position: relative;
+      // left: 0;
+      // right: 0;
+      // top: 160/@rem;  
+      margin: 28/@rem auto;
       text-align: center;
     }
   }

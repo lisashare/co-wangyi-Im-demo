@@ -46,7 +46,7 @@ export default {
               {id:4, title: '商评', url: `${config.indexUrl}#/shangping`,icon:'icon4',img:`${config.resourceUrl}im/icon_shangping@3x.png`},
               {id:5, title: '发现', url: `${config.indexUrl}#/case`,icon:'icon5',img:`${config.resourceUrl}im/icon_find@3x.png`},
               {id:6, title: '消息', url: `${config.homeUrl}`,icon:'icon6',img:`${config.resourceUrl}im/icon_xiaoxi@3x.png`},
-              {id:7,title:'我的',url:`${config.indexUrl}#/me`,icon:'icon7',img:`${config.resourceUrl}im/icon_me@3x.png`}
+              {id:7,title:'我的',url:`${config.indexUrl}#/my`,icon:'icon7',img:`${config.resourceUrl}im/icon_me@3x.png`}
           ],
           img8: `${config.resourceUrl}im/icon_app@3x.png`
       }
