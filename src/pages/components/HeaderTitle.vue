@@ -3,25 +3,32 @@
         <header class="header bc line-bottom">
           <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
           <h1>{{title}}</h1>
-          <span class="header-contact-customer" @click="phoneCall"><img :src="icon1"></span>
+          <span class="header-contact-customer" @click="isTelShow=!isTelShow"><img :src="icon1"></span>
           <span class="header-nav" @click="isNavShow=!isNavShow"><img :src="icon2"></span>
         </header>
         <nav-list 
             :close-nav="closeNav" 
             :is-nav-show="isNavShow">
         </nav-list>
+
+        <service-pop
+          :closeTel="closeTel"
+          :isTelShow="isTelShow">
+        </service-pop>
     </div>
 </template>
 <script>
+import ServicePop from './ServicePop'
 import config from '../../configs'
 import NavList from './NavList'
 export default {
   name: 'HeaderTitle',
-  components: {NavList},
+  components: {NavList,ServicePop},
   props: ['title'],
   data () {
     return {
       isNavShow: false,
+      isTelShow: false,
       icon1: `${config.resourceUrl}im/icon_erji@3x.png`,
       icon2: `${config.resourceUrl}im/icon_classify@3x.png`,
     }
@@ -32,7 +39,10 @@ export default {
     },
     closeNav () {
       this.isNavShow = false
-    }
+    },
+    closeTel () {
+      this.isTelShow = false;
+    },
   }
 }
 </script>

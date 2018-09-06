@@ -15,9 +15,9 @@
             <div class="tool-wrap">
                 <span class="tool-item">
                     <img :src="icon2" class="icon-phone">
+                    <input type="file" accept="image/*" capture="camera">
                 </span>
                 <span class="tool-des">拍照</span>
-                <input type="file" accept="image/*" capture="camera">
             </div>
             <!-- <div class="tool-wrap">
                 <span class="tool-item">

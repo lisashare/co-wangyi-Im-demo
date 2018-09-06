@@ -1,6 +1,6 @@
 // 环境变量
-var prourl = '/'
-// var prourl = 'http://localhost:8080/'
+// var prourl = '/'
+var prourl = 'http://localhost:8080/'
 
 var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
 let config = {

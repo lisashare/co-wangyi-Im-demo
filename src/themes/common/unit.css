@@ -146,6 +146,7 @@
   font-size: 0.5rem;
   color: #000000;
   padding: 0.2rem 0.36rem 0.2rem 0.36rem;
+  word-wrap: break-word;
 }
 .g-window .u-msg .msg-text img {
   position: relative;
