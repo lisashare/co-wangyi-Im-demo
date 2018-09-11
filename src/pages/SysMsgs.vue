@@ -7,7 +7,7 @@
               <span class="u-item-time-tip">{{sendTime}}</span>
             </div>
             <div class="content-msg">
-              <div class="title">系统通知</div>
+              <div class="title">系统公告</div>
               <div class="title-desc">{{msgDetails}}</div>
             </div>
          </div>
@@ -32,7 +32,7 @@ export default {
       msgList:'',
       sendTime: '',
       readStatus:'',
-      msgDetails:''
+      msgDetails:'',
     }
   },
   created(){

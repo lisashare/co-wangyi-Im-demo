@@ -1,8 +1,10 @@
 <template>
     <div class="header-title">
-        <header class="header bc line-bottom">
-          <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
-          <h1>{{title}}</h1>
+        <header class="header line-bottom">
+          <i class="icon-left" v-on:click = "$router.back(-1)">
+            <img :src="icon3" alt="">
+          </i>
+          <h2>{{title}}</h2>
           <span class="header-contact-customer" @click="isTelShow=!isTelShow"><img :src="icon1"></span>
           <span class="header-nav" @click="isNavShow=!isNavShow"><img :src="icon2"></span>
         </header>
@@ -31,6 +33,7 @@ export default {
       isTelShow: false,
       icon1: `${config.resourceUrl}im/icon_erji@3x.png`,
       icon2: `${config.resourceUrl}im/icon_classify@3x.png`,
+      icon3: `${config.resourceUrl}im/icon_back@3x.png`,
     }
   },
   methods: {
@@ -51,10 +54,6 @@ export default {
 *{
     box-sizing: border-box;
 }
-.header-title{
-  display: flex;
-  z-index:9;
-}
  .header-contact-customer,.header-nav{
     img{
       width: 100%;
@@ -62,32 +61,33 @@ export default {
     }
   }
   .header-contact-customer{
-    width: 67/@rem;
-    height: 88/@rem;
-    padding-right: 33/@rem;
     display: inline-block;
     position: absolute;
+    right: 96/@rem;
     top: 0;
-    right: 82/@rem;
-    z-index: 11;
+    width: 70/@rem;
+    height: 88/@rem;
+    text-align: center;
+    z-index: 3;
     img{
       width: 34/@rem;
       height: 32/@rem;
-      margin-top:29/@rem;
+      margin-top:28/@rem;
     }
   }
   .header-nav{
-    img{
-      width: 34/@rem;
-      height: 32/@rem;
-      margin-top:29/@rem;
-    }
     display: inline-block;
-    width: 82/@rem;
+    width: 84/@rem;
     height: 88/@rem;
+    text-align: center;
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 11;
+    z-index: 3;
+    img{
+      width: 36/@rem;
+      height: 28/@rem;
+      margin-top:30/@rem;
+    }
   }
 </style>

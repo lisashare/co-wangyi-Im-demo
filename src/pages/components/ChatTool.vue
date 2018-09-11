@@ -8,14 +8,14 @@
         </span> -->
                 <span class="tool-item" @change="sendFileMsg">
                     <img :src="icon1">
-                    <input type="file" ref="fileToSent">
+                    <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" ref="fileToSent">
                 </span>
                 <span class="tool-des">照片</span>
             </div>
             <div class="tool-wrap">
-                <span class="tool-item">
+                <span class="tool-item" @change="sendFileMsgPhoto">
                     <img :src="icon2" class="icon-phone">
-                    <input type="file" accept="image/*" capture="camera">
+                    <input type="file" accept="image/*" capture="camera" ref="fileToSentPhoto">
                 </span>
                 <span class="tool-des">拍照</span>
             </div>
@@ -69,7 +69,27 @@ export default {
                 })
                 }
             }
+        },
+        sendFileMsgPhoto () {
+            if (this.invalid) {
+                this.$toast(this.invalidHint)
+                return
             }
+            let ipt = this.$refs.fileToSentPhoto
+            if (ipt.value) {
+                if (this.type === 'session') {
+                this.$store.dispatch('sendFileMsgPhoto', {
+                    scene: this.scene,
+                    to: this.to,
+                    fileInput: ipt
+                })
+                } else if (this.type === 'chatroom') {
+                this.$store.dispatch('sendChatroomFileMsg', {
+                    fileInput: ipt
+                })
+                }
+            }
+        },
     }
 
 }

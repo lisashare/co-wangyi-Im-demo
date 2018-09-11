@@ -82,9 +82,22 @@
   display: inline-block;
   position: absolute;
   right: 0.48rem;
-  top: 0.3rem;
+  top: 0.4rem;
   font-size: 0.44rem;
   color: #999999;
+}
+.g-window .u-session-right {
+  display: inline-block;
+  position: absolute;
+  right: 0.52rem;
+  top: 1.54rem;
+  width: 0.2rem;
+  height: 0.32rem;
+  overflow: hidden;
+}
+.g-window .u-session-right img {
+  width: 0.2rem;
+  height: 0.32rem;
 }
 .g-window .u-unread {
   display: inline-block;

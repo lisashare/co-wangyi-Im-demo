@@ -1,23 +1,13 @@
 <template>
   <div class="g-inherit m-article">
-  	<!--头部 返回按钮  sessionname 历史聊天记录-->
-    <!-- <x-header class="m-tab" :left-options="leftBtnOptions" @on-click-back = "onClickBack">
-      <h1 class="m-tab-top" @click="enterNameCard">{{sessionName}}</h1> -->
-      <!-- <a slot="left"></a> -->
-      <!-- <div class="m-tab-right" slot="right"> -->
-        <!-- <span class='icon-history' @click='onHistoryClick'></span> -->
-        <!--<span v-if="scene==='team'" class='icon-team' @click="onTeamManageClick"></span>-->
-      <!-- </div>
-    </x-header> -->
-
-    <header class="header bc line-bottom">
-        <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
+    <header class="header line-bottom">
+        <i class="icon-left" v-on:click = "$router.back(-1)">
+          <img :src="icon3" alt="">
+        </i>
         <!-- <h1 class="m-tab-top" @click="enterNameCard">{{sessionName}}</h1> -->
-        <h1>{{sessionName}}</h1>
+        <h2>{{sessionName}}</h2>
         <!-- <i class="txt"><img src="/static/images/opportunity/icon/icon_tel.png"></i> -->
     </header>
-
-
     <div class="m-chat-main">
       <!--<div class='invalidHint' v-if='scene==="team" && teamInvalid'>
         {{`您已退出该${teamInfo && teamInfo.type==='normal' ? '讨论组':'群'}`}}
@@ -49,11 +39,20 @@ import ChatEditor from './components/ChatEditor'
 import ChatList from './components/ChatList'
 import util from '../utils'
 import pageUtil from '../utils/page'
-
+import config from '../configs'
 export default {
   components: {
     ChatEditor,
     ChatList
+  },
+  data () {
+    return {
+      leftBtnOptions: {
+        backText: ' ',
+        preventGoBack: true,
+      },
+      icon3: `${config.resourceUrl}im/icon_back@3x.png`,
+    }
   },
   // 进入该页面，文档被挂载
   mounted () {
@@ -80,14 +79,6 @@ export default {
   // 离开该页面，此时重置当前会话
   destroyed () {
     this.$store.dispatch('resetCurrSession')
-  },
-  data () {
-    return {
-      leftBtnOptions: {
-        backText: ' ',
-        preventGoBack: true,
-      }
-    }
   },
   computed: {
     sessionId () {  // 获取sessionId

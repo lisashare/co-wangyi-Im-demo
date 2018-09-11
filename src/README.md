@@ -58,3 +58,10 @@
 问题：指定用户对应的客服是从（登录，进入聊天/消息）那一刻起就不变了，还是变的，不变的话，我就在本地做存储这样再次登录就不会发消息 
 
 2. 进入页面的记录，我这个暂时不明白是网易可以设置还是怎么，我这块的逻辑都是没改过的，同样改完样式的代码，在网易的appkey，token中就有记录，我改成我们测试的就没有
+
+3. setTimeout(function(){
+  document.body.scrollTop = document.body.scrollHeight
+},300)
+
+scrollTop    指某个可滚动区块向下滚动的距离
+scrollHeight 网页内容body实际高度

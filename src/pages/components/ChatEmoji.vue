@@ -8,11 +8,13 @@
       </div>
     </div>
     <div class="emoji-channel">
-      <span class="emoji-album" :class="{active: item.name==currAlbum}" v-for="item in emoji" @click.stop="selectAlbum(item)">
-        <img :src="item.album">
-      </span><span v-if="type==='session'" class="emoji-album" :class="{active: item.name==currAlbum}" v-for="item in pinup" @click.stop="selectAlbum(item)">
+      <!-- <span class="emoji-album" :class="{active: item.name==currAlbum}" v-for="item in emoji" @click.stop="selectAlbum(item)"> -->
+      <span class="emoji-album" v-for="item in emoji" @click.stop="selectAlbum(item)">
         <img :src="item.album">
       </span>
+      <!-- <span v-if="type==='session'" class="emoji-album" :class="{active: item.name==currAlbum}" v-for="item in pinup" @click.stop="selectAlbum(item)">
+        <img :src="item.album">
+      </span> -->
 
         <span class="u-editor-send" @click.stop="sendTextMsg">发 送</span>
       </span>
@@ -79,6 +81,8 @@ export default {
   methods: {
     sendTextMsg(){
       this.$emit('send-msg')
+
+      this.$emit('hide-emoji')  // 点击发送信息，隐藏表情
     },
     selectAlbum (album) {
       this.currType = album.type
@@ -116,7 +120,7 @@ export default {
             }
           })
         }
-        this.$emit('hide-emoji')
+        // this.$emit('hide-emoji')
       }
     }
   }
@@ -150,7 +154,7 @@ export default {
         height: 70/@rem;
         color: #fff;
         background-color: #0079ff;
-        font-size: 24/@rem;
+        font-size: 26/@rem;
         line-height: 70/@rem; 
         text-align: center;
       }

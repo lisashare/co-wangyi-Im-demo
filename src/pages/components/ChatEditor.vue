@@ -5,19 +5,23 @@
       <!-- <span v-if="!isRobot" class="u-editor-icon u-editor-voice">
         <i class="u-icon-img"><img :src="icon1"></i>
       </span> -->
+
+      <span v-if="!isRobot" class="u-editor-icon u-editor-emoji" @click.stop="showEmoji">
+        <i class="u-icon-img"><img :src="icon4"></i>
+      </span>
       <!-- 输入内容的textarea -->
       <span class="u-editor-input" @keyup.enter="sendTextMsg">
-        <textarea class="textarea" placeholder="请输入消息" v-model="msgToSent" @focus='onInputFocus'></textarea>
+        <textarea class="textarea" v-model="msgToSent" @focus='onInputFocus'></textarea>
         <!-- <div class="textarea" v-model="msgToSent" @focus='onInputFocus' contenteditable="true"></div> -->
       </span>
-
       <!-- <span class="u-editor-icons"> -->
-        <span v-if="!isRobot" class="u-editor-icon u-editor-emoji" @click.stop="showEmoji">
+        <!-- <span v-if="!isRobot" class="u-editor-icon u-editor-emoji" @click.stop="showEmoji">
           <i class="u-icon-img"><img :src="icon4"></i>
-        </span>
+        </span> -->
         <span v-if="!isRobot" class="u-editor-icon u-editor-plus"  @click.stop="showPlus">
           <i class="u-icon-img"><img :src="icon5"></i>
         </span>
+        <span class="u-editor-send02" @click.stop="sendTextMsg">发 送</span>
       <!-- </span> -->
     </div>
 
@@ -259,6 +263,9 @@ export default {
         }
       }
       this.msgToSent = ''
+      // 点击发送关闭表情
+      this.hideEmoji()
+      this.hidePlus()
     },
     sendPlayMsg () {
       if (this.invalid) {
@@ -315,7 +322,7 @@ export default {
     showEmoji () {  // emoji显示
     // console.log(this.msgToSent)
       this.hidePlus()
-      this.isEmojiShown = true
+      this.isEmojiShown = !this.isEmojiShown
     },
     showPlus () {  // 显示工具选项
       this.hideEmoji ()
@@ -329,7 +336,7 @@ export default {
     },
     addEmoji (emojiName) {  // 添加表情
       this.msgToSent += emojiName
-      this.hideEmoji()
+      // this.hideEmoji()   // 添加表情不隐藏
     },
     // addPlus (plusName) {
     //   this.msgToSent += plusNames

@@ -289,7 +289,7 @@
     position: relative;
     display: block;
 
-    padding-left: 50/@rem;
+    // padding-left: 50/@rem;
 
     width: 100%;
     min-height: 98/@rem;
@@ -297,7 +297,8 @@
     display: flex;
     align-items: center;
     .u-editor-input {  
-      padding: 22/@rem 0; 
+      // padding: 22/@rem 0;
+      // padding: 18/@rem 0;
       
 ::-webkit-scrollbar{width: 0;height: 0;}
 ::-webkit-scrollbar-track-piece
@@ -324,17 +325,19 @@
         overflow-x: hidden;
         position: relative;
         display: inline-block;
-        padding: 5/@rem;
+        padding: 8/@rem;
         font-size: 26/@rem;
         // width: 464/@rem;
-        width: 500/@rem;
+        width: 460/@rem;
         min-height: 55/@rem;
         max-height: 110/@rem;
         background: #fafafa;
         border-radius: 9/@rem;  
         text-align: left;
+        border: 0; /* 方法1 */
+        -webkit-appearance: none; /* 方法2 */
         border: 1px solid #c8c8cd;
-        border-radius: 6/@rem;
+        // border-radius: 6/@rem;
       }
     }
     // .u-editor-icons {
@@ -375,9 +378,25 @@
       margin-right: 20/@rem;
     }
     .u-editor-emoji{
-      // margin-left: 19/@rem;
-      // margin-right: 20/@rem;
-      margin: 0 36/@rem;
+      margin-left: 20/@rem;
+      margin-right: 16/@rem;
+      // margin: 0 36/@rem;
     }
+    .u-editor-plus{
+      margin-left: 16/@rem;
+      margin-right: 16/@rem;
+    }
+    .u-editor-send02{
+        position: relative;
+        display: inline-block;
+        width: 100/@rem;
+        height: 54/@rem;
+        color: #fff;
+        background-color: #0079ff;
+        font-size: 28/@rem;
+        line-height: 54/@rem; 
+        text-align: center;
+        border-radius: 4/@rem;
+      }
   }
 }

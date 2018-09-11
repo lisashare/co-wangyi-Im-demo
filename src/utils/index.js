@@ -106,6 +106,11 @@ Utils.stringifyDate = function (datetime, simple = false) {
   week = weekMap[week]
   let thatDay = (new Date(year, month - 1, day, 0, 0, 0)).getTime()
 
+  if(hour < 12){
+    hour = '上午 ' + hour
+  }else{
+    hour = '下午 ' + (hour-12)
+  }
   if (simple) {
     return {
       withYear: `${day}/${month}/${simpleYear}`,

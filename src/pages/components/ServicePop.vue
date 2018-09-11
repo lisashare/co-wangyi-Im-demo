@@ -5,10 +5,10 @@
       <img :src="icon3" />
       <img class="closeBtn" :src="icon4" />
       <div class="btnBottom">
-        <router-link to="/" class="online">
+        <a @click="goSession" class="online">
           <span class="icon-tel"><img :src="icon5"></span>
           在线咨询
-        </router-link>
+        </a>
         <a @click="phoneCall" class="call">
           <span class="icon-call"><img :src="icon6"></span>
           拨打电话
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import cookie from '../../utils/cookie'
+import util from '../../utils'
 import config from '../../configs'
 export default {
   name: 'ServicePop',
@@ -28,7 +30,11 @@ export default {
       icon3: `${config.resourceUrl}im/pop_dianhuakefu@3x.png`,
       icon4: `${config.resourceUrl}im/icon_close@3x.png`,
       icon5: `${config.resourceUrl}im/icon_zixun@3x.png`,
-      icon6: `${config.resourceUrl}im/icon_phone@3x.png`
+      icon6: `${config.resourceUrl}im/icon_phone@3x.png`,
+      sendTime: '',
+      readStatus:'',
+      msgDetails:'',
+      sessionId:''
     }
   },
   methods: {
@@ -36,6 +42,19 @@ export default {
     phoneCall () {
       window.location.href = 'tel:010-53579588'
     },
+    goSession(){
+      // 点击，取cookie 如果没有登录和session id 跳转到登录，如果有跳转到聊天
+      let loginInfo = {
+        uid: cookie.readCookie('uid'),
+        sdktoken: cookie.readCookie('sdktoken'),
+      }
+      this.sessionId = cookie.readCookie('sessionId')
+      if (!loginInfo.uid) {
+        window.location.href = config.loginUrl
+      } else if(this.sessionId){
+        location.href = '#/chat/p2p-' + this.sessionId
+      }
+    }
   }
 }
 </script>

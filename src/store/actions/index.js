@@ -11,7 +11,7 @@ import {updateBlack} from './blacks'
 import {updateFriend, addFriend, deleteFriend} from './friends'
 import {resetSearchResult, searchUsers, searchTeam} from './search'
 import {deleteSession, setCurrSession, resetCurrSession} from './session'
-import {sendMsg, sendFileMsg, sendMsgReceipt, sendRobotMsg, revocateMsg, getHistoryMsgs, resetNoMoreHistoryMsgs, continueRobotMsg} from './msgs'
+import {sendMsg, sendFileMsg, sendFileMsgPhoto, sendMsgReceipt, sendRobotMsg, revocateMsg, getHistoryMsgs, resetNoMoreHistoryMsgs, continueRobotMsg} from './msgs'
 import {markSysMsgRead, resetSysMsgs, deleteSysMsgs, markCustomSysMsgRead} from './sysMsgs'
 import {sendChatroomMsg, sendChatroomRobotMsg, sendChatroomFileMsg, getChatroomHistoryMsgs} from './chatroomMsgs'
 import {initChatroomInfos, getChatroomInfo, getChatroomMembers, clearChatroomMembers} from './chatroomInfos'
@@ -116,6 +116,7 @@ export default {
   // 发送消息
   sendMsg,
   sendFileMsg,
+  sendFileMsgPhoto,
   sendRobotMsg,
   // 发送消息已读回执
   sendMsgReceipt,

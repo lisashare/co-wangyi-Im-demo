@@ -5,25 +5,16 @@ var prourl = '/'
 var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
 let config = {
   sdk: 'NIM_Web_SDK_v5.0.0',
-  // 用户自定义的登录注册地址
-  // loginUrl: 'http://localhost:8080/#/login',
-  // homeUrl: '/webdemo/h5/im.html#/session',
-  // // nav导航跳转链接
-  // indexUrl: 'http://localhost:8080',
 
-
-  loginUrl: prourl + '#/login?from=im',
+  loginUrl: prourl + '#/login',
+  // loginUrl: prourl + '#/messagelogin',
 
   homeUrl: prourl + 'im.html#/session',
 
   indexUrl: prourl,
 
-
   // 下载
-  //   downLoadIos: 'https://gio.ren/reXaPx3',
-  //   downLoadAndroid: 'https://gio.ren/rVYaPnV',
   downLoad:'https://gio.ren/o32N653',
-
   // 资源路径根目录，为了方便用户部署在二级以上URL路径上
   resourceUrl: iconurl,
   // 用户logo地址

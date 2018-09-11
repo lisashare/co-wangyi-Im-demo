@@ -24,7 +24,7 @@
   height: 0.64rem;
 }
 .header {
-  padding: 0 3rem;
+  padding: 0 3.48rem;
   position: fixed;
   top: 0;
   right: 0;
@@ -33,37 +33,33 @@
   line-height: 1.76rem;
   text-align: center;
   font-size: 0.72rem;
-  color: #2a2a2a;
-  z-index: 2;
+  color: #333333;
   background: #ffffff;
+  z-index: 3;
 }
-.header .left {
+.header .icon-left {
   position: absolute;
-  top: 50%;
-  left: 0.48rem;
-  -webkit-transform: translate3d(0, -50%, 0);
-  transform: translate3d(0, -50%, 0);
-}
-.header .left::before {
-  content: "";
-  position: absolute;
-  width: 0.28rem;
-  height: 0.28rem;
-  border: 1px solid #2a2a2a;
-  border-width: 1px 0 0 1px;
-  -webkit-transform: rotate(315deg);
-  -moz-transform: rotate(315deg);
-  transform: rotate(315deg);
-  top: -0.1rem;
+  top: 0;
   left: 0;
+  width: 1.28rem;
+  height: 1.76rem;
+  text-align: center;
 }
-.header h1 {
+.header .icon-left img {
+  width: 0.32rem;
+  height: 0.56rem;
+  margin-top: 0.56rem;
+}
+.header h2 {
   font-weight: normal;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 0.72rem;
+  height: 1.76rem;
   line-height: 1.76rem;
+  font-size: 0.72rem;
+  color: #333333;
+  text-align: center;
 }
 .line-bottom:after {
   content: '';

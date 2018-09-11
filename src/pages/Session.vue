@@ -1,15 +1,5 @@
 <template>
   <div class="g-inherit m-main p-session page-top">
-    <!-- <header class="header bc line-bottom">
-        <i class="left fa-icon fa fa-angle-left" v-on:click = "$router.back(-1)"></i>
-        <h1>消息</h1>
-        <span class="header-contact-customer" @click="phoneCall"><img :src="icon1" alt=""></span>
-        <span class="header-nav" @click="isNavShow=!isNavShow"><img :src="icon2" alt=""></span>
-    </header>
-    <nav-list 
-            :close-nav="closeNav" 
-            :is-nav-show="isNavShow">
-    </nav-list> -->
     <header-title :title="title"></header-title>
     <group class="u-list" v-if="showSessionList">
       <cell v-if="msgDetails" class="u-list-item" title="通知" 
@@ -19,6 +9,9 @@
         <!-- <span v-show="sysMsgUnread > 0" class="u-unread">{{sysMsgUnread}}</span> -->
         <span class='u-session-time' v-if="sendTime">
           {{sendTime}}
+        </span>
+        <span class='u-session-right'>
+          <img :src="icon6" alt="">     
         </span>
         <span v-show="readStatus > 0" class="u-unread"></span>
       </cell>  
@@ -78,12 +71,14 @@ export default {
       icon3: `${config.resourceUrl}im/bg_adviser@3x.png`,
       icon4: `${config.resourceUrl}im/btn_guwen@3x.png`,
       icon5: `${config.resourceUrl}im/btn_phone@3x.png`,
+      icon6: `${config.resourceUrl}im/icon_more@3x.png`,
       sendTime: '',
       readStatus:'',
       msgDetails:''
     }
   },
   created(){ 
+    window.localStorage.setItem("tempUrl", 'session')
     // 进入页面获取数据，判断显示什么
     let loginInfo = {
       uid: cookie.readCookie('uid'),
@@ -177,7 +172,6 @@ export default {
   },
   methods: {
     goLogin(){  
-      // window.location.href = "http://localhost:8080/#/login"
       window.location.href = config.loginUrl
     },
     phoneCall () {

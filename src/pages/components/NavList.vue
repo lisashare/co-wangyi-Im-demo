@@ -40,7 +40,7 @@ export default {
   data () {
       return {
           navs:[
-              {id:1,title:'首页',url:`${config.indexUrl}#/`,icon:'icon1',img:`${config.resourceUrl}im/icon_me@3x.png`},
+              {id:1,title:'首页',url:`${config.indexUrl}#/`,icon:'icon1',img:`${config.resourceUrl}im/icon_home@3x.png`},
               {id:2,title:'商机',url:`${config.indexUrl}#/opportunity`,icon:'icon2',img:`${config.resourceUrl}im/icon_shangji@3x.png`},
               {id:3, title: 'VR看店', url: `${config.indexUrl}#/vr`,icon:'icon3',img:`${config.resourceUrl}im/icon_vr@3x.png`},
               {id:4, title: '商评', url: `${config.indexUrl}#/shangping`,icon:'icon4',img:`${config.resourceUrl}im/icon_shangping@3x.png`},

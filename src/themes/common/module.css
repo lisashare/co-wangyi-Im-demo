@@ -253,15 +253,11 @@
 .g-window .m-chat-editor-main {
   position: relative;
   display: block;
-  padding-left: 1rem;
   width: 100%;
   min-height: 1.96rem;
   max-height: 2.6rem;
   display: flex;
   align-items: center;
-}
-.g-window .m-chat-editor-main .u-editor-input {
-  padding: 0.44rem 0;
 }
 .g-window .m-chat-editor-main .u-editor-input ::-webkit-scrollbar {
   width: 0;
@@ -288,16 +284,19 @@
   overflow-x: hidden;
   position: relative;
   display: inline-block;
-  padding: 0.1rem;
+  padding: 0.16rem;
   font-size: 0.52rem;
-  width: 10rem;
+  width: 9.2rem;
   min-height: 1.1rem;
   max-height: 2.2rem;
   background: #fafafa;
   border-radius: 0.18rem;
   text-align: left;
+  border: 0;
+  /* 方法1 */
+  -webkit-appearance: none;
+  /* 方法2 */
   border: 1px solid #c8c8cd;
-  border-radius: 0.12rem;
 }
 .g-window .m-chat-editor-main .u-editor-icon {
   position: relative;
@@ -310,5 +309,22 @@
   margin-right: 0.4rem;
 }
 .g-window .m-chat-editor-main .u-editor-emoji {
-  margin: 0 0.72rem;
+  margin-left: 0.4rem;
+  margin-right: 0.32rem;
+}
+.g-window .m-chat-editor-main .u-editor-plus {
+  margin-left: 0.32rem;
+  margin-right: 0.32rem;
+}
+.g-window .m-chat-editor-main .u-editor-send02 {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+  height: 1.08rem;
+  color: #fff;
+  background-color: #0079ff;
+  font-size: 0.56rem;
+  line-height: 1.08rem;
+  text-align: center;
+  border-radius: 0.08rem;
 }
