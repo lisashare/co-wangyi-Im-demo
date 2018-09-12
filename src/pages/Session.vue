@@ -2,6 +2,7 @@
   <div class="g-inherit m-main p-session page-top">
     <header-title :title="title"></header-title>
     <group class="u-list" v-if="showSessionList">
+    <!-- <group class="u-list" v-if="0"> -->
       <cell v-if="msgDetails" class="u-list-item" title="通知" 
       :inline-desc="msgDetails"
       @click.native="enterSysMsgs">
@@ -45,8 +46,10 @@
       <div class="wait-btn" @click="goLogin">
         <img :src="icon4" alt="">
       </div>
-      <div class="call-btn" @click="phoneCall">
-        <img :src="icon5" alt="">
+      <div class="call-btn">
+        <a href="tel:010-53579588">
+          <img :src="icon5" alt="">
+        </a>
       </div>
     </div>
   </div>
@@ -229,14 +232,16 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 340/@rem;
+  margin-top: 30%;
+  // margin-bottom: 30%;
+  // margin-top: 340/@rem;
   img{
     width: 100%;
     height: 100%;
   }
   .wait-user{
-    width: 348/@rem;
-    height: 348/@rem;
+    width: 312/@rem;
+    height: 345/@rem;
   }
   .wait-btn{
     margin-top: 30/@rem;

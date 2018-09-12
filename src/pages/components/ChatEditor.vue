@@ -360,7 +360,7 @@ export default {
         // todo fixme 解决iOS输入框被遮挡问题，但会存在空白缝隙
         e.target.scrollIntoView()
         pageUtil.scrollChatListDown()
-      }, 200)
+      }, 300)
     },
     turnToMsgReceipt() {
       if (this.invalid) {

@@ -9,10 +9,14 @@
           <span class="icon-tel"><img :src="icon5"></span>
           在线咨询
         </a>
-        <a @click="phoneCall" class="call">
+        <a href="tel:010-53579588" class="call">
           <span class="icon-call"><img :src="icon6"></span>
           拨打电话
         </a>
+        <!-- <a @click="phoneCall" class="call">
+          <span class="icon-call"><img :src="icon6"></span>
+          拨打电话
+        </a> -->
       </div>
     </div>
   </div>
@@ -103,48 +107,48 @@ export default {
         justify-content: space-between;
         //border: 1px solid blue;
         a {
-           font-size: 26/@rem;
+           font-size: 30/@rem;
            color:#fff;
            width: 248/@rem;
            height: 73/@rem;
            text-align: center;
-           line-height: 73/@rem;
            display: inline-block;
            border-radius: 6px;
+           display: flex;
+           align-items: center;
         }
-        span {
-          margin-right: 18/@rem;
-          display: inline-block;
-          background-repeat: no-repeat;
-        }
-        .online {
-           background: #f66d61;
-          .icon-tel {
+          span {
+            display: inline-block;
+            background-repeat: no-repeat;
+          }
+          .online {
+            background: #f66d61;
+            .icon-tel {
+              margin-left: 34/@rem;
+              margin-right: 18/@rem;
               width: 34/@rem;
-              height: 32/@rem;
+              height: 32/@rem; 
             img{
               width: 100%;
               height: 100%;
             }
-            position: relative;
-            top: 10/@rem;
           }
         }
         .call {
           background: #2caeb7;
           .icon-call {
+            margin-top: -3/@rem;
+            margin-left: 26/@rem;
+            margin-right: 20/@rem;
             width: 34/@rem;
             height: 34/@rem;
             img{
               width: 100%;
               height: 100%;
             }
-            position: relative;
-            top: 10/@rem;
           }
         }
       }
-
     }
   }
 </style>

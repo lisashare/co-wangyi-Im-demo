@@ -147,7 +147,7 @@ export default {
   } 
 }
   .p-sysmsgs {
-    background: #eff2f7;
+    background: #eff2f7!important;
     .u-list {
       height: 100%;
       overflow-y: scroll;
