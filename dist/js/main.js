@@ -666,10 +666,12 @@ var env = 'online';
 var appConfig = {
   test: {
     appkey: '98e7185f6b504fb09af57d3109687c4e',
+
     postUrl: 'https://apptest.netease.im'
   },
   online: {
     appkey: '98e7185f6b504fb09af57d3109687c4e',
+
     postUrl: 'https://app.netease.im'
   }
 };

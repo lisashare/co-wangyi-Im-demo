@@ -1297,7 +1297,7 @@ exports.default = {
       }
       if (/^\s*$/.test(this.msgToSent)) {
         this.$vux.alert.show({
-          title: '请不要发送空消息'
+          title: '发送消息不能为空'
         });
         return;
       } else if (this.msgToSent.length > 800) {
@@ -1494,8 +1494,8 @@ exports.default = {
     },
     onInputFocus: function onInputFocus(e) {
       setTimeout(function () {
-        e.target.scrollIntoView();
         _page2.default.scrollChatListDown();
+        e.target.scrollIntoView();
       }, 300);
     },
     turnToMsgReceipt: function turnToMsgReceipt() {

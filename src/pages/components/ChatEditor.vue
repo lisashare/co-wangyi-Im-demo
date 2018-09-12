@@ -153,7 +153,7 @@ export default {
       }
       if (/^\s*$/.test(this.msgToSent)) {
         this.$vux.alert.show({
-          title: '请不要发送空消息'
+          title: '发送消息不能为空'
         })
         return
       } else if (this.msgToSent.length > 800) {
@@ -358,8 +358,8 @@ export default {
     onInputFocus(e) {
       setTimeout(() => {
         // todo fixme 解决iOS输入框被遮挡问题，但会存在空白缝隙
-        e.target.scrollIntoView()
         pageUtil.scrollChatListDown()
+        e.target.scrollIntoView()
       }, 300)
     },
     turnToMsgReceipt() {

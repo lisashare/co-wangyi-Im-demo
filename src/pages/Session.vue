@@ -97,7 +97,7 @@ export default {
       this.sendTime= cookie.readCookie('sendTime')
       this.readStatus = cookie.readCookie('readStatus')
       this.msgDetails = cookie.readCookie('msgDetails')
-      console.log(this.sendTime,this.readStatus,this.msgDetails)
+      // console.log(this.sendTime,this.readStatus,this.msgDetails)
     }
   },
   computed: {
