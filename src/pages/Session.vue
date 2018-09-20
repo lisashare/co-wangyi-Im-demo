@@ -117,7 +117,7 @@ export default {
     myPhoneId () {  // 用户id
       return `${this.$store.state.userUID}`
     },
-    sessionlist () {
+    sessionlist () {  
       let sessionlist = this.$store.state.sessionlist.filter(item => {
         item.name = ''
         item.avatar = ''

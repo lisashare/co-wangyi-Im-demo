@@ -665,13 +665,11 @@ var env = 'online';
 
 var appConfig = {
   test: {
-    appkey: '98e7185f6b504fb09af57d3109687c4e',
-
+    appkey: '6441e2b7480cd9e7076befdf3bce5fe6',
     postUrl: 'https://apptest.netease.im'
   },
   online: {
-    appkey: '98e7185f6b504fb09af57d3109687c4e',
-
+    appkey: '6441e2b7480cd9e7076befdf3bce5fe6',
     postUrl: 'https://app.netease.im'
   }
 };
