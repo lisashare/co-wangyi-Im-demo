@@ -631,8 +631,7 @@ var _assign2 = _interopRequireDefault(_assign);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var prourl = '/';
-
+var prourl = 'http://192.168.30.221:8080/';
 
 var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
 var config = {
@@ -665,11 +664,13 @@ var env = 'online';
 
 var appConfig = {
   test: {
-    appkey: '6441e2b7480cd9e7076befdf3bce5fe6',
+    appkey: '98e7185f6b504fb09af57d3109687c4e',
+
     postUrl: 'https://apptest.netease.im'
   },
   online: {
-    appkey: '6441e2b7480cd9e7076befdf3bce5fe6',
+    appkey: '98e7185f6b504fb09af57d3109687c4e',
+
     postUrl: 'https://app.netease.im'
   }
 };
@@ -12118,7 +12119,7 @@ Utils.parseCustomMsg = function (msg) {
           return '[白板消息]';
       }
     } catch (e) {}
-    return '[自定义消息]';
+    return '[链接]';
   }
   return '';
 };
@@ -13263,6 +13264,7 @@ var cookie = {
     var cval = this.readCookie(name);
     if (cval != null) {
       document.cookie = name + '=' + cval + ';expires=' + new Date(0).toGMTString();
+      console.log(this.readCookie(name));
     }
   }
 };

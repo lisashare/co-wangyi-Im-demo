@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import cookie from '../utils/cookie'
+
 import ChatEditor from './components/ChatEditor'
 import ChatList from './components/ChatList'
 import util from '../utils'
@@ -59,6 +61,14 @@ export default {
     this.$store.dispatch('showLoading')
     // 此时设置当前会话
     this.$store.dispatch('setCurrSession', this.sessionId)
+
+    var brandInfo = cookie.readCookie('frombrand')
+    if(brandInfo){
+      brandInfo = JSON.parse(brandInfo)
+      this.sendSelfMessage(brandInfo)
+      console.log(brandInfo)
+    }
+
     pageUtil.scrollChatListDown()
 
     setTimeout(() => {
@@ -72,6 +82,7 @@ export default {
         this.$store.dispatch('getTeamMembers', this.to)
       }
     }
+
   },
   updated () {
     pageUtil.scrollChatListDown()
@@ -174,8 +185,32 @@ export default {
     }
   },
   methods: {
+    sendSelfMessage(brandInfo){
+      // 思路：判断是否是从品牌进入，是：取出传递过来的品牌图片、名称、加盟金额--》默认发送一条type:5信息
+        let content = {
+          type: 8, // 自定义消息类型为5，此处的消息类型必须和其他平台的图文消息类型一致
+          data: {
+            // title: brandInfo.title, // 消息标题
+            // describe: brandInfo.describe, // 消息描述
+            // link_url: brandInfo.link_url, // 点击跳转的URL
+            // image_url: brandInfo.image_url // 消息中的图片地址
+            title: '暖冬季欢乐送', // 消息标题
+						describe: '家具满1000元减100元再返100元现金券！点击查看详情！', // 消息描述
+						link_url: 'https://www.jianshu.com/p/dadd344b6413', // 点击跳转的URL
+						image_url: 'https://netease.im/res/image/download/section1.png?v=002' // 消息中的图片地址
+          }
+        };
+        this.$store.dispatch('sendMsg', {
+          type: 'custom',
+          scene: this.scene,
+          to: this.to,
+          pushContent: this.pushContent,
+          content: content
+        });
+      // cookie.delCookie('frombrand')
+      // document.cookie="frombrand"+'=;'+ 'expire=' + -1 + ';path=/' 
+    },
     onClickBack () {
-      // location.href = '#/contacts'
       window.history.go(-1)
     },
     msgsLoaded () {

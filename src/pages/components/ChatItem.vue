@@ -214,12 +214,25 @@
             item.type = 'custom-type3'
             item.imgUrl = `${emojiCnt.img}`
           }
-        } else {
-          item.showText = util.parseCustomMsg(item)
-          if (item.showText !== '[自定义消息]') {
-            item.showText += ',请到手机或电脑客户端查看'
+
+        } else if (content.type === 8) { // type 5 为图文链接消息
+              let obj = content.data;
+              // item.showText = `<a class="imgtxt" href=${obj.link_url} target="_blank">`;
+              item.showText = `<a class="imgtxt" javascript:void(0)>`;
+              item.showText += `<div class="imgtxt-title">${obj.title}</div>`;
+              // if (obj.image_url && obj.image_url.trim() != '') {
+                item.showText += `<img class="imgtxt-img" src=${obj.image_url} />`;
+              // }
+              // if (obj.describe && obj.describe.trim() != '') {
+                item.showText += `<div class="imgtxt-describe">${obj.describe}</div>`;
+              // }
+              item.showText += `</a>`;
+            } else {
+              item.showText = util.parseCustomMsg(item)
+              if (item.showText !== '[链接]') {
+                item.showText += ',请到手机或电脑客户端查看'
+              }
           }
-        }
       } else if (item.type === 'image') {
         // 原始图片全屏显示
         item.originLink = item.file.url

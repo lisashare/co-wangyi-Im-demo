@@ -255,9 +255,20 @@ exports.default = {
           item.type = 'custom-type3';
           item.imgUrl = '' + emojiCnt.img;
         }
+      } else if (content.type === 8) {
+        var obj = content.data;
+
+        item.showText = '<a class="imgtxt" javascript:void(0)>';
+        item.showText += '<div class="imgtxt-title">' + obj.title + '</div>';
+
+        item.showText += '<img class="imgtxt-img" src=' + obj.image_url + ' />';
+
+        item.showText += '<div class="imgtxt-describe">' + obj.describe + '</div>';
+
+        item.showText += '</a>';
       } else {
         item.showText = _utils2.default.parseCustomMsg(item);
-        if (item.showText !== '[自定义消息]') {
+        if (item.showText !== '[链接]') {
           item.showText += ',请到手机或电脑客户端查看';
         }
       }

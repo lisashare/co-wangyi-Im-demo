@@ -823,6 +823,7 @@ exports.default = {
         if (lastMsg.type === 'text') {
           item.lastMsgShow = lastMsg.text || '';
         } else if (lastMsg.type === 'custom') {
+
           item.lastMsgShow = _utils2.default.parseCustomMsg(lastMsg);
         } else if (lastMsg.scene === 'team' && lastMsg.type === 'notification') {
           item.lastMsgShow = _utils2.default.generateTeamSysmMsg(lastMsg);
