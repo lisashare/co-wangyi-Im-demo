@@ -145,13 +145,13 @@ export function sendMsg ({state, commit}, obj) {
     })
     break
     case 'custom':
-    nim.sendCustomMsg({
-      scene: obj.scene,
-      to: obj.to,
-      pushContent: obj.pushContent,
-      content: JSON.stringify(obj.content),
-      done: onSendMsgDone
-    })
+      nim.sendCustomMsg({
+        scene: obj.scene,
+        to: obj.to,
+        pushContent: obj.pushContent,
+        content: JSON.stringify(obj.content),
+        done: onSendMsgDone
+      })
   }
 }
 // 发送文件消息

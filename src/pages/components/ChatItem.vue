@@ -215,18 +215,14 @@
             item.imgUrl = `${emojiCnt.img}`
           }
 
-        } else if (content.type === 8) { // type 5 为图文链接消息
+        } else if (content.type === 8) { // type 8 为图文链接消息
               let obj = content.data;
               // item.showText = `<a class="imgtxt" href=${obj.link_url} target="_blank">`;
-              item.showText = `<a class="imgtxt" javascript:void(0)>`;
-              item.showText += `<div class="imgtxt-title">${obj.title}</div>`;
-              // if (obj.image_url && obj.image_url.trim() != '') {
-                item.showText += `<img class="imgtxt-img" src=${obj.image_url} />`;
-              // }
-              // if (obj.describe && obj.describe.trim() != '') {
-                item.showText += `<div class="imgtxt-describe">${obj.describe}</div>`;
-              // }
-              item.showText += `</a>`;
+              item.showText = `<a class="imgtxt" javascript:void(0)>
+                                  <img class="imgtxt-img" src=${obj.image_url} />
+                                  <div class="imgtxt-title">${obj.title}</div>
+                                  <div class="imgtxt-describe">加盟费<span>${obj.describe}万</span></div>
+                               </a>`;
             } else {
               item.showText = util.parseCustomMsg(item)
               if (item.showText !== '[链接]') {
@@ -435,6 +431,7 @@
 </script>
 
 <style lang="less" scoped>
+
   .p-chat-history {
     .u-msg {
       .msg-link {

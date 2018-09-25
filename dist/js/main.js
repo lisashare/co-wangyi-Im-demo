@@ -539,7 +539,7 @@ function applyToTag (styleElement, obj) {
 
 exports.__esModule = true;
 
-var _vue = __webpack_require__(/*! vue */ 24);
+var _vue = __webpack_require__(/*! vue */ 20);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -613,319 +613,6 @@ module.exports = { "default": __webpack_require__(/*! core-js/library/fn/object/
 
 /***/ }),
 /* 20 */
-/* no static exports found */
-/* all exports used */
-/*!******************************!*\
-  !*** ./src/configs/index.js ***!
-  \******************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _assign = __webpack_require__(/*! babel-runtime/core-js/object/assign */ 19);
-
-var _assign2 = _interopRequireDefault(_assign);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var prourl = 'http://192.168.30.221:8080/';
-
-var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
-var config = {
-  sdk: 'NIM_Web_SDK_v5.0.0',
-
-  loginUrl: prourl + '#/login',
-
-
-  homeUrl: prourl + 'im.html#/session',
-
-  indexUrl: prourl,
-
-  downLoad: 'https://gio.ren/o32N653',
-
-  resourceUrl: iconurl,
-
-  defaultUserIcon: iconurl + 'im/default-icon.png',
-
-  defaultGroupIcon: iconurl + 'im/default-group.png',
-
-  defaultAdvancedIcon: iconurl + 'im/default-advanced.png',
-  noticeIcon: iconurl + 'im/icon_tongzhi@2x.png',
-
-  myPhoneIcon: iconurl + 'im/my-phone.png',
-
-  localMsglimit: 36
-};
-
-var env = 'online';
-
-var appConfig = {
-  test: {
-    appkey: '98e7185f6b504fb09af57d3109687c4e',
-
-    postUrl: 'https://apptest.netease.im'
-  },
-  online: {
-    appkey: '98e7185f6b504fb09af57d3109687c4e',
-
-    postUrl: 'https://app.netease.im'
-  }
-};
-
-config = (0, _assign2.default)(config, appConfig[env]);
-
-exports.default = config;
-module.exports = exports['default'];
-
-/***/ }),
-/* 21 */
-/* no static exports found */
-/* all exports used */
-/*!*******************************************!*\
-  !*** ./~/babel-runtime/helpers/typeof.js ***!
-  \*******************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _iterator = __webpack_require__(/*! ../core-js/symbol/iterator */ 167);
-
-var _iterator2 = _interopRequireDefault(_iterator);
-
-var _symbol = __webpack_require__(/*! ../core-js/symbol */ 166);
-
-var _symbol2 = _interopRequireDefault(_symbol);
-
-var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
-} : function (obj) {
-  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
-};
-
-/***/ }),
-/* 22 */
-/* no static exports found */
-/* all exports used */
-/*!**********************************************!*\
-  !*** ./~/core-js/library/modules/_global.js ***!
-  \**********************************************/
-/***/ (function(module, exports) {
-
-// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-var global = module.exports = typeof window != 'undefined' && window.Math == Math
-  ? window : typeof self != 'undefined' && self.Math == Math ? self
-  // eslint-disable-next-line no-new-func
-  : Function('return this')();
-if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
-
-
-/***/ }),
-/* 23 */
-/* no static exports found */
-/* all exports used */
-/*!******************************!*\
-  !*** ./~/process/browser.js ***!
-  \******************************/
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-
-/***/ }),
-/* 24 */
 /* no static exports found */
 /* all exports used */
 /*!***************************!*\
@@ -11884,6 +11571,320 @@ return Vue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../webpack/buildin/global.js */ 34), __webpack_require__(/*! ./../../timers-browserify/main.js */ 93).setImmediate))
 
 /***/ }),
+/* 21 */
+/* no static exports found */
+/* all exports used */
+/*!******************************!*\
+  !*** ./src/configs/index.js ***!
+  \******************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _assign = __webpack_require__(/*! babel-runtime/core-js/object/assign */ 19);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var prourl = '/';
+
+
+var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
+var config = {
+  sdk: 'NIM_Web_SDK_v5.0.0',
+
+  loginUrl: prourl + '#/login',
+
+
+  homeUrl: prourl + 'im.html#/session',
+
+  indexUrl: prourl,
+
+  downLoad: 'https://gio.ren/o32N653',
+
+  resourceUrl: iconurl,
+
+  defaultUserIcon: iconurl + 'im/default-icon.png',
+
+  defaultGroupIcon: iconurl + 'im/default-group.png',
+
+  defaultAdvancedIcon: iconurl + 'im/default-advanced.png',
+  noticeIcon: iconurl + 'im/icon_tongzhi@2x.png',
+
+  myPhoneIcon: iconurl + 'im/my-phone.png',
+
+  localMsglimit: 36
+};
+
+var env = 'online';
+
+var appConfig = {
+  test: {
+    appkey: '98e7185f6b504fb09af57d3109687c4e',
+
+    postUrl: 'https://apptest.netease.im'
+  },
+  online: {
+    appkey: '98e7185f6b504fb09af57d3109687c4e',
+
+    postUrl: 'https://app.netease.im'
+  }
+};
+
+config = (0, _assign2.default)(config, appConfig[env]);
+
+exports.default = config;
+module.exports = exports['default'];
+
+/***/ }),
+/* 22 */
+/* no static exports found */
+/* all exports used */
+/*!*******************************************!*\
+  !*** ./~/babel-runtime/helpers/typeof.js ***!
+  \*******************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _iterator = __webpack_require__(/*! ../core-js/symbol/iterator */ 167);
+
+var _iterator2 = _interopRequireDefault(_iterator);
+
+var _symbol = __webpack_require__(/*! ../core-js/symbol */ 166);
+
+var _symbol2 = _interopRequireDefault(_symbol);
+
+var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
+} : function (obj) {
+  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
+};
+
+/***/ }),
+/* 23 */
+/* no static exports found */
+/* all exports used */
+/*!**********************************************!*\
+  !*** ./~/core-js/library/modules/_global.js ***!
+  \**********************************************/
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self
+  // eslint-disable-next-line no-new-func
+  : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
+
+/***/ }),
+/* 24 */
+/* no static exports found */
+/* all exports used */
+/*!******************************!*\
+  !*** ./~/process/browser.js ***!
+  \******************************/
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
 /* 25 */
 /* no static exports found */
 /* all exports used */
@@ -11916,7 +11917,7 @@ var _assign = __webpack_require__(/*! babel-runtime/core-js/object/assign */ 19)
 
 var _assign2 = _interopRequireDefault(_assign);
 
-var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 21);
+var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 22);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -11928,7 +11929,7 @@ var _create = __webpack_require__(/*! babel-runtime/core-js/object/create */ 41)
 
 var _create2 = _interopRequireDefault(_create);
 
-var _vue = __webpack_require__(/*! vue */ 24);
+var _vue = __webpack_require__(/*! vue */ 20);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -12335,7 +12336,7 @@ module.exports = !__webpack_require__(/*! ./_fails */ 29)(function () {
   \**********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(/*! ./_global */ 22);
+var global = __webpack_require__(/*! ./_global */ 23);
 var core = __webpack_require__(/*! ./_core */ 18);
 var ctx = __webpack_require__(/*! ./_ctx */ 180);
 var hide = __webpack_require__(/*! ./_hide */ 30);
@@ -12491,7 +12492,7 @@ module.exports = function (it) {
 
 var store = __webpack_require__(/*! ./_shared */ 64)('wks');
 var uid = __webpack_require__(/*! ./_uid */ 46);
-var Symbol = __webpack_require__(/*! ./_global */ 22).Symbol;
+var Symbol = __webpack_require__(/*! ./_global */ 23).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
 
 var $exports = module.exports = function (name) {
@@ -12548,7 +12549,7 @@ module.exports = g;
 
 exports.__esModule = true;
 
-var _configs = __webpack_require__(/*! ../configs */ 20);
+var _configs = __webpack_require__(/*! ../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -12737,7 +12738,7 @@ var _ = __webpack_require__(/*! ../ */ 5);
 
 var _2 = _interopRequireDefault(_);
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -13345,7 +13346,7 @@ exports.mergeOptions = mergeOptions;
 
 exports.__esModule = true;
 
-var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 21);
+var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 22);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -13550,7 +13551,7 @@ var _ = __webpack_require__(/*! ../ */ 5);
 
 var _2 = _interopRequireDefault(_);
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -13790,7 +13791,7 @@ module.exports = function (key) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var core = __webpack_require__(/*! ./_core */ 18);
-var global = __webpack_require__(/*! ./_global */ 22);
+var global = __webpack_require__(/*! ./_global */ 23);
 var SHARED = '__core-js_shared__';
 var store = global[SHARED] || (global[SHARED] = {});
 
@@ -13868,7 +13869,7 @@ module.exports = function (it, S) {
   \**************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(/*! ./_global */ 22);
+var global = __webpack_require__(/*! ./_global */ 23);
 var core = __webpack_require__(/*! ./_core */ 18);
 var LIBRARY = __webpack_require__(/*! ./_library */ 43);
 var wksExt = __webpack_require__(/*! ./_wks-ext */ 69);
@@ -14211,7 +14212,7 @@ var _ = __webpack_require__(/*! ../ */ 5);
 
 var _2 = _interopRequireDefault(_);
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -14425,6 +14426,15 @@ function updateSessionAccount(sessions) {
 function onSessions(sessions) {
   updateSessionAccount(sessions);
   _2.default.commit('updateSessions', sessions);
+
+  var content = {
+    type: 8,
+    data: {
+      title: '暖冬季欢乐送',
+      describe: '家具满1000元减100元再返100元现金券！点击查看详情！',
+      link_url: 'https://www.jianshu.com/p/dadd344b6413',
+      image_url: 'https://netease.im/res/image/download/section1.png?v=002' }
+  };
 }
 
 function onUpdateSession(session) {
@@ -14931,7 +14941,7 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(/*! ./_is-object */ 36);
-var document = __webpack_require__(/*! ./_global */ 22).document;
+var document = __webpack_require__(/*! ./_global */ 23).document;
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
 module.exports = function (it) {
@@ -15570,7 +15580,7 @@ var _create = __webpack_require__(/*! babel-runtime/core-js/object/create */ 41)
 
 var _create2 = _interopRequireDefault(_create);
 
-var _vue = __webpack_require__(/*! vue */ 24);
+var _vue = __webpack_require__(/*! vue */ 20);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -15694,7 +15704,7 @@ module.exports = exports['default'];
 
 exports.__esModule = true;
 
-var _vue = __webpack_require__(/*! vue */ 24);
+var _vue = __webpack_require__(/*! vue */ 20);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -15763,7 +15773,7 @@ module.exports = exports['default'];
 "use strict";
 
 
-var _vue = __webpack_require__(/*! vue */ 24);
+var _vue = __webpack_require__(/*! vue */ 20);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -24865,7 +24875,7 @@ if (inBrowser) {
 
 /* harmony default export */ __webpack_exports__["default"] = (Vue);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(/*! ./../../process/browser.js */ 23), __webpack_require__(/*! ./../../webpack/buildin/global.js */ 34), __webpack_require__(/*! ./../../timers-browserify/main.js */ 93).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(/*! ./../../process/browser.js */ 24), __webpack_require__(/*! ./../../webpack/buildin/global.js */ 34), __webpack_require__(/*! ./../../timers-browserify/main.js */ 93).setImmediate))
 
 /***/ }),
 /* 110 */
@@ -25190,7 +25200,7 @@ var _stringify = __webpack_require__(/*! babel-runtime/core-js/json/stringify */
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
-var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 21);
+var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 22);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -25536,7 +25546,7 @@ exports.default = {
   }
 };
 module.exports = exports['default'];
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../process/browser.js */ 23)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../process/browser.js */ 24)))
 
 /***/ }),
 /* 116 */
@@ -25968,7 +25978,7 @@ exports.default = {
   }
 };
 module.exports = exports['default'];
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../process/browser.js */ 23)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../process/browser.js */ 24)))
 
 /***/ }),
 /* 118 */
@@ -26548,7 +26558,7 @@ exports.default = {
   }
 };
 module.exports = exports['default'];
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../process/browser.js */ 23)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../process/browser.js */ 24)))
 
 /***/ }),
 /* 127 */
@@ -27030,7 +27040,7 @@ exports.default = {
   }
 };
 module.exports = exports['default'];
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../process/browser.js */ 23)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../process/browser.js */ 24)))
 
 /***/ }),
 /* 129 */
@@ -27320,7 +27330,7 @@ var _isNan = __webpack_require__(/*! babel-runtime/core-js/number/is-nan */ 165)
 
 var _isNan2 = _interopRequireDefault(_isNan);
 
-var _vue = __webpack_require__(/*! vue */ 24);
+var _vue = __webpack_require__(/*! vue */ 20);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -27614,7 +27624,7 @@ module.exports = exports['default'];
 
 exports.__esModule = true;
 
-var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 21);
+var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 22);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -28567,7 +28577,7 @@ var _stringify = __webpack_require__(/*! babel-runtime/core-js/json/stringify */
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
-var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 21);
+var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 22);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -29408,7 +29418,7 @@ var install = exports.install = plugin.install;
 
 exports.__esModule = true;
 
-var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 21);
+var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 22);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -29486,7 +29496,7 @@ var _assign = __webpack_require__(/*! babel-runtime/core-js/object/assign */ 19)
 
 var _assign2 = _interopRequireDefault(_assign);
 
-var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 21);
+var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 22);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -29594,7 +29604,7 @@ var install = exports.install = plugin.install;
 exports.__esModule = true;
 exports.install = undefined;
 
-var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 21);
+var _typeof2 = __webpack_require__(/*! babel-runtime/helpers/typeof */ 22);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -29773,7 +29783,7 @@ module.exports = exports['default'];
 "use strict";
 
 
-var _vue = __webpack_require__(/*! vue */ 24);
+var _vue = __webpack_require__(/*! vue */ 20);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -29893,7 +29903,7 @@ var _ = __webpack_require__(/*! ../ */ 5);
 
 var _2 = _interopRequireDefault(_);
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -29991,6 +30001,10 @@ exports.__esModule = true;
 var _assign = __webpack_require__(/*! babel-runtime/core-js/object/assign */ 19);
 
 var _assign2 = _interopRequireDefault(_assign);
+
+var _vue = __webpack_require__(/*! vue */ 20);
+
+var _vue2 = _interopRequireDefault(_vue);
 
 var _cookie = __webpack_require__(/*! ../../utils/cookie */ 50);
 
@@ -30191,7 +30205,7 @@ exports.__esModule = true;
 exports.initChatroomSDK = initChatroomSDK;
 exports.resetChatroomSDK = resetChatroomSDK;
 
-var _configs = __webpack_require__(/*! @/configs */ 20);
+var _configs = __webpack_require__(/*! @/configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -30309,7 +30323,7 @@ function resetChatroomSDK(_ref2, chatroomId) {
 exports.__esModule = true;
 exports.initNimSDK = initNimSDK;
 
-var _configs = __webpack_require__(/*! @/configs */ 20);
+var _configs = __webpack_require__(/*! @/configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -30682,7 +30696,7 @@ var _utils = __webpack_require__(/*! ../../utils */ 26);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -33599,7 +33613,7 @@ module.exports = function (it) {
   \********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-var document = __webpack_require__(/*! ./_global */ 22).document;
+var document = __webpack_require__(/*! ./_global */ 23).document;
 module.exports = document && document.documentElement;
 
 
@@ -34124,7 +34138,7 @@ __webpack_require__(/*! ./_iter-define */ 83)(String, 'String', function (iterat
 "use strict";
 
 // ECMAScript 6 symbols shim
-var global = __webpack_require__(/*! ./_global */ 22);
+var global = __webpack_require__(/*! ./_global */ 23);
 var has = __webpack_require__(/*! ./_has */ 25);
 var DESCRIPTORS = __webpack_require__(/*! ./_descriptors */ 27);
 var $export = __webpack_require__(/*! ./_export */ 28);
@@ -34392,7 +34406,7 @@ __webpack_require__(/*! ./_wks-define */ 68)('observable');
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./es6.array.iterator */ 196);
-var global = __webpack_require__(/*! ./_global */ 22);
+var global = __webpack_require__(/*! ./_global */ 23);
 var hide = __webpack_require__(/*! ./_hide */ 30);
 var Iterators = __webpack_require__(/*! ./_iterators */ 59);
 var TO_STRING_TAG = __webpack_require__(/*! ./_wks */ 33)('toStringTag');
@@ -35489,7 +35503,7 @@ module.exports = debounce;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/global.js */ 34), __webpack_require__(/*! ./../process/browser.js */ 23)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/global.js */ 34), __webpack_require__(/*! ./../process/browser.js */ 24)))
 
 /***/ }),
 /* 232 */
@@ -40225,7 +40239,7 @@ if (inBrowser && window.Vue) {
 
 /* harmony default export */ __webpack_exports__["default"] = (VueRouter);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(/*! ./../../process/browser.js */ 23)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(/*! ./../../process/browser.js */ 24)))
 
 /***/ }),
 /* 261 */
@@ -41835,7 +41849,7 @@ var index_esm = {
 
 /* harmony default export */ __webpack_exports__["default"] = (index_esm);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(/*! ./../../process/browser.js */ 23)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(/*! ./../../process/browser.js */ 24)))
 
 /***/ }),
 /* 283 */

@@ -57,7 +57,7 @@ module.exports = Component.exports
 
 exports.__esModule = true;
 
-var _index = __webpack_require__(/*! ./index */ 20);
+var _index = __webpack_require__(/*! ./index */ 21);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -135,7 +135,7 @@ var _utils = __webpack_require__(/*! ../../utils */ 26);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -258,14 +258,7 @@ exports.default = {
       } else if (content.type === 8) {
         var obj = content.data;
 
-        item.showText = '<a class="imgtxt" javascript:void(0)>';
-        item.showText += '<div class="imgtxt-title">' + obj.title + '</div>';
-
-        item.showText += '<img class="imgtxt-img" src=' + obj.image_url + ' />';
-
-        item.showText += '<div class="imgtxt-describe">' + obj.describe + '</div>';
-
-        item.showText += '</a>';
+        item.showText = '<a class="imgtxt" javascript:void(0)>\n                                <img class="imgtxt-img" src=' + obj.image_url + ' />\n                                <div class="imgtxt-title">' + obj.title + '</div>\n                                <div class="imgtxt-describe">\u52A0\u76DF\u8D39<span>' + obj.describe + '\u4E07</span></div>\n                             </a>';
       } else {
         item.showText = _utils2.default.parseCustomMsg(item);
         if (item.showText !== '[链接]') {
@@ -481,7 +474,7 @@ var _utils = __webpack_require__(/*! ../../utils */ 26);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 

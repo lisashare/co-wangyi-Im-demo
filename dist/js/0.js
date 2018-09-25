@@ -58,7 +58,7 @@ module.exports = Component.exports
 
 exports.__esModule = true;
 
-var _index = __webpack_require__(/*! ./index */ 20);
+var _index = __webpack_require__(/*! ./index */ 21);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -136,7 +136,7 @@ var _utils = __webpack_require__(/*! ../../utils */ 26);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -259,14 +259,7 @@ exports.default = {
       } else if (content.type === 8) {
         var obj = content.data;
 
-        item.showText = '<a class="imgtxt" javascript:void(0)>';
-        item.showText += '<div class="imgtxt-title">' + obj.title + '</div>';
-
-        item.showText += '<img class="imgtxt-img" src=' + obj.image_url + ' />';
-
-        item.showText += '<div class="imgtxt-describe">' + obj.describe + '</div>';
-
-        item.showText += '</a>';
+        item.showText = '<a class="imgtxt" javascript:void(0)>\n                                <img class="imgtxt-img" src=' + obj.image_url + ' />\n                                <div class="imgtxt-title">' + obj.title + '</div>\n                                <div class="imgtxt-describe">\u52A0\u76DF\u8D39<span>' + obj.describe + '\u4E07</span></div>\n                             </a>';
       } else {
         item.showText = _utils2.default.parseCustomMsg(item);
         if (item.showText !== '[链接]') {
@@ -482,7 +475,7 @@ var _utils = __webpack_require__(/*! ../../utils */ 26);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -1004,7 +997,7 @@ var _page = __webpack_require__(/*! ../utils/page */ 35);
 
 var _page2 = _interopRequireDefault(_page);
 
-var _configs = __webpack_require__(/*! ../configs */ 20);
+var _configs = __webpack_require__(/*! ../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -1021,7 +1014,8 @@ exports.default = {
         backText: ' ',
         preventGoBack: true
       },
-      icon3: _configs2.default.resourceUrl + 'im/icon_back@3x.png'
+      icon3: _configs2.default.resourceUrl + 'im/icon_back@3x.png',
+      first: true
     };
   },
   mounted: function mounted() {
@@ -1030,16 +1024,7 @@ exports.default = {
     this.$store.dispatch('showLoading');
 
     this.$store.dispatch('setCurrSession', this.sessionId);
-
-    var brandInfo = _cookie2.default.readCookie('frombrand');
-    if (brandInfo) {
-      brandInfo = JSON.parse(brandInfo);
-      this.sendSelfMessage(brandInfo);
-      console.log(brandInfo);
-    }
-
     _page2.default.scrollChatListDown();
-
     setTimeout(function () {
       _this.$store.dispatch('hideLoading');
     }, 1000);
@@ -1156,10 +1141,9 @@ exports.default = {
       var content = {
         type: 8,
         data: {
-          title: '暖冬季欢乐送',
-          describe: '家具满1000元减100元再返100元现金券！点击查看详情！',
-          link_url: 'https://www.jianshu.com/p/dadd344b6413',
-          image_url: 'https://netease.im/res/image/download/section1.png?v=002' }
+          title: brandInfo.title,
+          describe: brandInfo.describe,
+          image_url: brandInfo.image_url }
       };
       this.$store.dispatch('sendMsg', {
         type: 'custom',
@@ -1173,6 +1157,18 @@ exports.default = {
       window.history.go(-1);
     },
     msgsLoaded: function msgsLoaded() {
+      if (this.first && this.$store.state.nim != null) {
+        var brandInfo = _cookie2.default.readCookie('frombrand');
+
+        document.cookie = "frombrand" + '=;' + 'expire=' + -1 + ';path=/';
+        if (brandInfo) {
+          brandInfo = JSON.parse(brandInfo);
+          this.sendSelfMessage(brandInfo);
+        }
+        this.first = false;
+      }
+
+
       _page2.default.scrollChatListDown();
     },
     enterNameCard: function enterNameCard() {
@@ -1234,7 +1230,7 @@ var _utils = __webpack_require__(/*! ../../utils */ 26);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -1692,7 +1688,7 @@ module.exports = exports['default'];
 
 exports.__esModule = true;
 
-var _configs = __webpack_require__(/*! ../../configs */ 20);
+var _configs = __webpack_require__(/*! ../../configs */ 21);
 
 var _configs2 = _interopRequireDefault(_configs);
 
@@ -1793,7 +1789,7 @@ exports = module.exports = __webpack_require__(/*! ../../~/css-loader/lib/css-ba
 
 
 // module
-exports.push([module.i, "\n.g-window .vux-header .m-tab-top {\r\n  width: 80%;\r\n  margin: 0 10%;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\n}\r\n", "", {"version":3,"sources":["E:/items/co-wangyi-Im-demo/src/pages/Chat.vue"],"names":[],"mappings":";AAsRA;EACE,WAAW;EACX,cAAc;EACd,iBAAiB;EACjB,wBAAwB;EACxB,oBAAoB;CACrB","file":"Chat.vue","sourcesContent":["\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n.g-window .vux-header .m-tab-top {\r\n  width: 80%;\r\n  margin: 0 10%;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n}\r\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.g-window .vux-header .m-tab-top {\r\n  width: 80%;\r\n  margin: 0 10%;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\n}\r\n", "", {"version":3,"sources":["E:/items/co-wangyi-Im-demo/src/pages/Chat.vue"],"names":[],"mappings":";AAiRA;EACE,WAAW;EACX,cAAc;EACd,iBAAiB;EACjB,wBAAwB;EACxB,oBAAoB;CACrB","file":"Chat.vue","sourcesContent":["\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n.g-window .vux-header .m-tab-top {\r\n  width: 80%;\r\n  margin: 0 10%;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n}\r\n"],"sourceRoot":""}]);
 
 // exports
 

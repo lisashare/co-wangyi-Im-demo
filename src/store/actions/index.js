@@ -1,8 +1,9 @@
 // Action 提交的是 mutation，而不是直接变更状态。
 // Action 可以包含任意异步操作。
+
+import Vue from 'vue'
 import cookie from '../../utils/cookie'
 import pageUtil from '../../utils/page'
-
 /* 导出actions方法 */
 import {showLoading, hideLoading, showFullscreenImg, hideFullscreenImg} from './widgetUi'
 import {initNimSDK} from './initNimSDK'
@@ -36,7 +37,7 @@ function connectNim ({state, commit, dispatch}, obj) {
       // 有cookie，重新登录
       dispatch('initNimSDK', loginInfo)
     }
-  }
+  } 
 }
 
 function connectChatroom ({state, commit, dispatch}, obj) {
