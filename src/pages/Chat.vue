@@ -180,9 +180,10 @@ export default {
         let content = {
           type: 8, // 自定义消息类型为8，此处的消息类型必须和其他平台的图文消息类型一致
           data: {
-            title: brandInfo.title, // 消息标题
-            describe: brandInfo.describe, // 消息描述
-            image_url: brandInfo.image_url // 消息中的图片地址
+            sendBrandID : brandInfo.sendBrandID,
+            sendImageUrl: brandInfo.sendImageUrl, // 消息中的图片地址
+            titleName: brandInfo.titleName,       // 消息标题
+            subTitle: brandInfo.subTitle          // 消息描述
           }
         };
         this.$store.dispatch('sendMsg', {
@@ -201,6 +202,7 @@ export default {
           var brandInfo = cookie.readCookie('frombrand')
           // cookie.delCookie('frombrand')
           document.cookie="frombrand"+'=;'+ 'expire=' + -1 + ';path=/' 
+          // console.log(brandInfo)
           if(brandInfo){
             brandInfo = JSON.parse(brandInfo)
             this.sendSelfMessage(brandInfo)

@@ -259,7 +259,7 @@ exports.default = {
       } else if (content.type === 8) {
         var obj = content.data;
 
-        item.showText = '<a class="imgtxt" javascript:void(0)>\n                                <img class="imgtxt-img" src=' + obj.image_url + ' />\n                                <div class="imgtxt-title">' + obj.title + '</div>\n                                <div class="imgtxt-describe">\u52A0\u76DF\u8D39<span>' + obj.describe + '\u4E07</span></div>\n                             </a>';
+        item.showText = '<a class="imgtxt" href="' + _configs2.default.brandId + obj.sendBrandID + '">\n                                <div class="imgtxt-img"><img src=' + obj.sendImageUrl + ' /></div>\n                                <div class="imgtxt-title">' + obj.titleName + '</div>\n                                <div class="imgtxt-describe">\u52A0\u76DF\u8D39<span>' + obj.subTitle + '</span></div>\n                             </a>';
       } else {
         item.showText = _utils2.default.parseCustomMsg(item);
         if (item.showText !== '[链接]') {
@@ -1141,9 +1141,10 @@ exports.default = {
       var content = {
         type: 8,
         data: {
-          title: brandInfo.title,
-          describe: brandInfo.describe,
-          image_url: brandInfo.image_url }
+          sendBrandID: brandInfo.sendBrandID,
+          sendImageUrl: brandInfo.sendImageUrl,
+          titleName: brandInfo.titleName,
+          subTitle: brandInfo.subTitle }
       };
       this.$store.dispatch('sendMsg', {
         type: 'custom',
@@ -1161,6 +1162,7 @@ exports.default = {
         var brandInfo = _cookie2.default.readCookie('frombrand');
 
         document.cookie = "frombrand" + '=;' + 'expire=' + -1 + ';path=/';
+
         if (brandInfo) {
           brandInfo = JSON.parse(brandInfo);
           this.sendSelfMessage(brandInfo);
@@ -1789,7 +1791,7 @@ exports = module.exports = __webpack_require__(/*! ../../~/css-loader/lib/css-ba
 
 
 // module
-exports.push([module.i, "\n.g-window .vux-header .m-tab-top {\r\n  width: 80%;\r\n  margin: 0 10%;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\n}\r\n", "", {"version":3,"sources":["E:/items/co-wangyi-Im-demo/src/pages/Chat.vue"],"names":[],"mappings":";AAiRA;EACE,WAAW;EACX,cAAc;EACd,iBAAiB;EACjB,wBAAwB;EACxB,oBAAoB;CACrB","file":"Chat.vue","sourcesContent":["\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n.g-window .vux-header .m-tab-top {\r\n  width: 80%;\r\n  margin: 0 10%;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n}\r\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.g-window .vux-header .m-tab-top {\r\n  width: 80%;\r\n  margin: 0 10%;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\n}\r\n", "", {"version":3,"sources":["E:/items/co-wangyi-Im-demo/src/pages/Chat.vue"],"names":[],"mappings":";AAmRA;EACE,WAAW;EACX,cAAc;EACd,iBAAiB;EACjB,wBAAwB;EACxB,oBAAoB;CACrB","file":"Chat.vue","sourcesContent":["\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n.g-window .vux-header .m-tab-top {\r\n  width: 80%;\r\n  margin: 0 10%;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n}\r\n"],"sourceRoot":""}]);
 
 // exports
 

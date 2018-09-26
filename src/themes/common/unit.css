@@ -18,8 +18,15 @@
   border-radius: 0.2rem 0 0.2rem 0.2rem;
   overflow: hidden;
 }
+.g-window .imgtxt .imgtxt-img {
+  background: url('https://static.kuaidao.cn/wap/images/im/im/brand_top_banner.png') no-repeat center center;
+  background-size: 125% auto;
+  width: 9.8rem;
+  height: 5.48rem;
+}
 .g-window .imgtxt img {
   width: 100%;
+  height: 100%;
 }
 .g-window .imgtxt-title {
   padding: 0.52rem 0.36rem 0.68rem;

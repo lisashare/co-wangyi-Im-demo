@@ -218,10 +218,10 @@
         } else if (content.type === 8) { // type 8 为图文链接消息
               let obj = content.data;
               // item.showText = `<a class="imgtxt" href=${obj.link_url} target="_blank">`;
-              item.showText = `<a class="imgtxt" javascript:void(0)>
-                                  <img class="imgtxt-img" src=${obj.image_url} />
-                                  <div class="imgtxt-title">${obj.title}</div>
-                                  <div class="imgtxt-describe">加盟费<span>${obj.describe}万</span></div>
+              item.showText = `<a class="imgtxt" href="${config.brandId}${obj.sendBrandID}">
+                                  <div class="imgtxt-img"><img src=${obj.sendImageUrl} /></div>
+                                  <div class="imgtxt-title">${obj.titleName}</div>
+                                  <div class="imgtxt-describe">加盟费<span>${obj.subTitle}</span></div>
                                </a>`;
             } else {
               item.showText = util.parseCustomMsg(item)

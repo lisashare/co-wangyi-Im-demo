@@ -258,7 +258,7 @@ exports.default = {
       } else if (content.type === 8) {
         var obj = content.data;
 
-        item.showText = '<a class="imgtxt" javascript:void(0)>\n                                <img class="imgtxt-img" src=' + obj.image_url + ' />\n                                <div class="imgtxt-title">' + obj.title + '</div>\n                                <div class="imgtxt-describe">\u52A0\u76DF\u8D39<span>' + obj.describe + '\u4E07</span></div>\n                             </a>';
+        item.showText = '<a class="imgtxt" href="' + _configs2.default.brandId + obj.sendBrandID + '">\n                                <div class="imgtxt-img"><img src=' + obj.sendImageUrl + ' /></div>\n                                <div class="imgtxt-title">' + obj.titleName + '</div>\n                                <div class="imgtxt-describe">\u52A0\u76DF\u8D39<span>' + obj.subTitle + '</span></div>\n                             </a>';
       } else {
         item.showText = _utils2.default.parseCustomMsg(item);
         if (item.showText !== '[链接]') {

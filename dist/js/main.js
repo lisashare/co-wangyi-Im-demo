@@ -11590,8 +11590,7 @@ var _assign2 = _interopRequireDefault(_assign);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var prourl = '/';
-
+var prourl = 'http://localhost:8080/';
 
 var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
 var config = {
@@ -11603,6 +11602,8 @@ var config = {
   homeUrl: prourl + 'im.html#/session',
 
   indexUrl: prourl,
+
+  brandId: prourl + '#/branddetail?brandId=',
 
   downLoad: 'https://gio.ren/o32N653',
 

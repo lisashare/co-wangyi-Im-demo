@@ -1,6 +1,6 @@
 // 环境变量
-var prourl = '/'
-// var prourl = 'localhost:8080/'
+// var prourl = '/'
+var prourl = 'http://localhost:8080/'
 
 var iconurl = 'https://static.kuaidao.cn/wap/images/im/';
 let config = {
@@ -12,6 +12,8 @@ let config = {
   homeUrl: prourl + 'im.html#/session',
 
   indexUrl: prourl,
+
+  brandId: prourl + '#/branddetail?brandId=',
 
   // 下载
   downLoad:'https://gio.ren/o32N653',
