@@ -221,7 +221,7 @@
               item.showText = `<a class="imgtxt" href="${config.brandId}${obj.sendBrandID}">
                                   <div class="imgtxt-img"><img src=${obj.sendImageUrl} /></div>
                                   <div class="imgtxt-title">${obj.titleName}</div>
-                                  <div class="imgtxt-describe">加盟费<span>${obj.subTitle}</span></div>
+                                  <div class="imgtxt-describe">投资额<span>${obj.subTitle}</span></div>
                                </a>`;
             } else {
               item.showText = util.parseCustomMsg(item)
