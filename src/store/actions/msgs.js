@@ -136,14 +136,14 @@ export function sendMsg ({state, commit}, obj) {
   store.dispatch('showLoading')
   switch (type) {
     case 'text':
-      nim.sendText({
-        scene: obj.scene,
-        to: obj.to,
-        text: obj.text,
-        done: onSendMsgDone,
-        needMsgReceipt: obj.needMsgReceipt || false
-      })
-      break
+    nim.sendText({
+      scene: obj.scene,
+      to: obj.to,
+      text: obj.text,
+      done: onSendMsgDone,
+      needMsgReceipt: obj.needMsgReceipt || false
+    })
+    break
     case 'custom':
       nim.sendCustomMsg({
         scene: obj.scene,

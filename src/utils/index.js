@@ -181,7 +181,7 @@ Utils.parseCustomMsg = function (msg) {
           return '[白板消息]'
       }
     } catch (e) {}
-    return '[自定义消息]'
+    return '[链接]'
   }
   return ''
 }

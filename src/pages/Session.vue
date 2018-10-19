@@ -117,7 +117,7 @@ export default {
     myPhoneId () {  // 用户id
       return `${this.$store.state.userUID}`
     },
-    sessionlist () {
+    sessionlist () {  
       let sessionlist = this.$store.state.sessionlist.filter(item => {
         item.name = ''
         item.avatar = ''
@@ -152,7 +152,9 @@ export default {
         if (lastMsg.type === 'text') {
           item.lastMsgShow = lastMsg.text || ''
         } else if (lastMsg.type === 'custom') {
+
           item.lastMsgShow = util.parseCustomMsg(lastMsg)
+          
         } else if (lastMsg.scene === 'team' && lastMsg.type === 'notification') {
           item.lastMsgShow = util.generateTeamSysmMsg(lastMsg)
         } else if (util.mapMsgType(lastMsg)) {

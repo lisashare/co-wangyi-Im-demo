@@ -5,6 +5,37 @@
 
 /* 外面嵌套g-window 为了覆盖weui默认样式 */
 .g-window {
+  /* 自定义消息 */
+  .imgtxt{
+    margin: -10/@rem -18/@rem -10/@rem -18/@rem!important;
+    border-radius: 10/@rem 0 10/@rem 10/@rem; 
+    overflow: hidden;
+    .imgtxt-img{
+      background: url('https://static.kuaidao.cn/wap/images/im/im/brand_top_banner.png') no-repeat center center;
+      background-size: 125% auto; 
+      width: 490/@rem; 
+      height: 274/@rem;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .imgtxt-title{
+    padding: 26/@rem 18/@rem 34/@rem;
+    font-size: 30/@rem;
+    color: #333333;
+  }
+  .imgtxt-describe{
+    padding: 0 18/@rem 20/@rem;    
+    font-size: 28/@rem;
+    color: #666666;
+    span{
+      margin-left: 16/@rem;
+      color: #ea3323;
+      font-weight: 600;
+    }
+  }
 
   /* 白底输入框 */
   .u-ipt-default {
@@ -180,7 +211,6 @@
         color: #000000;
         padding: 10/@rem 18/@rem 10/@rem 18/@rem;
         word-wrap:break-word;
-      
       img {
         position: relative;
         display: inline-block;

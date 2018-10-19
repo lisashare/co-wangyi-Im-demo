@@ -214,12 +214,21 @@
             item.type = 'custom-type3'
             item.imgUrl = `${emojiCnt.img}`
           }
-        } else {
-          item.showText = util.parseCustomMsg(item)
-          if (item.showText !== '[自定义消息]') {
-            item.showText += ',请到手机或电脑客户端查看'
+
+        } else if (content.type === 8) { // type 8 为图文链接消息
+              let obj = content.data;
+              // item.showText = `<a class="imgtxt" href=${obj.link_url} target="_blank">`;
+              item.showText = `<a class="imgtxt" href="${config.brandId}${obj.sendBrandID}">
+                                  <div class="imgtxt-img"><img src=${obj.sendImageUrl} /></div>
+                                  <div class="imgtxt-title">${obj.titleName}</div>
+                                  <div class="imgtxt-describe">投资额<span>${obj.subTitle}</span></div>
+                               </a>`;
+            } else {
+              item.showText = util.parseCustomMsg(item)
+              if (item.showText !== '[链接]') {
+                item.showText += ',请到手机或电脑客户端查看'
+              }
           }
-        }
       } else if (item.type === 'image') {
         // 原始图片全屏显示
         item.originLink = item.file.url
@@ -422,6 +431,7 @@
 </script>
 
 <style lang="less" scoped>
+
   .p-chat-history {
     .u-msg {
       .msg-link {

@@ -13,7 +13,7 @@
             class="nav-group">
             <ul>
                 <li v-for="nav in navs" :key="nav.id">
-                    <a :href="nav.url">
+                    <a @click="goGio(nav.gio)" :href="nav.url">
                         <div class="nav-img"><img :class="nav.icon" :src="nav.img" /></div>
                         <span class="title">{{nav.title}}</span>
                     </a>
@@ -40,19 +40,21 @@ export default {
   data () {
       return {
           navs:[
-              {id:1,title:'首页',url:`${config.indexUrl}#/`,icon:'icon1',img:`${config.resourceUrl}im/icon_home@3x.png`},
-              {id:2,title:'商机',url:`${config.indexUrl}#/opportunity`,icon:'icon2',img:`${config.resourceUrl}im/icon_shangji@3x.png`},
-              {id:3, title: 'VR看店', url: `${config.indexUrl}#/vr`,icon:'icon3',img:`${config.resourceUrl}im/icon_vr@3x.png`},
-              {id:4, title: '商评', url: `${config.indexUrl}#/shangping`,icon:'icon4',img:`${config.resourceUrl}im/icon_shangping@3x.png`},
-              {id:5, title: '发现', url: `${config.indexUrl}#/case`,icon:'icon5',img:`${config.resourceUrl}im/icon_find@3x.png`},
-              {id:6, title: '消息', url: `${config.homeUrl}`,icon:'icon6',img:`${config.resourceUrl}im/icon_xiaoxi@3x.png`},
-              {id:7,title:'我的',url:`${config.indexUrl}#/my`,icon:'icon7',img:`${config.resourceUrl}im/icon_me@3x.png`}
+              {id:1,title: '首页',url:`${config.indexUrl}#/`,icon:'icon1',img:`${config.resourceUrl}im/icon_home@3x.png`,gio: 'wap_home'},
+              {id:2,title: '商机',url:`${config.indexUrl}#/opportunity`,icon:'icon2',img:`${config.resourceUrl}im/icon_shangji@3x.png`,gio: 'wap_business'},
+              {id:3, title: 'VR看店', url: `${config.indexUrl}#/vr`,icon:'icon3',img:`${config.resourceUrl}im/icon_vr@3x.png`,gio: 'wap_vr'},
+              {id:4, title: '商评', url: `${config.indexUrl}#/shangping`,icon:'icon4',img:`${config.resourceUrl}im/icon_shangping@3x.png`,gio: 'wap_review'},
+              {id:5, title: '发现', url: `${config.indexUrl}#/case`,icon:'icon5',img:`${config.resourceUrl}im/icon_find@3x.png`,gio: 'wap_news'},
+              {id:6, title: '消息', url: `${config.homeUrl}`,icon:'icon6',img:`${config.resourceUrl}im/icon_xiaoxi@3x.png`,gio: 'wap_home'},
+              {id:7,title: '我的',url:`${config.indexUrl}#/my`,icon:'icon7',img:`${config.resourceUrl}im/icon_me@3x.png`,gio: 'wap_my'}
           ],
           img8: `${config.resourceUrl}im/icon_app@3x.png`
       }
   },
   methods:{
       downLoadApp(){
+          window._vds.track("wap_app"); // 埋点
+
           window.location.href = config.downLoad
         // if( this.judgeType() == 'IOS' ){
         //     window.location.href = config.downLoadIos;
@@ -69,6 +71,9 @@ export default {
     //         return "Android";
     //     }
     // },
+  },
+  goGio (gio) {
+      window._vds.track(gio);
   }
 }
 </script>

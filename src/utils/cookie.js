@@ -35,8 +35,18 @@ const cookie = {
     let cval = this.readCookie(name)
     if (cval!=null) {
       document.cookie = name + '=' + cval + ';expires=' + (new Date(0)).toGMTString()
+      console.log(this.readCookie(name))
     }
   }  
+  // delCookie (name) {
+  //   var exp = new Date()
+  //   exp.setTime(exp.getTime() - 1)
+  //   var cval = this.readCookie(name)
+  //   if (cval != null) {
+  //     document.cookie = name + '=' + cval + ';expires=' + exp.toGMTString()
+  //     // console.log(name + '=' + cval + ';expires=' + exp.toGMTString())
+  //   }
+  // }
 }
 
 export default cookie
