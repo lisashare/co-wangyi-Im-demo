@@ -3,7 +3,10 @@
     <header-title :title="title"></header-title>
     <group class="u-list" v-if="showSessionList">
     <!-- <group class="u-list" v-if="0"> -->
-      <cell v-if="msgDetails" class="u-list-item" title="通知" 
+      <!-- <cell v-if="msgDetails" class="u-list-item" title="通知" 
+      :inline-desc="msgDetails"
+      @click.native="enterSysMsgs"> -->
+      <cell class="u-list-item" title="通知" 
       :inline-desc="msgDetails"
       @click.native="enterSysMsgs">
         <img class="icon" slot="icon" :src="noticeIcon">
@@ -92,11 +95,11 @@ export default {
       this.$store.dispatch('hideLoading')
     } else{
       this.showSessionList = true
-        // 进入页面获取存储的消息，显示在页面上，
-      let accountMsg = cookie.readCookie('accountMsg')
-      this.sendTime= cookie.readCookie('sendTime')
-      this.readStatus = cookie.readCookie('readStatus')
-      this.msgDetails = cookie.readCookie('msgDetails')
+        // 进入页面获取存储的消息，显示在页面上
+      // let accountMsg = cookie.readCookie('accountMsg')
+      this.sendTime= cookie.readCookie('sendTime') || ''
+      this.readStatus = cookie.readCookie('readStatus') || ''
+      this.msgDetails = cookie.readCookie('msgDetails') || ''
       // console.log(this.sendTime,this.readStatus,this.msgDetails)
     }
   },

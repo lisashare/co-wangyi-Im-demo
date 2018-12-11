@@ -5,6 +5,29 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>商机盒子</title>
     <link rel="stylesheet" href="dist/css/theme.css">
+    <!-- 引入growingIOSDK 开始-->
+    <script type="text/javascript">
+      var growingioId = "";
+      if(window.location.hostname=='wap.kuaidao.cn'){
+        growingioId="a6ae658051d997eb"
+      }else{
+        growingioId="846932ff111d689a"
+      }
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', growingioId]);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+    </script>
+    <!-- 引入growingIOSDK 结束-->
   </head>
   <body>
     <div id="app" class="g-body"></div>

@@ -125,15 +125,20 @@ exports.default = {
     props: ['isNavShow', "closeNav"],
     data: function data() {
         return {
-            navs: [{ id: 1, title: '首页', url: _configs2.default.indexUrl + '#/', icon: 'icon1', img: _configs2.default.resourceUrl + 'im/icon_home@3x.png' }, { id: 2, title: '商机', url: _configs2.default.indexUrl + '#/opportunity', icon: 'icon2', img: _configs2.default.resourceUrl + 'im/icon_shangji@3x.png' }, { id: 3, title: 'VR看店', url: _configs2.default.indexUrl + '#/vr', icon: 'icon3', img: _configs2.default.resourceUrl + 'im/icon_vr@3x.png' }, { id: 4, title: '商评', url: _configs2.default.indexUrl + '#/shangping', icon: 'icon4', img: _configs2.default.resourceUrl + 'im/icon_shangping@3x.png' }, { id: 5, title: '发现', url: _configs2.default.indexUrl + '#/case', icon: 'icon5', img: _configs2.default.resourceUrl + 'im/icon_find@3x.png' }, { id: 6, title: '消息', url: '' + _configs2.default.homeUrl, icon: 'icon6', img: _configs2.default.resourceUrl + 'im/icon_xiaoxi@3x.png' }, { id: 7, title: '我的', url: _configs2.default.indexUrl + '#/my', icon: 'icon7', img: _configs2.default.resourceUrl + 'im/icon_me@3x.png' }],
+            navs: [{ id: 1, title: '首页', url: _configs2.default.indexUrl + '#/', icon: 'icon1', img: _configs2.default.resourceUrl + 'im/icon_home@3x.png', gio: 'wap_home' }, { id: 2, title: '商机', url: _configs2.default.indexUrl + '#/opportunity', icon: 'icon2', img: _configs2.default.resourceUrl + 'im/icon_shangji@3x.png', gio: 'wap_business' }, { id: 3, title: 'VR看店', url: _configs2.default.indexUrl + '#/vr', icon: 'icon3', img: _configs2.default.resourceUrl + 'im/icon_vr@3x.png', gio: 'wap_vr' }, { id: 4, title: '商评', url: _configs2.default.indexUrl + '#/shangping', icon: 'icon4', img: _configs2.default.resourceUrl + 'im/icon_shangping@3x.png', gio: 'wap_review' }, { id: 5, title: '有料', url: _configs2.default.indexUrl + '#/information', icon: 'icon5', img: _configs2.default.resourceUrl + 'im/icon_find@3x.png', gio: 'wap_news' }, { id: 6, title: '消息', url: '' + _configs2.default.homeUrl, icon: 'icon6', img: _configs2.default.resourceUrl + 'im/icon_xiaoxi@3x.png', gio: 'wap_home' }, { id: 7, title: '我的', url: _configs2.default.indexUrl + '#/my', icon: 'icon7', img: _configs2.default.resourceUrl + 'im/icon_me@3x.png', gio: 'wap_my' }],
             img8: _configs2.default.resourceUrl + 'im/icon_app@3x.png'
         };
     },
 
     methods: {
         downLoadApp: function downLoadApp() {
+            window._vds.track("wap_app");
+
             window.location.href = _configs2.default.downLoad;
         }
+    },
+    goGio: function goGio(gio) {
+        window._vds.track(gio);
     }
 };
 module.exports = exports['default'];
@@ -435,6 +440,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('a', {
       attrs: {
         "href": nav.url
+      },
+      on: {
+        "click": function($event) {
+          _vm.goGio(nav.gio)
+        }
       }
     }, [_c('div', {
       staticClass: "nav-img"
@@ -765,10 +775,9 @@ exports.default = {
     } else {
       this.showSessionList = true;
 
-      var accountMsg = _cookie2.default.readCookie('accountMsg');
-      this.sendTime = _cookie2.default.readCookie('sendTime');
-      this.readStatus = _cookie2.default.readCookie('readStatus');
-      this.msgDetails = _cookie2.default.readCookie('msgDetails');
+      this.sendTime = _cookie2.default.readCookie('sendTime') || '';
+      this.readStatus = _cookie2.default.readCookie('readStatus') || '';
+      this.msgDetails = _cookie2.default.readCookie('msgDetails') || '';
     }
   },
 
@@ -929,7 +938,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), (_vm.showSessionList) ? _c('group', {
     staticClass: "u-list"
-  }, [(_vm.msgDetails) ? _c('cell', {
+  }, [_c('cell', {
     staticClass: "u-list-item",
     attrs: {
       "title": "通知",
@@ -964,7 +973,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "readStatus > 0"
     }],
     staticClass: "u-unread"
-  })]) : _vm._e(), _vm._v(" "), _vm._l((_vm.sessionlist), function(session, index) {
+  })]), _vm._v(" "), _vm._l((_vm.sessionlist), function(session, index) {
     return _c('cell', {
       directives: [{
         name: "touch",

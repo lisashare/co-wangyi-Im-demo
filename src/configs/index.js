@@ -36,16 +36,25 @@ let config = {
 
 const env = 'online'
 
+var appkey = ''
+if(window.location.hostname=='wap.kuaidao.cn'){
+  appkey="6441e2b7480cd9e7076befdf3bce5fe6"
+}else{
+  appkey="98e7185f6b504fb09af57d3109687c4e"
+}
+
 let appConfig = {
   // 用户的appkey
   // 用于在web demo中注册账号异步请求demo 服务器中使用
   test: {
-    appkey: '98e7185f6b504fb09af57d3109687c4e',
+    appkey: appkey,
+    // appkey: '98e7185f6b504fb09af57d3109687c4e',
     // appkey: '6441e2b7480cd9e7076befdf3bce5fe6',
     postUrl: 'https://apptest.netease.im'
   },
   online: {
-    appkey: '98e7185f6b504fb09af57d3109687c4e',
+    appkey: appkey,
+    // appkey: '98e7185f6b504fb09af57d3109687c4e',
     // appkey: '6441e2b7480cd9e7076befdf3bce5fe6',
     postUrl: 'https://app.netease.im'
   }

@@ -11624,14 +11624,21 @@ var config = {
 
 var env = 'online';
 
+var appkey = '';
+if (window.location.hostname == 'wap.kuaidao.cn') {
+  appkey = "6441e2b7480cd9e7076befdf3bce5fe6";
+} else {
+  appkey = "98e7185f6b504fb09af57d3109687c4e";
+}
+
 var appConfig = {
   test: {
-    appkey: '98e7185f6b504fb09af57d3109687c4e',
+    appkey: appkey,
 
     postUrl: 'https://apptest.netease.im'
   },
   online: {
-    appkey: '98e7185f6b504fb09af57d3109687c4e',
+    appkey: appkey,
 
     postUrl: 'https://app.netease.im'
   }

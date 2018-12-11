@@ -1,7 +1,7 @@
 <template>
   <div class="g-inherit m-article">
     <header-title :title="title"></header-title>
-    <div class="m-article-main p-sysmsgs">
+    <div v-if="msgDetails" class="m-article-main p-sysmsgs">
         <div class="notice">
             <div class="u-msg item-time session-chat">
               <span class="u-item-time-tip">{{sendTime}}</span>
@@ -12,7 +12,8 @@
             </div>
          </div>
        <div class='empty-hint' v-if='!msgList || msgList.length<1'>暂无其他消息</div>
-    </div>   
+    </div>
+    <div v-else class="icon_nodata"><img width="100%" :src="icon_nodata" alt=""></div>  
   </div>
 </template>
 
@@ -27,6 +28,7 @@ export default {
     return {
       sysType: 0, // 系统消息 0, 自定义消息 1,
       defaultAvatar: config.defaultUserIcon,
+      icon_nodata:`${config.resourceUrl}im/bg_nodata@3x.png`,
       deleteIdServer: '',
       title:'通知',
       msgList:'',
@@ -36,9 +38,9 @@ export default {
     }
   },
   created(){
-     this.sendTime= cookie.readCookie('sendTime')
-     this.readStatus = cookie.readCookie('readStatus')
-     this.msgDetails = cookie.readCookie('msgDetails')
+     this.sendTime = cookie.readCookie('sendTime') || ''
+     this.readStatus = cookie.readCookie('readStatus') || ''
+     this.msgDetails = cookie.readCookie('msgDetails') || ''
      cookie.setCookie('readStatus',0)
   },
   computed: {
@@ -81,6 +83,11 @@ export default {
 @rem: 50rem;
 *{
   box-sizing: border-box;
+}
+.icon_nodata{
+  width: 400/@rem;
+  height: 335/@rem;
+  margin: 35% auto;
 }
 .content-msg{
   background: #ffffff;
