@@ -47,5 +47,5 @@ app.get('/', function (req, res, next) {
 
 // 修改侦听服务器端口
 const port = 3000
-app.listen(port,'192.168.16.213')
+app.listen(port,'192.168.16.173')
 console.info(`Listen on Port ${port}`)

@@ -87,7 +87,7 @@ exports.default = {
 
   methods: {
     phoneCall: function phoneCall() {
-      window.location.href = 'tel:010-53579588';
+      window.location.href = 'tel:010-53579596';
     },
     closeNav: function closeNav() {
       this.isNavShow = false;
@@ -190,7 +190,7 @@ exports.default = {
 
   methods: {
     phoneCall: function phoneCall() {
-      window.location.href = 'tel:010-53579588';
+      window.location.href = 'tel:010-53579596';
     },
     goSession: function goSession() {
       var loginInfo = {
@@ -316,7 +316,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })]), _vm._v("\n        在线咨询\n      ")]), _vm._v(" "), _c('a', {
     staticClass: "call",
     attrs: {
-      "href": "tel:010-53579588"
+      "href": "tel:010-53579596"
     }
   }, [_c('span', {
     staticClass: "icon-call"

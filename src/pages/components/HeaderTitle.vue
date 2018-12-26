@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     phoneCall () {
-      window.location.href = 'tel:010-53579588'
+      window.location.href = 'tel:010-53579596'
     },
     closeNav () {
       this.isNavShow = false

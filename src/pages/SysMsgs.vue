@@ -38,10 +38,10 @@ export default {
     }
   },
   created(){
-     this.sendTime = cookie.readCookie('sendTime') || ''
-     this.readStatus = cookie.readCookie('readStatus') || ''
-     this.msgDetails = cookie.readCookie('msgDetails') || ''
-     cookie.setCookie('readStatus',0)
+     this.sendTime = cookie.readCookie('sendTime') || '';
+     this.readStatus = cookie.readCookie('readStatus') || '';
+     this.msgDetails = cookie.readCookie('msgDetails') || '';
+     cookie.setCookie('readStatus',0);
   },
   computed: {
     userInfos () {

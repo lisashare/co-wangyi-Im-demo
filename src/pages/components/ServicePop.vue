@@ -9,7 +9,7 @@
           <span class="icon-tel"><img :src="icon5"></span>
           在线咨询
         </a>
-        <a href="tel:010-53579588" class="call">
+        <a href="tel:010-53579596" class="call">
           <span class="icon-call"><img :src="icon6"></span>
           拨打电话
         </a>
@@ -44,7 +44,7 @@ export default {
   methods: {
     //拨打电话
     phoneCall () {
-      window.location.href = 'tel:010-53579588'
+      window.location.href = 'tel:010-53579596'
     },
     goSession(){
       // 点击，取cookie 如果没有登录和session id 跳转到登录，如果有跳转到聊天

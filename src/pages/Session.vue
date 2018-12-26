@@ -50,7 +50,7 @@
         <img :src="icon4" alt="">
       </div>
       <div class="call-btn">
-        <a href="tel:010-53579588">
+        <a href="tel:010-53579596">
           <img :src="icon5" alt="">
         </a>
       </div>
@@ -98,8 +98,11 @@ export default {
         // 进入页面获取存储的消息，显示在页面上
       // let accountMsg = cookie.readCookie('accountMsg')
       this.sendTime= cookie.readCookie('sendTime') || ''
-      this.readStatus = cookie.readCookie('readStatus') || ''
-      this.msgDetails = cookie.readCookie('msgDetails') || ''
+
+      this.readStatus = cookie.readCookie('readStatus') || '';
+  
+      this.msgDetails = cookie.readCookie('msgDetails') || '';
+     
       // console.log(this.sendTime,this.readStatus,this.msgDetails)
     }
   },
@@ -181,9 +184,6 @@ export default {
   methods: {
     goLogin(){  
       window.location.href = config.loginUrl
-    },
-    phoneCall () {
-      window.location.href = 'tel:010-53579588'
     },
     enterSysMsgs () {     // 进入系统信息
       if (this.hideDelBtn())

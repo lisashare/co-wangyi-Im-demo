@@ -87,7 +87,7 @@ exports.default = {
 
   methods: {
     phoneCall: function phoneCall() {
-      window.location.href = 'tel:010-53579588';
+      window.location.href = 'tel:010-53579596';
     },
     closeNav: function closeNav() {
       this.isNavShow = false;
@@ -190,7 +190,7 @@ exports.default = {
 
   methods: {
     phoneCall: function phoneCall() {
-      window.location.href = 'tel:010-53579588';
+      window.location.href = 'tel:010-53579596';
     },
     goSession: function goSession() {
       var loginInfo = {
@@ -316,7 +316,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })]), _vm._v("\n        在线咨询\n      ")]), _vm._v(" "), _c('a', {
     staticClass: "call",
     attrs: {
-      "href": "tel:010-53579588"
+      "href": "tel:010-53579596"
     }
   }, [_c('span', {
     staticClass: "icon-call"
@@ -776,7 +776,9 @@ exports.default = {
       this.showSessionList = true;
 
       this.sendTime = _cookie2.default.readCookie('sendTime') || '';
+
       this.readStatus = _cookie2.default.readCookie('readStatus') || '';
+
       this.msgDetails = _cookie2.default.readCookie('msgDetails') || '';
     }
   },
@@ -857,9 +859,6 @@ exports.default = {
   methods: {
     goLogin: function goLogin() {
       window.location.href = _configs2.default.loginUrl;
-    },
-    phoneCall: function phoneCall() {
-      window.location.href = 'tel:010-53579588';
     },
     enterSysMsgs: function enterSysMsgs() {
       if (this.hideDelBtn()) return;
@@ -1049,7 +1048,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "call-btn"
   }, [_c('a', {
     attrs: {
-      "href": "tel:010-53579588"
+      "href": "tel:010-53579596"
     }
   }, [_c('img', {
     attrs: {
